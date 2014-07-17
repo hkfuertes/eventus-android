@@ -1,0 +1,19 @@
+package es.hkapps.eventus.api;
+
+
+public class User {
+	private String name;
+	public static String URL = "http://localhost/eventus/proyecto/web/get_users";
+	
+	public User(String name){
+		this.name = name;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public String toString(){
+		return name;
+	}
+}

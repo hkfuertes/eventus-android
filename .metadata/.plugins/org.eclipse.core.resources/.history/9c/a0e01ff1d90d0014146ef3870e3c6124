@@ -1,0 +1,49 @@
+package es.hkapps.eventus;
+
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import es.hkapps.eventus.api.RequestTask;
+import es.hkapps.eventus.api.RequestTask.RequestListener;
+import es.hkapps.eventus.api.User;
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+
+public class UserActivity extends ListActivity implements RequestListener {
+
+	private RequestTask task;
+	private ArrayAdapter<String> adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		task = new RequestTask();
+        task.setRequestListener(this);
+        task.execute(User.URL);
+		
+		
+	    String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
+	        "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+	        "Linux", "OS/2" };
+	    adapter = new ArrayAdapter<String>(this,
+	        android.R.layout.simple_list_item_1, values);
+	    setListAdapter(adapter);
+	}
+
+	@Override
+	public void onRequestCompleted(String response) {
+		String[] values = null;
+		try {
+			JSONObject jObj = new JSONObject(response);
+			adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, (List<String>) jObj.getJSONArray("usuarios"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

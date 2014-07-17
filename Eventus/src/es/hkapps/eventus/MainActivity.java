@@ -1,17 +1,30 @@
 package es.hkapps.eventus;
 
+import java.util.concurrent.ExecutionException;
+
+import es.hkapps.eventus.api.RequestTask;
+import es.hkapps.eventus.api.RequestTask.RequestListener;
+import es.hkapps.eventus.api.User;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements RequestListener{
+	TextView texto;
+	RequestTask task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        texto = ((TextView) this.findViewById(R.id.test));
+        texto.setText(User.URL);
+        task = new RequestTask();
+        task.setRequestListener(this);
+        task.execute(User.URL);
     }
 
 
@@ -33,4 +46,10 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+	@Override
+	public void onRequestCompleted(String response) {
+		texto.setText(response);
+	}
 }

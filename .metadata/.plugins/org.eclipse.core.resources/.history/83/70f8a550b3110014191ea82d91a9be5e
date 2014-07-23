@@ -1,0 +1,7 @@
+package es.hkapps.eventus.api;
+
+public class Util {
+	public static final String server_addr="http://192.168.1.15/eventus/proyecto/web/";
+	public static final String pGeneral="eventus_preferences_general";
+	public statid final String pToken="eventus_preferences_general_token";
+}

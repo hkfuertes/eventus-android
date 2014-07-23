@@ -1,6 +1,7 @@
 package es.hkapps.eventus;
 
 import es.hkapps.eventus.api.User;
+import es.hkapps.eventus.api.Util;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -35,14 +36,6 @@ public class LoginActivity extends ActionBarActivity {
 	public void login(View target) {
 		User usuario = new User(user.getText().toString());
 		if (usuario.validate(pass.getText().toString())) {
-			
-			SharedPreferences settings = getSharedPreferences("user", 0);
-			SharedPreferences.Editor editor = settings.edit();
-			editor.putString("user_token", usuario.getToken());
-
-			// Commit the edits!
-			editor.commit();
-
 			setResult(RESULT_OK);
 			finish();
 		} else {

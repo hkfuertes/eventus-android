@@ -1,5 +1,7 @@
 package es.hkapps.eventus;
 
+import es.hkapps.eventus.api.User;
+import es.hkapps.eventus.api.Util;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -60,6 +62,8 @@ public class NavigationDrawerFragment extends Fragment {
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
 
+	private User user;
+
 	public NavigationDrawerFragment() {
 	}
 
@@ -105,12 +109,17 @@ public class NavigationDrawerFragment extends Fragment {
 						selectItem(position);
 					}
 				});
+		
+		user = Util.getUser(this.getActivity());
+		if(user.retrieveInfo()) Util.setUser(this.getActivity(), user);
+		
 		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
 				android.R.id.text1, new String[] {
-						getString(R.string.title_section1),
+						user.getNombre()+" "+user.getApellidos(),
 						getString(R.string.title_section2),
-						getString(R.string.title_section3), }));
+						getString(R.string.title_section3),
+						getString(R.string.title_section4),}));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}

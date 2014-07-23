@@ -12,29 +12,72 @@ import android.util.Log;
 public class User implements Serializable {
 	private String username;
 	private String token;
+	private String email, nombre, apellidos;
+	
+	private boolean retrieved = false;
 
 	public User(String username) {
 		this.username = username;
-	}
-
-	public String getUsername() {
-		return username;
 	}
 
 	public String toString() {
 		return username;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public String getToken() {
+		return token;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	
+	/**
+	 * Recupera la informacion de un usuario contra la API de Eventus
+	 * @return Devuelve true o false si obtiene la informacion, y añade la informacion.
+	 */
+	public boolean retrieveInfo() {
+		if(retrieved) return true;
+		try {
+			String url = Util.server_addr + "info/" + username + "/"
+					+ token;
+
+			RequestTask task = new RequestTask();
+			String response;
+			response = task.execute(url).get();
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			if (success) {
+				JSONObject user = jObj.getJSONObject("user");
+				nombre = user.getString("nombre");
+				apellidos = user.getString("apellidos");
+				email = user.getString("email");
+				retrieved = (nombre!=null) && (apellidos!=null) && (email!=null);
+			}
+			return success;
+		} catch (Exception e) {
+			Log.d("Getting info [" + username + "]", e.toString());
+			return false;
+		}
+	}
+
 	/**
 	 * Valida un usuario contra la API de Eventus
+	 * 
 	 * @param password
-	 * @return
-	 * Devuelve true o false si esta logeado y añade el token al usuario.
+	 * @return Devuelve true o false si esta logeado y añade el token al
+	 *         usuario.
 	 */
 	public boolean validate(String password) {
+		if(token==null) return true;
 		try {
-			String url = "http://192.168.1.15/eventus/proyecto/web/validate/"
-					+ username + "/" + password;
+			String url = Util.server_addr + "validate/" + username + "/"
+					+ password;
 
 			RequestTask task = new RequestTask();
 			String response;
@@ -47,30 +90,18 @@ public class User implements Serializable {
 			}
 			return success;
 		} catch (Exception e) {
-			Log.d("LoginActivity [" + username + "]", e.toString());
+			Log.d("Validating [" + username + "]", e.toString());
 			return false;
 		}
 	}
 
-	// DE PRUEBA
-	public static String URL = "http://192.168.1.15/eventus/proyecto/web/getUsers";
-
-	public static String[] getUsers() throws InterruptedException,
-			ExecutionException, JSONException {
-		RequestTask task = new RequestTask();
-		String response = task.execute(User.URL).get();
-
-		JSONObject jObj = new JSONObject(response);
-		JSONArray usuarios = jObj.getJSONArray("usuarios");
-		String[] values = new String[usuarios.length()];
-		for (int i = 0; i < usuarios.length(); i++) {
-			values[i] = usuarios.getString(i);
-		}
-		return values;
+	public String getApellidos() {
+		return apellidos;
 	}
 
-	public String getToken() {
-		return token;
+	public String getEmail() {
+		return email;
 	}
+
 
 }

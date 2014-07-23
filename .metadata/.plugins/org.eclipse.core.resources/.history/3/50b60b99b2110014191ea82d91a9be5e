@@ -1,0 +1,5 @@
+package es.hkapps.eventus.api;
+
+public class Util {
+	public static final String server_addr="";
+}

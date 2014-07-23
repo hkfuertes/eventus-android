@@ -42,6 +42,7 @@ public class RequestTask extends AsyncTask<String, String, String>{
                 response.getEntity().writeTo(out);
                 out.close();
                 responseString = out.toString();
+                Log.d("request", uri[0]);
                 Log.d("response", responseString);
             } else{
                 //Closes the connection.

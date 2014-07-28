@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Eventus</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_wall">Eventus</string>
+    <string name="title_section1">Usuario</string>
+    <string name="title_section2">Fotos</string>
+    <string name="title_section3">Programa</string>
+    <string name="title_section4">Cerrar Sesion</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_new_user">NewUserActivity</string>
+
+</resources>

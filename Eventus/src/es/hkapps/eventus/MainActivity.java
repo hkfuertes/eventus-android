@@ -42,10 +42,10 @@ public class MainActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Restore preferences
-		user = Util.getUser(this);
-		if (user == null) {
+		if (!Util.checkUser(this)) {
 			startActivity(new Intent(this, LoginActivity.class));
 		} else {
+			user = Util.getUser(this);
 			onAllowedCreate(savedInstanceState);
 		}
 	}

@@ -1,8 +1,12 @@
 package es.hkapps.eventus.api;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,11 +17,12 @@ public class User implements Serializable {
 	private String username;
 	private String token;
 	private String email, nombre, apellidos;
-	
-	private boolean retrieved = false;
 
-	public User(String username) {
+	public User(String username, String nombre, String apellidos, String email) {
 		this.username = username;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
 	}
 
 	public String toString() {
@@ -31,23 +36,40 @@ public class User implements Serializable {
 	public String getToken() {
 		return token;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
 
-	
+	public String getNombreCompleto() {
+		return nombre + " " + apellidos;
+	}
+
+	private boolean infoRetrieved() {
+		boolean a = (nombre != null) && (apellidos != null) && (email != null);
+		boolean b = (nombre != "") && (apellidos != "") && (email != "");
+		return a && b;
+	}
+
 	/**
 	 * Recupera la informacion de un usuario contra la API de Eventus
-	 * @return Devuelve true o false si obtiene la informacion, y añade la informacion.
+	 * 
+	 * @return Devuelve true o false si obtiene la informacion, y añade la
+	 *         informacion.
 	 */
 	public boolean retrieveInfo() {
-		if(retrieved) return true;
+		if (infoRetrieved())
+			return true;
 		try {
-			String url = Util.server_addr + "info/" + username + "/"
-					+ token;
+			String url = Util.server_addr + Util.app_token + "/user/info/"
+					+ username;
 
-			RequestTask task = new RequestTask();
+			// Add your data
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", username));
+			nameValuePairs.add(new BasicNameValuePair("token", token));
+
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
 			response = task.execute(url).get();
 			JSONObject jObj = new JSONObject(response);
@@ -57,7 +79,6 @@ public class User implements Serializable {
 				nombre = user.getString("nombre");
 				apellidos = user.getString("apellidos");
 				email = user.getString("email");
-				retrieved = (nombre!=null) && (apellidos!=null) && (email!=null);
 			}
 			return success;
 		} catch (Exception e) {
@@ -74,12 +95,18 @@ public class User implements Serializable {
 	 *         usuario.
 	 */
 	public boolean validate(String password) {
-		if(token==null) return true;
+		if (token != null)
+			return true;
 		try {
-			String url = Util.server_addr + "validate/" + username + "/"
-					+ password;
+			String url = Util.server_addr + Util.app_token + "/user/validate/"
+					+ username;
 
-			RequestTask task = new RequestTask();
+			// Add your data
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", username));
+			nameValuePairs.add(new BasicNameValuePair("password", password));
+
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
 			response = task.execute(url).get();
 			JSONObject jObj = new JSONObject(response);
@@ -95,6 +122,45 @@ public class User implements Serializable {
 		}
 	}
 
+	/**
+	 * Valida un usuario contra la API de Eventus
+	 * 
+	 * @param password
+	 * @return Devuelve true o false si esta logeado y añade el token al
+	 *         usuario.
+	 */
+	public boolean register(String password, boolean validate) {
+
+		// Add your data
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+		nameValuePairs.add(new BasicNameValuePair("username", username));
+		nameValuePairs.add(new BasicNameValuePair("password", password));
+		nameValuePairs.add(new BasicNameValuePair("nombre", nombre));
+		nameValuePairs.add(new BasicNameValuePair("apellidos", apellidos));
+		nameValuePairs.add(new BasicNameValuePair("email", email));
+
+		Log.d("Registering", nameValuePairs.toString());
+		
+		if (token != null)
+			return true;
+		try {
+			String url = Util.server_addr + Util.app_token + "/user/create";
+
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response = task.execute(url).get();
+			Log.d("Registering [RESP]", response);
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			if (success) {
+				return validate(password);
+			}
+			return false;
+		} catch (Exception e) {
+			Log.d("Registering [" + username + "]", e.toString());
+			return false;
+		}
+	}
+
 	public String getApellidos() {
 		return apellidos;
 	}
@@ -102,6 +168,5 @@ public class User implements Serializable {
 	public String getEmail() {
 		return email;
 	}
-
 
 }

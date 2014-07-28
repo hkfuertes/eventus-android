@@ -1,0 +1,19 @@
+package es.hkapps.eventus;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class NewUserActivity extends ActionBarActivity {
+	EditText username, password, repassword, nombre, apellidos, email;
+	Button go;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_new_user);
+		
+		
+	}
+}

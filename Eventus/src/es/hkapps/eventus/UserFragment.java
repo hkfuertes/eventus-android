@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class UserFragment extends Fragment {
 	private User user;
-	private EditText nombre, apellidos, email;
+	TextView nombre, email;
 
 	/* Singleton */
 	public static UserFragment newInstance() {
@@ -36,17 +36,11 @@ public class UserFragment extends Fragment {
 		user = Util.getUser(this.getActivity());
 		if(user.retrieveInfo()) Util.setUser(this.getActivity(), user);
 		
-		nombre = (EditText) getView().findViewById(R.id.info_nombre);
-		nombre.setText(user.getNombre());
-		nombre.setEnabled(false);
+		nombre = (TextView) getView().findViewById(R.id.info_nombre);
+		nombre.setText(user.getNombreCompleto());
 		
-		apellidos = (EditText) getView().findViewById(R.id.info_apellidos);
-		apellidos.setText(user.getApellidos());
-		apellidos.setEnabled(false);
-		
-		email = (EditText) getView().findViewById(R.id.info_email);
+		email = (TextView) getView().findViewById(R.id.info_mail);
 		email.setText(user.getEmail());
-		email.setEnabled(false);
 
 	}
 

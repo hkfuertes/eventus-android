@@ -116,7 +116,7 @@ public class NavigationDrawerFragment extends Fragment {
 		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
 				android.R.id.text1, new String[] {
-						user.getNombre()+" "+user.getApellidos(),
+						user.getNombreCompleto(),
 						getString(R.string.title_section2),
 						getString(R.string.title_section3),
 						getString(R.string.title_section4),}));

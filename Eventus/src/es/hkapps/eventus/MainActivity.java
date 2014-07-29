@@ -7,20 +7,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -37,16 +29,29 @@ public class MainActivity extends ActionBarActivity implements
 	 */
 	private CharSequence mTitle;
 
-	private User user;
+	private User user = null;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		/*
 		// Restore preferences
 		if (!Util.checkUser(this)) {
 			startActivity(new Intent(this, LoginActivity.class));
 		} else {
 			user = Util.getUser(this);
 			onAllowedCreate(savedInstanceState);
+		}
+		*/
+	}
+
+	protected void onResume() {
+		super.onResume();
+		// Restore preferences
+		if (!Util.checkUser(this)) {
+			startActivity(new Intent(this, LoginActivity.class));
+		} else {
+			user = Util.getUser(this);
+			onAllowedCreate(null);
 		}
 	}
 
@@ -104,6 +109,14 @@ public class MainActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	/**

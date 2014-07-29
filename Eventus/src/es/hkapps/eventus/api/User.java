@@ -3,17 +3,16 @@ package es.hkapps.eventus.api;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.util.Log;
 
 public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private String username;
 	private String token;
 	private String email, nombre, apellidos;
@@ -145,10 +144,10 @@ public class User implements Serializable {
 			return true;
 		try {
 			String url = Util.server_addr + Util.app_token + "/user/create";
-
+			Log.d("Registering [URL]", url);
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response = task.execute(url).get();
-			Log.d("Registering [RESP]", response);
+			//Log.d("Registering [RESP]", response);
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {
@@ -156,7 +155,8 @@ public class User implements Serializable {
 			}
 			return false;
 		} catch (Exception e) {
-			Log.d("Registering [" + username + "]", e.toString());
+			//Log.d("Registering [" + username + "]", e.toString());
+			e.printStackTrace();
 			return false;
 		}
 	}

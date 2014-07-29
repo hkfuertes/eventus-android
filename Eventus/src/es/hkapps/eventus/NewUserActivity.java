@@ -44,7 +44,7 @@ public class NewUserActivity extends ActionBarActivity implements OnClickListene
 			if(user.register(password.getText().toString(),true)){
 				Toast.makeText(this, "Usuario registrado", Toast.LENGTH_LONG).show();
 				finish();
-			}else Toast.makeText(this, "Algo pasa con el server!", Toast.LENGTH_LONG).show();
+			}else Toast.makeText(this, "¡Algo pasa con el servidor!", Toast.LENGTH_LONG).show();
 		}else{
 			Toast.makeText(this, "Comprueba los Datos!", Toast.LENGTH_LONG).show();
 		}

@@ -18,7 +18,7 @@ public class User implements Serializable {
 	private String username;
 	private String token;
 	private String email, nombre, apellidos;
-
+	
 	private int id = -1;
 
 	public User(String username, String nombre, String apellidos, String email) {
@@ -66,13 +66,15 @@ public class User implements Serializable {
 	public boolean retrieveInfo() {
 		if (infoRetrieved())
 			return true;
-		String url = Util.server_addr + Util.app_token + "/user/info/"
-				+ username;
-		// Add your data
-		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		nameValuePairs.add(new BasicNameValuePair("username", username));
-		nameValuePairs.add(new BasicNameValuePair("token", token));
 		try {
+			String url = Util.server_addr + Util.app_token + "/user/info/"
+					+ username;
+
+			// Add your data
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", username));
+			nameValuePairs.add(new BasicNameValuePair("token", token));
+
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
 			response = task.execute(url).get();
@@ -87,8 +89,6 @@ public class User implements Serializable {
 			return success;
 		} catch (Exception e) {
 			Log.d("Getting info [" + username + "]", e.toString());
-			Log.d("Getting info [" + username + "]", url);
-			Log.d("Getting info [" + username + "]", nameValuePairs.toString());
 			return false;
 		}
 	}
@@ -146,7 +146,7 @@ public class User implements Serializable {
 		nameValuePairs.add(new BasicNameValuePair("email", email));
 
 		Log.d("Registering", nameValuePairs.toString());
-
+		
 		if (token != null)
 			return true;
 		try {
@@ -154,7 +154,7 @@ public class User implements Serializable {
 			Log.d("Registering [URL]", url);
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response = task.execute(url).get();
-			// Log.d("Registering [RESP]", response);
+			//Log.d("Registering [RESP]", response);
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {
@@ -162,7 +162,7 @@ public class User implements Serializable {
 			}
 			return false;
 		} catch (Exception e) {
-			// Log.d("Registering [" + username + "]", e.toString());
+			//Log.d("Registering [" + username + "]", e.toString());
 			e.printStackTrace();
 			return false;
 		}

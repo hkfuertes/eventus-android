@@ -21,8 +21,6 @@ public class UserHelper extends SQLiteOpenHelper {
 
 	private static String[] TABLE_FIELDS = { "id", "firstname", "lastname",
 			"email", "username", "token" };
-	
-	private static String TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
 	public UserHelper(Context context) {
 		super(context, DB_NAME, null, 1);
@@ -39,14 +37,14 @@ public class UserHelper extends SQLiteOpenHelper {
 			int versionNueva) {
 
 		// Se elimina la versión anterior de la tabla
-		db.execSQL(TABLE_DROP);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 
 		// Se crea la nueva versión de la tabla
 		db.execSQL(TABLE_CREATE);
 	}
 
 	public void save(User user) {
-		if (this.retrieveUserByUsername(user.getUsername()) == null) {
+		if (this.retrieveUserByUsername(user.getUsername()) != null) {
 			// No existe el usuario en la db, con lo que lo creo
 			this.insertUser(user);
 		} else {
@@ -67,6 +65,7 @@ public class UserHelper extends SQLiteOpenHelper {
 	}
 	
 	public ArrayList<User> retrieveAllUsers() {
+		User user = null;
 		ArrayList<User> users = new ArrayList<User>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
@@ -78,7 +77,7 @@ public class UserHelper extends SQLiteOpenHelper {
 
 			// Recorremos el cursor hasta que no haya más registros
 			do {
-				User user = new User();
+				user = new User();
 				user.setUsername(c.getString(4));
 				user.setToken(c.getString(5));
 				user.setNombre(c.getString(1));

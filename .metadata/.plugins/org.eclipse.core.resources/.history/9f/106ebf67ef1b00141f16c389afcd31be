@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 
 public class Util {
-	public static final String app_token = "NsBHwgaksWYKnYHFB3AS2DSk";
+	public static final String app_token = "app_token_here";
 
 	public static final String server_addr = "http://192.168.1.15/eventus/proyecto/web/";
 	public static final String pGeneral = "eventus_preferences_general";

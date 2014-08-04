@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 
 public class Util {
-	public static final String app_token = "NsBHwgaksWYKnYHFB3AS2DSk";
+	public static final String app_token = "app_token_here";
 
 	public static final String server_addr = "http://192.168.1.15/eventus/proyecto/web/";
 	public static final String pGeneral = "eventus_preferences_general";
@@ -58,15 +58,8 @@ public class Util {
 	}
 
 	public static void clearUser(Activity act) {
-		//We delete the user from db...
 		UserHelper uHelper = new UserHelper(act);
 		uHelper.delete(Util.getUser(act));
-
-		//... and from prefs.
-		SharedPreferences settings = act.getSharedPreferences(Util.pGeneral, 0);
-		SharedPreferences.Editor editor = settings.edit();
-		editor.putString(pUser, null);
-		editor.commit();
 	}
 
 	public static boolean checkUser(Activity act) {

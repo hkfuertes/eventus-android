@@ -1,0 +1,71 @@
+package es.hkapps.eventus.model;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class UserHelper extends SQLiteOpenHelper {
+
+	private static String DB_NAME = "filename.db";
+	private static String TABLE_NAME = "usuarios";
+
+	private static String DB_CREATE = "CREATE TABLE " + TABLE_NAME + "("
+			+ "id INTEGER  NOT NULL AUTO_INCREMENT,"
+			+ "firstname` VARCHAR(100)," + "lastname VARCHAR(100),"
+			+ "email VARCHAR(100)," + "username VARCHAR(100),"
+			+ "token VARCHAR(255)," + "PRIMARY KEY (`id`)" + ")";
+
+	public UserHelper(Context context) {
+		super(context, DB_NAME, null, 1);
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// Se ejecuta la sentencia SQL de creación de la tabla
+		db.execSQL(DB_CREATE);
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int versionAnterior,
+			int versionNueva) {
+
+		// Se elimina la versión anterior de la tabla
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+
+		// Se crea la nueva versión de la tabla
+		db.execSQL(DB_CREATE);
+	}
+
+	private long insertUser(User user) {
+		ContentValues newValues = new ContentValues();
+		newValues.put("id", user.getId());
+		newValues.put("username", user.getUsername());
+		newValues.put("token", user.getToken());
+		newValues.put("firstname", user.getNombre());
+		newValues.put("lastname", user.getApellidos());
+		newValues.put("email", user.getEmail());
+		return this.getWritableDatabase().insert(TABLE_NAME, null, newValues);
+	}
+
+	/**
+	 * BORRAR ALARMA CON _id = _rowIndex
+	 * */
+	public boolean removeUser(long _rowIndex) {
+		return this.getWritableDatabase().delete(TABLE_NAME,
+				KEY_ID + "=" + _rowIndex, null) > 0;
+	}
+
+	/**
+	 * ACTUALIZAR ALARMA _id = _rowIndex
+	 * */
+	public boolean updateAlarma(Integer _rowIndex, Integer alarma,
+			Integer evento) {
+		ContentValues newValues = new ContentValues();
+		newValues.put(KEY_COL1, alarma);
+		newValues.put(KEY_COL2, evento);
+		return db.update(DATABASE_TABLE, newValues, KEY_ID + "=" + _rowIndex,
+				null) > 0;
+	}
+
+}

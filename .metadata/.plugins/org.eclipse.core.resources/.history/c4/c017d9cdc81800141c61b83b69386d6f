@@ -1,0 +1,40 @@
+package es.hkapps.eventus.model;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class UserHelper extends SQLiteOpenHelper {
+
+	// Ruta por defecto de las bases de datos en el sistema Android
+	private static String DB_NAME = "filename.db";
+	private static String TABLE_NAME = "usuarios";
+
+	private static String DB_CREATE = "CREATE TABLE " + TABLE_NAME + "("
+			+ "id INTEGER  NOT NULL AUTO_INCREMENT,"
+			+ "user_id INTEGER  NOT NULL," + "firstname` VARCHAR(100),"
+			+ "lastname` VARCHAR(100)," + "email VARCHAR(100),"
+			+ "PRIMARY KEY (`id`)," + ")";
+
+	public UserHelper(Context context) {
+		super(context, DB_NAME, null, 1);
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// Se ejecuta la sentencia SQL de creación de la tabla
+		db.execSQL(DB_CREATE);
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int versionAnterior,
+			int versionNueva) {
+
+		// Se elimina la versión anterior de la tabla
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+
+		// Se crea la nueva versión de la tabla
+		db.execSQL(DB_CREATE);
+	}
+}

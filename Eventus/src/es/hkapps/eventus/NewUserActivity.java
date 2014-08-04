@@ -1,6 +1,6 @@
 package es.hkapps.eventus;
 
-import es.hkapps.eventus.api.User;
+import es.hkapps.eventus.model.User;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;

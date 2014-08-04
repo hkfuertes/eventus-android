@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="org.apache.http.HttpStatus"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="org.apache.http.client.ClientProtocolException"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.api.RequestTask"/>
 <fullyQualifiedTypeName name="java.net.URLEncoder"/>
@@ -27,7 +26,6 @@
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpPost"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.apache.http.NameValuePair"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.apache.http.message.BasicNameValuePair"/>
 <fullyQualifiedTypeName name="org.apache.http.client.entity.UrlEncodedFormEntity"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
@@ -37,4 +35,14 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.api.User"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="android.database.sqlite.SQLiteException"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="android.database.SQLException"/>
+<fullyQualifiedTypeName name="android.content.ContentValues"/>
+<fullyQualifiedTypeName name="android.database.Cursor"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.UserHelper"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

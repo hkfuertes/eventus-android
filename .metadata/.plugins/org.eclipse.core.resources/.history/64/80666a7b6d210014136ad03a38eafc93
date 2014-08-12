@@ -1,0 +1,7 @@
+package es.hkapps.eventus.view.events;
+
+import android.support.v4.app.ListFragment;
+
+public class EventList extends ListFragment {
+
+}

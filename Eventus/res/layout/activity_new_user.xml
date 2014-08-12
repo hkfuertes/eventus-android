@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="es.hkapps.eventus.NewUserActivity" >
+    tools:context="es.hkapps.eventus.view.NewUserActivity" >
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -42,7 +42,7 @@
                 android:inputType="textPassword" />
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/program_act"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Informacion personal:"

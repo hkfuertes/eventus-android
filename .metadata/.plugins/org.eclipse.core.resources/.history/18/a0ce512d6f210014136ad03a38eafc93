@@ -1,0 +1,5 @@
+package es.hkapps.eventus.model;
+
+public class ProgramEntry {
+
+}

@@ -1,0 +1,23 @@
+1407770165935	Rename package 'es.hkapps.eventus'
+1407770203121	Move compilation units
+1407770902813	Move compilation unit
+1407771483506	Rename type 'EventList'
+1407773921311	Infer generic type arguments
+1407774651949	Rename field 'textView1'
+1407774658950	Rename field 'textView2'
+1407774840015	Rename compilation unit 'CustomListAdapter.java'
+1407854074696	Rename resource 'list_item.xml'
+1407854225242	Extracts string 'null' into R.string.event_list_item_date
+1407854578897	Rename field 'textView1'
+1407854686313	Rename field 'event_key'
+1407856658777	Rename type 'EventAcitivity'
+1407857357344	Rename resource 'program_entry_list_item'
+1407857404726	Rename field 'event_type'
+1407857413658	Rename field 'event_name'
+1407857512456	Rename resource 'fragment_program_list'
+1407861412779	Copy compilation unit
+1407861596710	Rename field 'info_nombre'
+1407861762821	Copy compilation unit
+1407861812815	Copy file
+1407862386062	Rename resource 'fragment_participants_list'
+1407862411825	Rename resource 'fragmen_event_info.xml'

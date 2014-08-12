@@ -1,0 +1,24 @@
+package es.hkapps.eventus.model;
+
+import java.util.ArrayList;
+
+public class Event {
+	private String name, place, date, type, admin;
+	private String key;
+	private ArrayList<String> participants;
+	private ArrayList<ProgramEntry> program;
+	
+	public Event(String key){
+		this(key,true);
+	}
+	
+	public Event(String key,boolean retrieveInfo){
+		this.key = key;
+		retrieveInfo();
+	}
+	
+	public void retrieveInfo(){
+		
+	}
+
+}

@@ -1,0 +1,35 @@
+package es.hkapps.eventus.model;
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
+public class ProgramEntry {
+	private long event_id;
+	private String time, act;
+	
+	public ProgramEntry(long event_id, String time, String act){
+		this.event_id = event_id;
+		this.time = time;
+		this.act = act;
+	}
+	
+	public void setTime(String time){
+		try {
+			date = (Date) new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).parse(time);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public String getTime(){
+		return time;
+	}
+	
+	public String getAct(){
+		return act;
+	}
+
+}

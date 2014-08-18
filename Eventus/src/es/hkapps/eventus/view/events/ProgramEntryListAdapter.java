@@ -3,7 +3,6 @@ package es.hkapps.eventus.view.events;
 import java.util.ArrayList;
 
 import es.hkapps.eventus.R;
-import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.ProgramEntry;
 import android.app.Activity;
 import android.content.Context;
@@ -47,7 +46,6 @@ public class ProgramEntryListAdapter extends BaseAdapter {
 
         // Inflate the item layout and set the views
         View listItem = convertView;
-        int pos = position;
         if (listItem == null) {
             listItem = layoutInflater.inflate(R.layout.program_entry_list_item, null);
         }

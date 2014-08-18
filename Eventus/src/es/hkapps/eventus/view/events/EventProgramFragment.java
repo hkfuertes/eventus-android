@@ -3,10 +3,8 @@ package es.hkapps.eventus.view.events;
 import java.util.ArrayList;
 
 import es.hkapps.eventus.R;
-import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.ProgramEntry;
-import es.hkapps.eventus.model.User;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -18,17 +16,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EventProgramFragment extends ListFragment {
+	private static final String ARGUMENT_ID = "evento";
 
-	private User user;
 	TextView nombre, email;
 	Event event;
+	private ArrayList<ProgramEntry> program;
+	private ProgramEntryListAdapter adapter;
 
 	/* Singleton */
 	public static EventProgramFragment newInstance(Event event) {
 		EventProgramFragment fragment = new EventProgramFragment();
 		Bundle bundle = new Bundle();
-	    bundle.putSerializable("event", event);
-	    fragment.setArguments(bundle);
+		bundle.putSerializable(ARGUMENT_ID, event);
+		fragment.setArguments(bundle);
+		Log.d("eventlist",event.getName());
 		return fragment;
 	}
 
@@ -37,31 +38,50 @@ public class EventProgramFragment extends ListFragment {
 	}
 
 	@Override
-	public void onResume() {
-		super.onResume();
-		user = Util.getUser(this.getActivity());
-		event = (Event) this.getArguments().getSerializable("event");
-		event.retrieveInfo(user.getUsername(), user.getToken());
-		ArrayList<ProgramEntry> program = event.getProgram();
-		if (program == null) Log.d("program", "null");
-        this.setListAdapter(new ProgramEntryListAdapter(this.getActivity(),program));
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
 
+	    Bundle args = getArguments();
+	    if (args != null) {
+	    	event = (Event) args.getSerializable(ARGUMENT_ID);
+	    	if(event != null){
+		    	program = event.getProgram();
+				program = ProgramEntry.sort(program);
+	    	}else{
+	    		program = new ArrayList<ProgramEntry>();
+	    	}
+	    	adapter = new ProgramEntryListAdapter(this.getActivity(),program);
+			this.setListAdapter(adapter);
+	    }    
 	}
 	
 	@Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
- 
-        // Mostramos un mensaje con el elemento pulsado
-        Toast.makeText(getActivity(), "Abriendo Calendar para añadir notificacion.",
-                Toast.LENGTH_SHORT).show();
-    }
+	public void onResume() {
+		super.onResume();
+		if(event != null){
+			program = event.getProgram();
+			program = ProgramEntry.sort(program);
+			adapter.notifyDataSetChanged();
+		}
+	}
+	
+
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+
+		// Mostramos un mensaje con el elemento pulsado
+		Toast.makeText(getActivity(),
+				"Abriendo Calendar para añadir notificacion.",
+				Toast.LENGTH_SHORT).show();
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_program_list, container, false);
+		View view = inflater.inflate(R.layout.fragment_program_list, container,
+				false);
+		return view;
 	}
 }
-

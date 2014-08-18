@@ -1,7 +1,0 @@
-package es.hkapps.eventus.model;
-
-public class ProgramEntry {
-	private int event_id;
-	private String time, act;
-
-}

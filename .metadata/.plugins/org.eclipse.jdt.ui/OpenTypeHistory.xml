@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=Eventus/\/Users\/hkfuertes\/android-sdk-macosx\/platforms\/android-17\/android.jar&lt;android.database.sqlite(SQLiteOpenHelper.class[SQLiteOpenHelper" modifiers="1057" timestamp="1405438658000"/>
+<typeInfo handle="=Eventus/src&lt;es.hkapps.eventus.view.events{EventListFragment.java[EventListFragment" modifiers="1" timestamp="1408375059000"/>
+<typeInfo handle="=Eventus/src&lt;es.hkapps.eventus.view.events{ParticipantsListFragment.java[ParticipantsListFragment" modifiers="1" timestamp="1408374787000"/>
 </typeInfoHistroy>

@@ -5,17 +5,13 @@ import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.User;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.support.v4.app.ListFragment;
 
 public class EventListFragment extends ListFragment {
@@ -24,6 +20,7 @@ public class EventListFragment extends ListFragment {
 	TextView nombre, email;
 
 	private ArrayList<Event> eventList;
+	private EventListAdapter adapter;
 
 	/* Singleton */
 	public static EventListFragment newInstance() {
@@ -36,12 +33,24 @@ public class EventListFragment extends ListFragment {
 	}
 
 	@Override
-	public void onResume() {
-		super.onResume();
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
 		user = Util.getUser(this.getActivity());
 		eventList = Event.retrieveEventList(user.getUsername(), user.getToken());
-        this.setListAdapter(new EventListAdapter(this.getActivity(),eventList));
-
+		if(eventList == null){
+			eventList = new ArrayList<Event>();
+		}
+		adapter = new EventListAdapter(this.getActivity(),eventList);
+        this.setListAdapter(adapter);
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		eventList = Event.retrieveEventList(user.getUsername(), user.getToken());
+		if(eventList != null){
+			adapter.notifyDataSetChanged();
+		}
 	}
 	
 	@Override
@@ -49,6 +58,7 @@ public class EventListFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
  
         Event selected = eventList.get(position);
+        selected.retrieveInfo(user.getUsername(), user.getToken());
         Intent intent = new Intent(this.getActivity(),EventActivity.class).putExtra("event",selected);
         this.getActivity().startActivity(intent);
     }

@@ -21,3 +21,7 @@
 1407861812815	Copy file
 1407862386062	Rename resource 'fragment_participants_list'
 1407862411825	Rename resource 'fragmen_event_info.xml'
+1407945768196	Rename field 'textView3'
+1407946127489	Rename field 'TextView02'
+1408027016942	Move compilation unit
+1408030547313	Rename resource 'activity_event_acitivity.xml'

@@ -1,9 +1,13 @@
 package es.hkapps.eventus.model;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -21,6 +25,9 @@ public class Event implements Serializable {
 	private ArrayList<ProgramEntry> program;
 
 	private long id = System.currentTimeMillis();
+	
+	private String info_updated = null;
+	private static final String FORMAT = "EEE MMM dd HH:mm:ss z yyyy";
 
 	public Event(String key) {
 		this.key = key;
@@ -102,6 +109,14 @@ public class Event implements Serializable {
 	 *         informacion.
 	 */
 	public boolean retrieveInfo(String username, String token) {
+		Calendar now = Calendar.getInstance();
+		if(info_updated != null)
+			if(this.fromString(info_updated).get(Calendar.HOUR)-now.get(Calendar.HOUR) < 24) 
+				return true;
+		
+		program = new ArrayList<ProgramEntry>();
+		participants = new ArrayList<String>();
+		
 		String url = Util.server_addr + Util.app_token + "/event/info/" + key;
 		// Add your data
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -136,6 +151,8 @@ public class Event implements Serializable {
 							.getString("act")));
 				}
 			}
+			
+			info_updated = this.toString(now);
 			return success;
 		} catch (Exception e) {
 			Log.d("Getting info [" + username + "]", e.toString());
@@ -145,6 +162,25 @@ public class Event implements Serializable {
 			return false;
 		}
 	}
+	
+	private Calendar fromString(String date){
+	    try {
+	    	Calendar cal = Calendar.getInstance();
+		    SimpleDateFormat sdf = new SimpleDateFormat(Event.FORMAT, Locale.ENGLISH);
+			cal.setTime(sdf.parse(date));
+			return cal;
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
+	    
+	}
+	
+	private String toString(Calendar cal){
+		SimpleDateFormat sdf = new SimpleDateFormat(Event.FORMAT);
+		return sdf.format(cal.getTime());
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -165,6 +201,11 @@ public class Event implements Serializable {
 	}
 	public ArrayList<String> getParticipants() {
 		return this.participants;
+	}
+	
+	@Override
+	public String toString(){
+		return name;
 	}
 
 }

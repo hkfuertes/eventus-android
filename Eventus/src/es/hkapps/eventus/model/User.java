@@ -66,31 +66,8 @@ public class User implements Serializable {
 	public boolean retrieveInfo() {
 		if (infoRetrieved())
 			return true;
-		String url = Util.server_addr + Util.app_token + "/user/info/"
-				+ username;
-		// Add your data
-		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		nameValuePairs.add(new BasicNameValuePair("username", username));
-		nameValuePairs.add(new BasicNameValuePair("token", token));
-		try {
-			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
-			String response;
-			response = task.execute(url).get();
-			JSONObject jObj = new JSONObject(response);
-			boolean success = jObj.getBoolean("success");
-			if (success) {
-				JSONObject user = jObj.getJSONObject("user");
-				nombre = user.getString("firstname");
-				apellidos = user.getString("lastname");
-				email = user.getString("email");
-			}
-			return success;
-		} catch (Exception e) {
-			Log.d("Getting info [" + username + "]", e.toString());
-			Log.d("Getting info [" + username + "]", url);
-			Log.d("Getting info [" + username + "]", nameValuePairs.toString());
-			return false;
-		}
+		this.setFromUser(this.retrieveUser(this.username));
+		return true;
 	}
 
 	/**
@@ -167,6 +144,12 @@ public class User implements Serializable {
 			return false;
 		}
 	}
+	
+	private void setFromUser(User user){
+		this.nombre = user.getNombre();
+		this.apellidos = user.getApellidos();
+		this.email = user.getEmail();
+	}
 
 	public String getApellidos() {
 		return apellidos;
@@ -202,6 +185,35 @@ public class User implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public User retrieveUser(String user) {
+		User usr = new User();
+		String url = Util.server_addr + Util.app_token + "/user/info/"
+				+ user;
+		// Add your data
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("username", username));
+		nameValuePairs.add(new BasicNameValuePair("token", token));
+		try {
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response;
+			response = task.execute(url).get();
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			if (success) {
+				JSONObject u = jObj.getJSONObject("user");
+				usr.setNombre(u.getString("firstname"));
+				usr.setApellidos(u.getString("lastname"));
+				usr.setEmail(u.getString("email"));
+			}
+			return usr;
+		} catch (Exception e) {
+			Log.d("Getting info [" + username + "]", e.toString());
+			Log.d("Getting info [" + username + "]", url);
+			Log.d("Getting info [" + username + "]", nameValuePairs.toString());
+			return null;
+		}
 	}
 
 }

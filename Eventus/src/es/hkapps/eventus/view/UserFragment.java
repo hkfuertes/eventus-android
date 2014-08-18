@@ -3,6 +3,7 @@ package es.hkapps.eventus.view;
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
+import es.hkapps.eventus.view.events.EventProgramFragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,13 +17,20 @@ public class UserFragment extends Fragment {
 	TextView nombre, email;
 
 	/* Singleton */
-	public static UserFragment newInstance() {
-		UserFragment fragment = new UserFragment();
+	public static EventProgramFragment newInstance(User user) {
+		EventProgramFragment fragment = new EventProgramFragment();
+		Bundle bundle = new Bundle();
+		bundle.putSerializable("user", user);
+		fragment.setArguments(bundle);
 		return fragment;
 	}
 
 	public UserFragment() {
 		// Required empty public constructor
+	}
+	
+	public UserFragment(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -33,8 +41,8 @@ public class UserFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		user = Util.getUser(this.getActivity());
-		if(user.retrieveInfo()) Util.setUser(this.getActivity(), user);
+		if(user == null)
+			user = (User) this.getArguments().getSerializable("user");
 		
 		nombre = (TextView) getView().findViewById(R.id.event_info_name);
 		nombre.setText(user.getNombreCompleto());

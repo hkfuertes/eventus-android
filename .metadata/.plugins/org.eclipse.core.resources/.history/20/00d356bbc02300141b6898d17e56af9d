@@ -1,0 +1,32 @@
+package es.hkapps.eventus.view;
+
+import es.hkapps.eventus.R;
+import es.hkapps.eventus.R.id;
+import es.hkapps.eventus.R.layout;
+import es.hkapps.eventus.R.menu;
+import es.hkapps.eventus.model.User;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.os.Build;
+
+public class UserActivity extends ActionBarActivity {
+
+	private User user;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_user);
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new UserFragment(user)).commit();
+		}
+	}
+}

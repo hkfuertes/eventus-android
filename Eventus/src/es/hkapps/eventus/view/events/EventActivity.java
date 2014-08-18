@@ -1,9 +1,8 @@
 package es.hkapps.eventus.view.events;
 
-import java.util.Locale;
-
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.model.Event;
+import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -13,25 +12,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class EventActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
-
-	/**
-	 * The {@link android.support.v4.view.PagerAdapter} that will provide
-	 * fragments for each of the sections. We use a {@link FragmentPagerAdapter}
-	 * derivative, which will keep every loaded fragment in memory. If this
-	 * becomes too memory intensive, it may be best to switch to a
-	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-	 */
+	
 	SectionsPagerAdapter mSectionsPagerAdapter;
-
-	/**
-	 * The {@link ViewPager} that will host the section contents.
-	 */
 	ViewPager mViewPager;
 
 	protected Event event;
@@ -39,10 +24,15 @@ public class EventActivity extends ActionBarActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_event_acitivity);
+		setContentView(R.layout.activity_event_activity);
 		
 		Intent intent = this.getIntent();
-		event = (Event) intent.getExtras().get("event");
+		event = (Event) intent.getExtras().getSerializable("event");
+		
+		//Si no hay evento... finalizamos la actividad.
+		if(event != null) finish();
+		
+		this.setTitle(event.getName());
 
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
@@ -88,93 +78,48 @@ public class EventActivity extends ActionBarActivity implements
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
 
-	@Override
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-	}
-
-	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-	}
-
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
 	 * one of the sections/tabs/pages.
 	 */
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
+		private static final int FRAGMENT_COUNT = 3;
+		
+		Fragment[] fragment = new Fragment[FRAGMENT_COUNT];
+		String[] title = new String[FRAGMENT_COUNT];
 
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
+			fragment[0] = EventInfoFragment.newInstance(event);			title[0] = "Info";
+			fragment[1] = EventProgramFragment.newInstance(event);		title[1] = "Programa";
+			fragment[2] = ParticipantsListFragment.newInstance(event);	title[2] = "Invitados";
 		}
 
 		@Override
 		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a PlaceholderFragment (defined as a static inner class
-			// below).
-			switch (position) {
-			case 0:
-				return EventInfoFragment.newInstance(event);
-			case 1:
-				return EventProgramFragment.newInstance(event);
-			default:
-				return ParticipantsListFragment.newInstance(event);
-			}
+			return fragment[position];
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			return fragment.length;
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			Locale l = Locale.getDefault();
-			switch (position) {
-			case 0:
-				return getString(R.string.title_info).toUpperCase(l);
-			case 1:
-				return getString(R.string.title_programa).toUpperCase(l);
-			case 2:
-				return getString(R.string.title_muro).toUpperCase(l);
-			}
-			return null;
+			return title[position];
 		}
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		private static final String ARG_SECTION_NUMBER = "section_number";
-
-		/**
-		 * Returns a new instance of this fragment for the given section number.
-		 */
-		public static PlaceholderFragment newInstance(int sectionNumber) {
-			PlaceholderFragment fragment = new PlaceholderFragment();
-			Bundle args = new Bundle();
-			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-			fragment.setArguments(args);
-			return fragment;
-		}
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_event_acitivity,
-					container, false);
-			return rootView;
-		}
+	@Override
+	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
+	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
 }

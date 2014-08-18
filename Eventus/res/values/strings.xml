@@ -8,9 +8,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_wall">Eventus</string>
     <string name="title_section1">Mis Eventos</string>
-    <string name="title_section2">Fotos</string>
-    <string name="title_section3">Programa</string>
-    <string name="title_section4">Cerrar Sesion</string>
+    <string name="title_section2">Cerrar Sesion</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -20,5 +18,6 @@
     <string name="title_programa">Programa</string>
     <string name="title_info">Info</string>
     <string name="title_muro">Asistentes</string>
+    <string name="title_activity_user">UserActivity</string>
 
 </resources>

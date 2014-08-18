@@ -34,8 +34,12 @@
             android:label="@string/title_activity_new_user" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.events.EventActivity"
+            android:name=".view.events.EventActivity"
             android:label="@string/title_activity_event_acitivity" >
+        </activity>
+        <activity
+            android:name="es.hkapps.eventus.view.UserActivity"
+            android:label="@string/title_activity_user" >
         </activity>
     </application>
 

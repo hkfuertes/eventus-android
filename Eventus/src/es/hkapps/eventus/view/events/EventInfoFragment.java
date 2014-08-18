@@ -1,34 +1,25 @@
 package es.hkapps.eventus.view.events;
 
-import java.util.ArrayList;
-
 import es.hkapps.eventus.R;
-import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
-import es.hkapps.eventus.model.ProgramEntry;
-import es.hkapps.eventus.model.User;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class EventInfoFragment extends Fragment {
+public class EventInfoFragment extends Fragment {	
+	private static final String ARGUMENT_ID = "evento";
 
-	private User user;
-	TextView name;
+	TextView fecha, lugar;
 	Event event;
 
 	/* Singleton */
 	public static EventInfoFragment newInstance(Event event) {
 		EventInfoFragment fragment = new EventInfoFragment();
 		Bundle bundle = new Bundle();
-	    bundle.putSerializable("event", event);
+	    bundle.putSerializable(ARGUMENT_ID, event);
 	    fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -36,17 +27,22 @@ public class EventInfoFragment extends Fragment {
 	public EventInfoFragment() {
 		// Required empty public constructor
 	}
-
+	
 	@Override
-	public void onResume() {
-		super.onResume();
-		user = Util.getUser(this.getActivity());
-		event = (Event) this.getArguments().getSerializable("event");
-		event.retrieveInfo(user.getUsername(), user.getToken());
-		ArrayList<ProgramEntry> program = event.getProgram();
-		
-		name = (TextView) getView().findViewById(R.id.event_info_name);
-		name.setText(event.getName());
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+
+	    Bundle args = getArguments();
+	    if (args != null) {
+	    	event = (Event) args.getSerializable(ARGUMENT_ID);
+	    	if(event != null){
+	    		fecha = (TextView) getView().findViewById(R.id.event_info_fecha);
+	    		lugar = (TextView) getView().findViewById(R.id.event_info_lugar);
+	    		
+	    		fecha.setText(event.getDate());
+	    		lugar.setText(event.getPlace());
+	    	}
+	    }    
 	}
 	
 	@Override

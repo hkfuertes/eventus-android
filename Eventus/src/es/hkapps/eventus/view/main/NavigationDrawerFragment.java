@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ import android.widget.Toast;
  * > design guidelines</a> for a complete explanation of the behaviors
  * implemented here.
  */
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends Fragment implements OnItemClickListener {
 
 	/**
 	 * Remember the position of the selected item.
@@ -65,6 +66,10 @@ public class NavigationDrawerFragment extends Fragment {
 
 	private User user;
 
+	private ArrayAdapter<String> adapter;
+
+	private String[] list;
+
 	public NavigationDrawerFragment() {
 	}
 
@@ -86,7 +91,7 @@ public class NavigationDrawerFragment extends Fragment {
 		}
 
 		// Select either the default item (0) or the last selected item.
-		selectItem(mCurrentSelectedPosition);
+		selectItem(0);
 	}
 
 	@Override
@@ -103,24 +108,21 @@ public class NavigationDrawerFragment extends Fragment {
 		mDrawerListView = (ListView) inflater.inflate(
 				R.layout.fragment_navigation_drawer, container, false);
 		mDrawerListView
-				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						selectItem(position);
-					}
-				});
+				.setOnItemClickListener(this);
 		
 		user = Util.getUser(this.getActivity());
 		if(user.retrieveInfo()) Util.setUser(this.getActivity(), user);
 		
-		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar()
+		list = new String[] {
+				user.getNombreCompleto(),
+				"Mis Eventos",
+				"Salir"};
+		
+		adapter = new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
-				android.R.id.text1, new String[] {
-						user.getNombreCompleto(),
-						getString(R.string.title_section1),
-						getString(R.string.title_section2),
-						getString(R.string.title_section4),}));
+				android.R.id.text1, list);
+		
+		mDrawerListView.setAdapter(adapter);
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
@@ -315,5 +317,11 @@ public class NavigationDrawerFragment extends Fragment {
 		 * Called when an item in the navigation drawer is selected.
 		 */
 		void onNavigationDrawerItemSelected(int position);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		selectItem(position);		
 	}
 }

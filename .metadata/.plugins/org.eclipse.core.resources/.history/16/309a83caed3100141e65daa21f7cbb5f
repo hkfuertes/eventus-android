@@ -1,0 +1,15 @@
+package es.hkapps.eventus.model;
+
+import java.net.URI;
+
+public class Photo {
+	private String event_key;
+	private URI file;
+	private String date;
+	private String username;
+	
+	public Photo(){
+		
+	}
+
+}

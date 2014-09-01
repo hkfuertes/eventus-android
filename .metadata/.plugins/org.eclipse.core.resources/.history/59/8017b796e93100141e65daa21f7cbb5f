@@ -1,0 +1,7 @@
+package es.hkapps.eventus.model;
+
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+}

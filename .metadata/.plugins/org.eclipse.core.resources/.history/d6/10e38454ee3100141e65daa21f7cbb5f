@@ -1,0 +1,23 @@
+package es.hkapps.eventus.model;
+
+import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Photo {
+	private String event_key;
+	private URI file;
+	private String date;
+	private String username;
+	
+	public Photo(String event_key, URI file, String date, String username){
+		this.event_key = event_key;
+		this.file = file;
+		this.date = date;
+		this.username = username;
+	}
+	public Photo(Event event, URI file){
+		this.date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+	}
+
+}

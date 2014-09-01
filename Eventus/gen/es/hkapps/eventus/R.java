@@ -1223,12 +1223,13 @@ containing a value of this type.
         public static final int dropshadow=0x7f020058;
         public static final int ic_action_about=0x7f020059;
         public static final int ic_action_person=0x7f02005a;
-        public static final int ic_action_time=0x7f02005b;
-        public static final int ic_drawer=0x7f02005c;
-        public static final int ic_launcher=0x7f02005d;
-        public static final int ic_refresh=0x7f02005e;
-        public static final int icon_user=0x7f02005f;
-        public static final int mexico=0x7f020060;
+        public static final int ic_action_photo=0x7f02005b;
+        public static final int ic_action_time=0x7f02005c;
+        public static final int ic_drawer=0x7f02005d;
+        public static final int ic_launcher=0x7f02005e;
+        public static final int ic_refresh=0x7f02005f;
+        public static final int icon_user=0x7f020060;
+        public static final int mexico=0x7f020061;
     }
     public static final class id {
         public static final int TextView01=0x7f050059;
@@ -1269,7 +1270,7 @@ containing a value of this type.
         public static final int email_sign_in_button=0x7f050046;
         public static final int end=0x7f050013;
         public static final int event_activity_action_leave=0x7f050060;
-        public static final int event_activity_action_map=0x7f05005f;
+        public static final int event_activity_action_photo=0x7f05005f;
         public static final int event_activity_navigation=0x7f05003f;
         public static final int event_date=0x7f050056;
         public static final int event_date_label=0x7f050054;

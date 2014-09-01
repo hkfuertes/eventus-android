@@ -1,24 +1,35 @@
 package es.hkapps.eventus.view.events;
 
+import java.io.File;
+
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
+import es.hkapps.eventus.model.Photo;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.wall.WallFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +44,8 @@ public class EventActivity extends ActionBarActivity {
 	private TextView date;
 	private Spinner spinner;
 	private TextView place;
+	
+	private Photo current;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -172,9 +185,44 @@ public class EventActivity extends ActionBarActivity {
 				Toast.makeText(this, "Ha habido un problema con la conexion.",
 						Toast.LENGTH_LONG).show();
 			break;
+		case R.id.event_activity_action_photo:
+			this.takePhoto();
+			break;
 		default:
 			this.mViewPager.setCurrentItem(0);
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private static final int TAKE_PICTURE = 1; 
+
+
+	public void takePhoto() {
+	    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+	    current = new Photo(this.event,Util.getUser(this));
+	    intent.putExtra(MediaStore.EXTRA_OUTPUT,current.getPhotoUri());
+	    startActivityForResult(intent, TAKE_PICTURE);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    super.onActivityResult(requestCode, resultCode, data);
+	    switch (requestCode) {
+	    case TAKE_PICTURE:
+	        if (resultCode == Activity.RESULT_OK) {
+	            try {
+	            	Intent scanFileIntent = new Intent(
+	                        Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, current.getPhotoUri());
+	                sendBroadcast(scanFileIntent);
+	                
+	                Toast.makeText(this, current.getPhotoUri().toString(),
+	                        Toast.LENGTH_LONG).show();
+	            } catch (Exception e) {
+	                Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
+	                        .show();
+	                Log.e("Camera", e.toString());
+	            }
+	        }
+	    }
 	}
 }

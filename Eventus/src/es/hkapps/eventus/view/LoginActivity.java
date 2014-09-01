@@ -57,7 +57,8 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener{
 		if((Button) v == submit){
 			login(v);
 		}else if((Button) v == signup){
-			startActivity(new Intent(this, NewUserActivity.class));
+			Toast.makeText(this, "No se pueden crear usuarios en este momento. Cerrado", Toast.LENGTH_LONG).show();
+			//startActivity(new Intent(this, NewUserActivity.class));
 		}
 		
 	}

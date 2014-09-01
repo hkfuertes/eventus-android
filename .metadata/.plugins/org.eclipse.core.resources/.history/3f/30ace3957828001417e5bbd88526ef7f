@@ -1,7 +1,0 @@
-package es.hkapps.eventus.view.wall;
-
-import android.support.v4.app.ListFragment;
-
-public class WallFragment extends ListFragment {
-
-}

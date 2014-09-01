@@ -88,23 +88,23 @@ public class Event implements Serializable {
 		}
 	}
 
-	private void setAdmin(String admin) {
+	void setAdmin(String admin) {
 		this.admin = admin;
 	}
 
-	private void setType(String type) {
+	void setType(String type) {
 		this.type = type;
 	}
 
-	private void setPlace(String place) {
+	void setPlace(String place) {
 		this.place = place;
 	}
 
-	private void setDate(String date) {
+	void setDate(String date) {
 		this.date = date;
 	}
 
-	private void setName(String name) {
+	void setName(String name) {
 		this.name = name;
 	}
 
@@ -249,6 +249,10 @@ public class Event implements Serializable {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public String getAdmin() {
+		return admin;
 	}
 
 }

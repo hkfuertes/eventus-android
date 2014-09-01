@@ -4,9 +4,9 @@
     tools:context="es.hkapps.eventus.StartActivity" >
     
     <item
-        android:id="@+id/event_activity_action_map"
+        android:id="@+id/event_activity_action_photo"
         android:title="@string/action_example"
-        app:showAsAction="always" android:icon="@drawable/ic_action_person"/>
+        app:showAsAction="always" android:icon="@drawable/ic_action_photo"/>
     
     <item
         android:id="@+id/event_activity_action_leave"

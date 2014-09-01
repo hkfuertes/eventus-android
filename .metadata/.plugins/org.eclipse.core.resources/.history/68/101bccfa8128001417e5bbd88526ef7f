@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="es.hkapps.eventus.StartActivity" >
+
+    <item
+        android:id="@+id/action_example"
+        android:title="@string/action_example"
+        app:showAsAction="ifRoom" android:icon="@drawable/ic_refresh"/>
+    
+    <item
+        android:id="@+id/event_activity_action_info"
+        android:title="@string/action_example"
+        app:showAsAction="ifRoom" android:icon="@drawable/ic_action_about"/>
+    
+    <item
+        android:id="@+id/event_activity_action_program"
+        android:title="@string/action_example"
+        app:showAsAction="ifRoom" android:icon="@drawable/ic_action_time"/>
+    
+    <item
+        android:id="@+id/event_activity_action_participants"
+        android:title="@string/action_example"
+        app:showAsAction="ifRoom" android:icon="@drawable/ic_action_person"/>
+    
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+
+</menu>

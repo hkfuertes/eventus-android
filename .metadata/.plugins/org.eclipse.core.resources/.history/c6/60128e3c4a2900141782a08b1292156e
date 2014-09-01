@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="es.hkapps.eventus.ListActivity" >
+
+    <item
+        android:id="@+id/event_list_refresh"
+        android:title="@string/action_example"
+        app:showAsAction="always" android:icon="@drawable/ic_refresh"/>
+
+</menu>

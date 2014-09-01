@@ -35,13 +35,6 @@ public class EventInfoFragment extends Fragment {
 	    Bundle args = getArguments();
 	    if (args != null) {
 	    	event = (Event) args.getSerializable(ARGUMENT_ID);
-	    	if(event != null){
-	    		fecha = (TextView) getView().findViewById(R.id.event_info_fecha);
-	    		lugar = (TextView) getView().findViewById(R.id.event_info_lugar);
-	    		
-	    		fecha.setText(event.getDate());
-	    		lugar.setText(event.getPlace());
-	    	}
 	    }    
 	}
 	
@@ -49,7 +42,17 @@ public class EventInfoFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_event_info, container, false);
+		View v = inflater.inflate(R.layout.fragment_event_info, container, false);
+		
+		if(event != null){
+    		fecha = (TextView) v.findViewById(R.id.event_info_fecha);
+    		lugar = (TextView) v.findViewById(R.id.event_info_lugar);
+    		
+    		fecha.setText(event.getDate());
+    		lugar.setText(event.getPlace());
+    	}
+		
+		return v;
 	}
 }
 

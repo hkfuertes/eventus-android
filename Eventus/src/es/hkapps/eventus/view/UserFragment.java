@@ -17,8 +17,8 @@ public class UserFragment extends Fragment {
 	TextView nombre, email;
 
 	/* Singleton */
-	public static EventProgramFragment newInstance(User user) {
-		EventProgramFragment fragment = new EventProgramFragment();
+	public static UserFragment newInstance(User user) {
+		UserFragment fragment = new UserFragment();
 		Bundle bundle = new Bundle();
 		bundle.putSerializable("user", user);
 		fragment.setArguments(bundle);
@@ -44,10 +44,10 @@ public class UserFragment extends Fragment {
 		if(user == null)
 			user = (User) this.getArguments().getSerializable("user");
 		
-		nombre = (TextView) getView().findViewById(R.id.event_info_name);
+		nombre = (TextView) getView().findViewById(R.id.event_title_name);
 		nombre.setText(user.getNombreCompleto());
 		
-		email = (TextView) getView().findViewById(R.id.info_mail);
+		email = (TextView) getView().findViewById(R.id.event_title_date);
 		email.setText(user.getEmail());
 
 	}

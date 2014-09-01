@@ -1,0 +1,11 @@
+package es.hkapps.eventus.model;
+
+public class PhotoEntry extends WallEntry{
+	String text, photo;
+	
+	public PhotoEntry(String text, String photo){
+		this.text = text;
+		this.photo = photo;
+	}
+
+}

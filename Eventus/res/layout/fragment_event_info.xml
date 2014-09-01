@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/Verde"
     tools:context="es.hkapps.eventus.view.UserFragment" >
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/wall_list_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="informacion del evento"
@@ -23,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lugar:"
+            android:textColor="#fff"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -30,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large Text"
+            android:textColor="#fff"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
@@ -41,6 +44,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#fff"
             android:text="Fecha:"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -48,6 +52,7 @@
             android:id="@+id/event_info_fecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#fff"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>

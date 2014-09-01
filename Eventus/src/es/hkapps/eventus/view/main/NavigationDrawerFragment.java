@@ -1,8 +1,6 @@
 package es.hkapps.eventus.view.main;
 
 import es.hkapps.eventus.R;
-import es.hkapps.eventus.api.Util;
-import es.hkapps.eventus.model.User;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -21,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,7 +30,7 @@ import android.widget.Toast;
  * > design guidelines</a> for a complete explanation of the behaviors
  * implemented here.
  */
-public class NavigationDrawerFragment extends Fragment implements OnItemClickListener {
+public class NavigationDrawerFragment extends Fragment {
 
 	/**
 	 * Remember the position of the selected item.
@@ -49,7 +46,7 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
 	/**
 	 * A pointer to the current callbacks instance (the Activity).
 	 */
-	private NavigationDrawerCallbacks mCallbacks;
+	private NavigationCallbacks mCallbacks;
 
 	/**
 	 * Helper component that ties the action bar to the navigation drawer.
@@ -60,15 +57,13 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
 	private ListView mDrawerListView;
 	private View mFragmentContainerView;
 
-	private int mCurrentSelectedPosition = 0;
+	private int mCurrentSelectedPosition = 2;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
 
-	private User user;
+	private String[] list;
 
 	private ArrayAdapter<String> adapter;
-
-	private String[] list;
 
 	public NavigationDrawerFragment() {
 	}
@@ -91,7 +86,7 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
 		}
 
 		// Select either the default item (0) or the last selected item.
-		selectItem(0);
+		selectItem(mCurrentSelectedPosition);
 	}
 
 	@Override
@@ -108,21 +103,16 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
 		mDrawerListView = (ListView) inflater.inflate(
 				R.layout.fragment_navigation_drawer, container, false);
 		mDrawerListView
-				.setOnItemClickListener(this);
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						selectItem(position);
+					}
+				});
 		
-		user = Util.getUser(this.getActivity());
-		if(user.retrieveInfo()) Util.setUser(this.getActivity(), user);
-		
-		list = new String[] {
-				user.getNombreCompleto(),
-				"Mis Eventos",
-				"Salir"};
-		
-		adapter = new ArrayAdapter<String>(getActionBar()
-				.getThemedContext(), android.R.layout.simple_list_item_1,
-				android.R.id.text1, list);
-		
-		mDrawerListView.setAdapter(adapter);
+		list = new String[]{"uno","dos","tres"};
+		this.setTitles(list);
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
@@ -238,7 +228,7 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		try {
-			mCallbacks = (NavigationDrawerCallbacks) activity;
+			mCallbacks = (NavigationCallbacks) activity;
 		} catch (ClassCastException e) {
 			throw new ClassCastException(
 					"Activity must implement NavigationDrawerCallbacks.");
@@ -312,16 +302,18 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
 	 * Callbacks interface that all activities using this fragment must
 	 * implement.
 	 */
-	public static interface NavigationDrawerCallbacks {
+	public static interface NavigationCallbacks {
 		/**
 		 * Called when an item in the navigation drawer is selected.
 		 */
 		void onNavigationDrawerItemSelected(int position);
 	}
 
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
-		selectItem(position);		
+	public void setTitles(String[] titles) {
+		list = titles.clone();
+		adapter = new ArrayAdapter<String>(getActionBar()
+				.getThemedContext(), android.R.layout.simple_list_item_1,
+				android.R.id.text1,list);
+		mDrawerListView.setAdapter(adapter);
 	}
 }

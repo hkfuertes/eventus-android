@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:background="@color/SeaGreen" >
+        android:background="@color/Verde" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:layout_marginBottom="0dp" >
 
                 <TextView
-                    android:id="@+id/event_info_name"
+                    android:id="@+id/event_title_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Large Text"
@@ -43,7 +43,7 @@
                     android:typeface="normal" />
 
                 <TextView
-                    android:id="@+id/info_mail"
+                    android:id="@+id/event_title_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Medium Text"

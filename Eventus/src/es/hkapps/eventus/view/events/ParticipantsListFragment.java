@@ -47,7 +47,6 @@ public class ParticipantsListFragment extends ListFragment {
 	    if (args != null) {
 	    	event = (Event) args.getSerializable(ARGUMENT_ID);
 	    	if(event != null){
-	    		event = (Event) this.getArguments().getSerializable("event");
 	    		parts = event.getParticipants();
 	            this.setListAdapter(new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, parts.toArray(new String[0])));
 	    	}else{

@@ -3,7 +3,6 @@ package es.hkapps.eventus.view;
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +18,8 @@ public class UserActivity extends ActionBarActivity {
 		
 		Intent intent = getIntent();
 		user = (User) intent.getSerializableExtra(Util.pUser);
+		
+		this.setTitle("Informacion de Usuario");
 		
 		setContentView(R.layout.activity_user);
 		if (savedInstanceState == null) {

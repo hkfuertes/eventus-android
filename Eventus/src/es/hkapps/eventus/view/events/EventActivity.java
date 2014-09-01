@@ -1,42 +1,61 @@
 package es.hkapps.eventus.view.events;
 
 import es.hkapps.eventus.R;
+import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
-import android.support.v7.app.ActionBar.Tab;
+import es.hkapps.eventus.model.User;
+import es.hkapps.eventus.view.wall.WallFragment;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class EventActivity extends ActionBarActivity implements
-		ActionBar.TabListener {
-	
+public class EventActivity extends ActionBarActivity {
+
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
 
 	protected Event event;
+	private TextView name;
+	private TextView date;
+	private Spinner spinner;
+	private TextView place;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_event_activity);
-		
-		Intent intent = this.getIntent();
-		event = (Event) intent.getExtras().getSerializable("event");
-		
-		//Si no hay evento... finalizamos la actividad.
-		if(event != null) finish();
-		
-		this.setTitle(event.getName());
+		setContentView(R.layout.activity_event);
 
-		// Set up the action bar.
-		final ActionBar actionBar = getSupportActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		Intent intent = this.getIntent();
+		event = (Event) intent.getExtras().getSerializable(Util.pGeneral);
+		Toast.makeText(this, event.toString(), Toast.LENGTH_LONG).show();
+
+		// Si no hay evento... finalizamos la actividad.
+		if (event == null)
+			finish();
+
+		this.setTitle("Evento");
+
+		name = (TextView) findViewById(R.id.event_title_name);
+		date = (TextView) findViewById(R.id.event_title_date);
+		place = (TextView) findViewById(R.id.event_title_place);
+
+		name.setText(event.getName());
+		date.setText(event.getDate());
+		place.setText(event.getPlace());
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
@@ -46,36 +65,53 @@ public class EventActivity extends ActionBarActivity implements
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
+		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 
-		// When swiping between different sections, select the corresponding
-		// tab. We can also use ActionBar.Tab#select() to do this if we have
-		// a reference to the Tab.
-		mViewPager
-				.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-					@Override
-					public void onPageSelected(int position) {
-						actionBar.setSelectedNavigationItem(position);
-					}
-				});
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
 
-		// For each of the sections in the app, add a tab to the action bar.
-		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
-			// Create a tab with text corresponding to the page title defined by
-			// the adapter. Also specify this Activity object, which implements
-			// the TabListener interface, as the callback (listener) for when
-			// this tab is selected.
-			actionBar.addTab(actionBar.newTab()
-					.setText(mSectionsPagerAdapter.getPageTitle(i))
-					.setTabListener(this));
-		}
-	}
+			}
 
-	@Override
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-		// When the given tab is selected, switch to the corresponding page in
-		// the ViewPager.
-		mViewPager.setCurrentItem(tab.getPosition());
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onPageSelected(int pos) {
+				spinner.setSelection(pos);
+			}
+
+		});
+
+		spinner = (Spinner) findViewById(R.id.event_activity_navigation);
+		// Create an ArrayAdapter using the string array and a default spinner
+		// layout
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this,
+				R.layout.spinner_item, mSectionsPagerAdapter.getTitles());
+		// Specify the layout to use when the list of choices appears
+		spinnerAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		spinner.setAdapter(spinnerAdapter);
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				mViewPager.setCurrentItem(position);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
 	}
 
 	/**
@@ -84,15 +120,22 @@ public class EventActivity extends ActionBarActivity implements
 	 */
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 		private static final int FRAGMENT_COUNT = 3;
-		
+
 		Fragment[] fragment = new Fragment[FRAGMENT_COUNT];
 		String[] title = new String[FRAGMENT_COUNT];
 
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
-			fragment[0] = EventInfoFragment.newInstance(event);			title[0] = "Info";
-			fragment[1] = EventProgramFragment.newInstance(event);		title[1] = "Programa";
-			fragment[2] = ParticipantsListFragment.newInstance(event);	title[2] = "Invitados";
+			fragment[0] = WallFragment.newInstance(event);
+			title[0] = "Muro";
+			fragment[1] = EventProgramFragment.newInstance(event);
+			title[1] = "Programa";
+			fragment[2] = ParticipantsListFragment.newInstance(event);
+			title[2] = "Invitados";
+		}
+
+		public String[] getTitles() {
+			return title;
 		}
 
 		@Override
@@ -112,14 +155,26 @@ public class EventActivity extends ActionBarActivity implements
 	}
 
 	@Override
-	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.event, menu);
+		return true;
 	}
 
 	@Override
-	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.event_activity_action_leave:
+			User user = Util.getUser(this);
+			event.removeUser(user.getUsername(), user.getToken());
+			if (event.removeUser(user.getUsername(), user.getToken()))
+				finish();
+			else
+				Toast.makeText(this, "Ha habido un problema con la conexion.",
+						Toast.LENGTH_LONG).show();
+			break;
+		default:
+			this.mViewPager.setCurrentItem(0);
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

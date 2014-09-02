@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class UserHelper extends SQLiteOpenHelper {
 
-	private static String DB_NAME = "filename.db";
+	private static String DB_NAME = "users.db";
 	private static String TABLE_NAME = "usuarios";
 
 	private static String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " ("

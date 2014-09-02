@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="android.database.SQLException"/>
-<fullyQualifiedTypeName name="android.content.ContentValues"/>
-<fullyQualifiedTypeName name="android.database.Cursor"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.UserHelper"/>
-<fullyQualifiedTypeName name="android.support.v4.app.ListFragment"/>
-<fullyQualifiedTypeName name="android.os.Parcelable"/>
 <fullyQualifiedTypeName name="android.provider.ContactsContract.CommonDataKinds.Event"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.Event"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.ProgramEntry"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
@@ -37,7 +29,6 @@
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.WallEntry"/>
 <fullyQualifiedTypeName name="java.net.MalformedURLException"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
-<fullyQualifiedTypeName name="android.widget.FrameLayout"/>
 <fullyQualifiedTypeName name="android.os.Environment"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="android.provider.MediaStore"/>
@@ -45,7 +36,6 @@
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 <fullyQualifiedTypeName name="android.content.ContentResolver"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
 <fullyQualifiedTypeName name="java.net.URI"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
@@ -58,6 +48,16 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="android.app.Activity"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.R"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.R.drawable"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.EventHelper"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.Event"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.PhotoHelper"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.camera.CameraActivity"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.R"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
+<fullyQualifiedTypeName name="android.widget.FrameLayout"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="android.support.v7.app.ActionBar"/>
+<fullyQualifiedTypeName name="android.support.v7.app.ActionBar.OnNavigationListener"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.OnNavigationListener"/>
 </qualifiedTypeNameHistroy>

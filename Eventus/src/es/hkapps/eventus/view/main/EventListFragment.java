@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
+import es.hkapps.eventus.model.EventHelper;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.events.EventActivity;
 import android.content.Intent;
@@ -17,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.support.v4.app.ListFragment;
 
 public class EventListFragment extends ListFragment {
@@ -27,6 +27,7 @@ public class EventListFragment extends ListFragment {
 
 	private ArrayList<Event> eventList;
 	private EventListAdapter adapter;
+	private EventHelper eHelper;
 
 	/* Singleton */
 	public static EventListFragment newInstance() {
@@ -50,6 +51,8 @@ public class EventListFragment extends ListFragment {
 		adapter = new EventListAdapter(this.getActivity(), eventList);
 		this.setListAdapter(adapter);
 		setHasOptionsMenu(true);
+		
+		eHelper = new EventHelper(this.getActivity());
 	}
 	
 	private void refreshList(){
@@ -69,9 +72,14 @@ public class EventListFragment extends ListFragment {
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-
+		
 		Event selected = eventList.get(position);
 		selected.retrieveInfo(user.getUsername(), user.getToken());
+		Event event = eHelper.retrieveEventByKey(selected.getKey());
+		if(event == null){
+			eHelper.save(selected);
+		}
+		
 		Intent intent = new Intent(this.getActivity(), EventActivity.class)
 				.putExtra(Util.pGeneral, selected);
 		this.getActivity().startActivity(intent);

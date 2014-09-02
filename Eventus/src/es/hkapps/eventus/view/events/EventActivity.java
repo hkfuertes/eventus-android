@@ -4,14 +4,17 @@ import java.io.File;
 
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
+import es.hkapps.eventus.camera.CameraActivity;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.Photo;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.wall.WallFragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -44,7 +47,7 @@ public class EventActivity extends ActionBarActivity {
 	private TextView date;
 	private Spinner spinner;
 	private TextView place;
-	
+
 	private Photo current;
 
 	@Override
@@ -61,14 +64,6 @@ public class EventActivity extends ActionBarActivity {
 			finish();
 
 		this.setTitle("Evento");
-
-		name = (TextView) findViewById(R.id.event_title_name);
-		date = (TextView) findViewById(R.id.event_title_date);
-		place = (TextView) findViewById(R.id.event_title_place);
-
-		name.setText(event.getName());
-		date.setText(event.getDate());
-		place.setText(event.getPlace());
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
@@ -94,36 +89,44 @@ public class EventActivity extends ActionBarActivity {
 
 			@Override
 			public void onPageSelected(int pos) {
-				spinner.setSelection(pos);
+				//spinner.setSelection(pos);
+				getActionBar().setSelectedNavigationItem(pos);
 			}
 
 		});
 
-		spinner = (Spinner) findViewById(R.id.event_activity_navigation);
-		// Create an ArrayAdapter using the string array and a default spinner
-		// layout
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this,
 				R.layout.spinner_item, mSectionsPagerAdapter.getTitles());
-		// Specify the layout to use when the list of choices appears
-		spinnerAdapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		// Apply the adapter to the spinner
-		spinner.setAdapter(spinnerAdapter);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+		/** Enabling dropdown list navigation for the action bar */
+		getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+		/** Defining Navigation listener */
+		OnNavigationListener navigationListener = new OnNavigationListener() {
 
 			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				mViewPager.setCurrentItem(position);
+			public boolean onNavigationItemSelected(int itemPosition,
+					long itemId) {
+				mViewPager.setCurrentItem(itemPosition);
+				return false;
 			}
+		};
 
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
+		/**
+		 * Setting dropdown items and item navigation listener for the actionbar
+		 */
+		getActionBar()
+				.setListNavigationCallbacks(
+						spinnerAdapter,navigationListener);
+		getActionBar().setDisplayShowTitleEnabled(false);
 
-			}
+		name = (TextView) findViewById(R.id.event_title_name);
+		date = (TextView) findViewById(R.id.event_title_date);
+		place = (TextView) findViewById(R.id.event_title_place);
 
-		});
+		name.setText(event.getName());
+		date.setText(event.getDate());
+		place.setText(event.getPlace());
 
 	}
 
@@ -186,43 +189,14 @@ public class EventActivity extends ActionBarActivity {
 						Toast.LENGTH_LONG).show();
 			break;
 		case R.id.event_activity_action_photo:
-			this.takePhoto();
+			Intent intent = new Intent(this, CameraActivity.class).putExtra(
+					Util.pGeneral, event);
+			startActivity(intent);
 			break;
 		default:
 			this.mViewPager.setCurrentItem(0);
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	private static final int TAKE_PICTURE = 1; 
 
-
-	public void takePhoto() {
-	    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-	    current = new Photo(this.event,Util.getUser(this));
-	    intent.putExtra(MediaStore.EXTRA_OUTPUT,current.getPhotoUri());
-	    startActivityForResult(intent, TAKE_PICTURE);
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-	    super.onActivityResult(requestCode, resultCode, data);
-	    switch (requestCode) {
-	    case TAKE_PICTURE:
-	        if (resultCode == Activity.RESULT_OK) {
-	            try {
-	            	Intent scanFileIntent = new Intent(
-	                        Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, current.getPhotoUri());
-	                sendBroadcast(scanFileIntent);
-	                
-	                Toast.makeText(this, current.getPhotoUri().toString(),
-	                        Toast.LENGTH_LONG).show();
-	            } catch (Exception e) {
-	                Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
-	                        .show();
-	                Log.e("Camera", e.toString());
-	            }
-	        }
-	    }
-	}
 }

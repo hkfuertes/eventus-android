@@ -3,18 +3,28 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp" >
+    android:padding="10dp"
+    android:background="#ddd" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    
+    android:background="@drawable/card_background">
 
     <FrameLayout
         android:id="@+id/wall_list_photo"
         android:layout_width="match_parent"
-        android:layout_height="154dp" >
+        android:layout_height="154dp"
+        android:background="@drawable/card_background" >
 
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
 
         <TextView
             android:id="@+id/wall_list_text"
@@ -23,5 +33,5 @@
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
-
+</LinearLayout>
 </LinearLayout>

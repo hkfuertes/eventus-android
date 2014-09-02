@@ -74,11 +74,6 @@
 
             </LinearLayout>
 
-            <Spinner
-                android:id="@+id/event_activity_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="46dp" />
-
         </LinearLayout>
 
     </RelativeLayout>

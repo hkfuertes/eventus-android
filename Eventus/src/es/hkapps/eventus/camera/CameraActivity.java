@@ -85,7 +85,7 @@ public class CameraActivity extends ActionBarActivity {
 	                pHelper.save(current);
 	                
 	                //For test purposes
-	                fl.setBackgroundDrawable(current.getDrawable());
+	                //fl.setBackgroundDrawable(current.getDrawable());
 	            } catch (Exception e) {
 	                Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
 	                        .show();
@@ -93,7 +93,7 @@ public class CameraActivity extends ActionBarActivity {
 	            }
 	        }
 	    }
-	    //finish();
+	    finish();
 	}
 	
 }

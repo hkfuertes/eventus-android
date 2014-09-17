@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -32,14 +34,13 @@ public class Photo implements Serializable {
 		this.date = date;
 		this.username = username;
 	}
-	
-	protected Photo(){
-		
+
+	protected Photo() {
+
 	}
 
 	public Photo(Event event, String username) {
-		this.date = new SimpleDateFormat(FORMAT)
-				.format(new Date());
+		this.date = new SimpleDateFormat(FORMAT).format(new Date());
 		this.event_key = event.getKey();
 
 		this.file = Uri.fromFile(this.createImageFile());
@@ -48,8 +49,7 @@ public class Photo implements Serializable {
 	}
 
 	public Photo(Event event, User user) {
-		this.date = new SimpleDateFormat(FORMAT)
-				.format(new Date());
+		this.date = new SimpleDateFormat(FORMAT).format(new Date());
 		this.event_key = event.getKey();
 
 		this.file = Uri.fromFile(this.createImageFile());
@@ -75,9 +75,17 @@ public class Photo implements Serializable {
 		File image = new File(dir + imageFileName);
 		return image;
 	}
-	
-	public Drawable getDrawable(){
+
+	public Drawable getDrawable() {
 		return Drawable.createFromPath(file.getPath());
+	}
+
+	public Bitmap getBitmap() {
+		File imgFile = new File(this.getPath());
+		if (imgFile.exists())
+			return BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+		else
+			return null;
 	}
 
 	public String getEventKey() {
@@ -98,7 +106,7 @@ public class Photo implements Serializable {
 
 	public String getId() {
 		// TODO Auto-generated method stub
-		return id+"";
+		return id + "";
 	}
 
 	public void setId(int id) {

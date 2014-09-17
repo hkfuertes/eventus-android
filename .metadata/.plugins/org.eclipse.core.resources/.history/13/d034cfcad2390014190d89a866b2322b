@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <Spinner
+        android:id="@+id/fragment_photos_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <GridView
+        android:id="@+id/fragment_photos_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fragment_photos_refresh_button"
+        android:layout_below="@+id/fragment_photos_category"
+        android:background="@drawable/card_background"
+        android:columnWidth="90dp"
+    android:numColumns="auto_fit"
+    android:verticalSpacing="2dp"
+    android:horizontalSpacing="2dp"
+    android:stretchMode="columnWidth"
+    android:gravity="center"
+    android:padding="10dp" >
+
+    </GridView>
+
+    <Button
+        android:id="@+id/fragment_photos_refresh_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@null"
+        android:text="@string/refresh"
+        android:onClick="refresh" />
+
+</RelativeLayout>

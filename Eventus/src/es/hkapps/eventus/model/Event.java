@@ -12,6 +12,7 @@ import java.util.Locale;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.util.Log;
@@ -80,7 +81,13 @@ public class Event implements Serializable {
 				}
 			}
 			return retVal;
-		} catch (Exception e) {
+		}catch(JSONException ex){
+			/**
+			 * When nothing comes php gives me an array instead of an object
+			 */
+			return new ArrayList<Event>();
+		}catch (Exception e) {
+			e.printStackTrace();
 			Log.d("Getting list [" + username + "]", e.toString());
 			Log.d("Getting list [" + username + "]", url);
 			Log.d("Getting list [" + username + "]", nameValuePairs.toString());

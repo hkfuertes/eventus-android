@@ -1,0 +1,169 @@
+package es.hkapps.eventus.view.events;
+
+import java.util.Locale;
+
+import es.hkapps.eventus.R;
+import es.hkapps.eventus.R.id;
+import es.hkapps.eventus.R.layout;
+import es.hkapps.eventus.R.menu;
+import es.hkapps.eventus.R.string;
+import es.hkapps.eventus.api.Util;
+import es.hkapps.eventus.camera.CameraActivity;
+import es.hkapps.eventus.model.Event;
+import es.hkapps.eventus.model.User;
+import es.hkapps.eventus.view.wall.WallFragment;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class EventActivity extends ActionBarActivity implements
+		ActionBar.TabListener {
+
+	/**
+	 * The {@link android.support.v4.view.PagerAdapter} that will provide
+	 * fragments for each of the sections. We use a {@link FragmentPagerAdapter}
+	 * derivative, which will keep every loaded fragment in memory. If this
+	 * becomes too memory intensive, it may be best to switch to a
+	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+	 */
+	EventActivityPagerAdapter mSectionsPagerAdapter;
+	
+	private static final int FRAGMENT_COUNT = 4;
+
+	Fragment[] fragment = new Fragment[FRAGMENT_COUNT];
+	String[] title = new String[FRAGMENT_COUNT];
+	int[] resource = new int[FRAGMENT_COUNT];
+
+	/**
+	 * The {@link ViewPager} that will host the section contents.
+	 */
+	ViewPager mViewPager;
+
+	private Event event;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_event_activity_new);
+		
+		Intent intent = this.getIntent();
+		event = (Event) intent.getExtras().getSerializable(Util.pGeneral);
+		//Toast.makeText(this, event.toString(), Toast.LENGTH_LONG).show();
+
+		// Si no hay evento... finalizamos la actividad.
+		if (event == null)
+			finish();
+
+		this.setTitle(event.getName());
+		
+		// Set up the action bar.
+		final ActionBar actionBar = getSupportActionBar();
+		
+		
+		fragment[0] = WallFragment.newInstance(event);
+		title[0] = "Muro";
+		resource[0] = R.drawable.ic_action_chat;
+		fragment[1] = EventProgramFragment.newInstance(event);
+		title[1] = "Programa";
+		resource[1] = R.drawable.ic_action_event;
+		fragment[2] = ParticipantsListFragment.newInstance(event);
+		title[2] = "Invitados";
+		resource[2] = R.drawable.ic_action_person;
+		fragment[3] = PhotosFragment.newInstance(event);
+		title[3] = "Fotos de este evento";
+		resource[3] = R.drawable.ic_action_picture;
+
+		// Create the adapter that will return a fragment for each of the three
+		// primary sections of the activity.
+		mSectionsPagerAdapter = new EventActivityPagerAdapter(
+				getSupportFragmentManager(),fragment,title,resource);
+
+		// Set up the ViewPager with the sections adapter.
+		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager.setAdapter(mSectionsPagerAdapter);
+
+		// When swiping between different sections, select the corresponding
+		// tab. We can also use ActionBar.Tab#select() to do this if we have
+		// a reference to the Tab.
+		mViewPager
+				.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+					@Override
+					public void onPageSelected(int position) {
+						actionBar.setSelectedNavigationItem(position);
+					}
+				});
+
+		// For each of the sections in the app, add a tab to the action bar.
+		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+			// Create a tab with text corresponding to the page title defined by
+			// the adapter. Also specify this Activity object, which implements
+			// the TabListener interface, as the callback (listener) for when
+			// this tab is selected.
+			actionBar.addTab(actionBar.newTab()
+					//.setText(mSectionsPagerAdapter.getPageTitle(i))
+					.setIcon(this.mSectionsPagerAdapter.getPageIcon(i))
+					.setTabListener(this));
+		}
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+	}
+
+	@Override
+	public void onTabSelected(ActionBar.Tab tab,
+			FragmentTransaction fragmentTransaction) {
+		// When the given tab is selected, switch to the corresponding page in
+		// the ViewPager.
+		mViewPager.setCurrentItem(tab.getPosition());
+	}
+
+	@Override
+	public void onTabUnselected(ActionBar.Tab tab,
+			FragmentTransaction fragmentTransaction) {
+	}
+
+	@Override
+	public void onTabReselected(ActionBar.Tab tab,
+			FragmentTransaction fragmentTransaction) {
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.event, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.event_activity_action_leave:
+			User user = Util.getUser(this);
+			if (event.removeUser(user.getUsername(), user.getToken()))
+				finish();
+			else
+				Toast.makeText(this, "Ha habido un problema con la conexion.",
+						Toast.LENGTH_LONG).show();
+			break;
+		case R.id.event_activity_action_photo:
+			Intent intent = new Intent(this, CameraActivity.class).putExtra(
+					Util.pGeneral, event);
+			startActivity(intent);
+			break;
+		default:
+			this.mViewPager.setCurrentItem(0);
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="android" key="selection"/>
+		<item value="AppCompat" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="appcompat"/>
 			<item value="android:text"/>
 			<item value="android"/>
 			<item value="mCurrentSelectedPosition"/>
@@ -15,7 +16,6 @@
 			<item value="mFragmentContainerView"/>
 			<item value="PREF_USER_LEARNED_DRAWER"/>
 			<item value="07f05004e"/>
-			<item value="background"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -38,6 +38,11 @@ public class EventListAdapter extends BaseAdapter  {
         public long getItemId(int position) {
             return position;
         }
+        
+        public void refresh(ArrayList<Event> feed){
+        	this.feed = feed;
+        	this.notifyDataSetChanged();
+        }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {

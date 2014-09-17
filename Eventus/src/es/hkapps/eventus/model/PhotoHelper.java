@@ -53,9 +53,11 @@ public class PhotoHelper extends SQLiteOpenHelper {
 		this.removePhoto(photo);
 	}
 
-	public ArrayList<User> retrievePhotos() {
-		ArrayList<User> users = new ArrayList<User>();
+	public ArrayList<Photo> retrievePhotos() {
+		Photo photo = null;
+		ArrayList<Photo> photos = new ArrayList<Photo>();
 		SQLiteDatabase db = this.getReadableDatabase();
+
 
 		Cursor c = db.query(TABLE_NAME, TABLE_FIELDS, null, null, null, null,
 				null);
@@ -65,19 +67,17 @@ public class PhotoHelper extends SQLiteOpenHelper {
 
 			// Recorremos el cursor hasta que no haya más registros
 			do {
-				User user = new User();
-				user.setUsername(c.getString(4));
-				user.setToken(c.getString(5));
-				user.setNombre(c.getString(1));
-				user.setApellidos(c.getString(2));
-				user.setEmail(c.getString(3));
-
-				user.setId(c.getInt(0));
-				users.add(user);
+				photo = new Photo();
+				photo.setId(c.getInt(0));
+				photo.setEventKey(c.getString(1));
+				photo.setUri(c.getString(2));
+				photo.setDate(c.getString(3));
+				photo.setUsername(c.getString(4));
+				photos.add(photo);
 			} while (c.moveToNext());
 		}
 
-		return users;
+		return photos;
 	}
 
 	public Photo retrievePhotoById(int id) {
@@ -95,8 +95,8 @@ public class PhotoHelper extends SQLiteOpenHelper {
 			photo.setId(c.getInt(0));
 			photo.setEventKey(c.getString(1));
 			photo.setUri(c.getString(2));
-			photo.setDate(c.getString(4));
-			photo.setUsername(c.getString(5));
+			photo.setDate(c.getString(3));
+			photo.setUsername(c.getString(4));
 
 			// Recorremos el cursor hasta que no haya más registros
 			// do {
@@ -129,8 +129,8 @@ public class PhotoHelper extends SQLiteOpenHelper {
 				photo.setId(c.getInt(0));
 				photo.setEventKey(c.getString(1));
 				photo.setUri(c.getString(2));
-				photo.setDate(c.getString(4));
-				photo.setUsername(c.getString(5));
+				photo.setDate(c.getString(3));
+				photo.setUsername(c.getString(4));
 				photos.add(photo);
 			} while (c.moveToNext());
 		}
@@ -157,8 +157,8 @@ public class PhotoHelper extends SQLiteOpenHelper {
 				photo.setId(c.getInt(0));
 				photo.setEventKey(c.getString(1));
 				photo.setUri(c.getString(2));
-				photo.setDate(c.getString(4));
-				photo.setUsername(c.getString(5));
+				photo.setDate(c.getString(3));
+				photo.setUsername(c.getString(4));
 				photos.add(photo);
 			} while (c.moveToNext());
 		}

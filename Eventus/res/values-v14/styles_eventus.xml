@@ -19,7 +19,7 @@
 
 <resources>
 
-    <style name="Theme.Eventus" parent="@style/Theme.AppCompat.Light">
+    <style name="Theme.Eventus" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_eventus</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Eventus</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Eventus</item>
@@ -30,17 +30,19 @@
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_eventus</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Eventus</item>
         
-        
+                <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Eventus.Widget</item>
+
     </style>
 
-    <style name="ActionBar.Solid.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+    <style name="ActionBar.Solid.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/ab_solid_eventus</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_eventus</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_eventus</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Eventus</item>
     </style>
 
-    <style name="ActionBar.Transparent.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar">
+    <style name="ActionBar.Transparent.Eventus" parent="@style/Widget.AppCompat.ActionBar">
         <item name="android:background">@drawable/ab_transparent_eventus</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Eventus</item>
     </style>

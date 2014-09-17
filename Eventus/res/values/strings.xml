@@ -22,5 +22,7 @@
     <string name="title_activity_start">StartActivity</string>
     <string name="refresh">Actualizar</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_event_activity_new">Event</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>

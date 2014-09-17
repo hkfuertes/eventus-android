@@ -59,7 +59,7 @@ public class EventListFragment extends ListFragment {
 		eventList = Event
 				.retrieveEventList(user.getUsername(), user.getToken());
 		if (eventList != null) {
-			adapter.notifyDataSetChanged();
+			adapter.refresh(eventList);
 		}
 	}
 

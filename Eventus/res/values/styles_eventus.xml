@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     File created by the Android Action Bar Style Generator
+<!-- File created by the Android Action Bar Style Generator
 
      Copyright (C) 2011 The Android Open Source Project
      Copyright (C) 2012 readyState Software Ltd
@@ -20,7 +19,7 @@
 
 <resources>
 
-    <style name="Theme.Eventus" parent="@style/Theme.AppCompat.Light">
+    <style name="Theme.Eventus" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="actionBarItemBackground">@drawable/selectable_background_eventus</item>
         <item name="popupMenuStyle">@style/PopupMenu.Eventus</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Eventus</item>
@@ -30,61 +29,53 @@
         <item name="actionModeBackground">@drawable/cab_background_top_eventus</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_eventus</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Eventus</item>
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+                <!-- Light.DarkActionBar specific -->
+        <item name="actionBarWidgetTheme">@style/Theme.Eventus.Widget</item>
+        
+        
+
     </style>
 
-    <!-- ActionBar styles -->
-    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
-
-        <!-- Support library compatibility -->
-        <item name="titleTextStyle">@style/MyActionBarTitleText</item>
-    </style>
-
-    <!-- ActionBar title text -->
-    <style name="MyActionBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/White</item>
-        <!-- The textColor property is backward compatible with the Support Library -->
-    </style>
-
-    <style name="ActionBar.Solid.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+    <style name="ActionBar.Solid.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@drawable/ab_solid_eventus</item>
         <item name="backgroundStacked">@drawable/ab_stacked_solid_eventus</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_eventus</item>
         <item name="progressBarStyle">@style/ProgressBar.Eventus</item>
     </style>
 
-    <style name="ActionBar.Transparent.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar">
+    <style name="ActionBar.Transparent.Eventus" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">@drawable/ab_transparent_eventus</item>
         <item name="progressBarStyle">@style/ProgressBar.Eventus</item>
     </style>
-
-    <style name="PopupMenu.Eventus" parent="@style/Widget.AppCompat.Light.PopupMenu">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_eventus</item>
+	
+    <style name="PopupMenu.Eventus" parent="@style/Widget.AppCompat.PopupMenu">	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_eventus</item>	
     </style>
-
-    <style name="DropDownListView.Eventus" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
+	
+    <style name="DropDownListView.Eventus" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_eventus</item>
     </style>
 
-    <style name="ActionBarTabStyle.Eventus" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
+    <style name="ActionBarTabStyle.Eventus" parent="@style/Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_eventus</item>
     </style>
-
-    <style name="DropDownNav.Eventus" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+	
+    <style name="DropDownNav.Eventus" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
         <item name="android:background">@drawable/spinner_background_ab_eventus</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_eventus</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_eventus</item>
     </style>
-
+    
     <style name="ProgressBar.Eventus" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_eventus</item>
     </style>
-
-    <style name="ActionButton.CloseMode.Eventus" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
+    
+    <style name="ActionButton.CloseMode.Eventus" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_eventus</item>
     </style>
-
+    
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Eventus.Widget" parent="@style/Theme.AppCompat">
         <item name="popupMenuStyle">@style/PopupMenu.Eventus</item>

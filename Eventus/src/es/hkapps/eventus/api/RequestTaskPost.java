@@ -2,9 +2,13 @@ package es.hkapps.eventus.api;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
@@ -12,28 +16,38 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.FileEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.w3c.dom.Entity;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class RequestTaskPost extends AsyncTask<String, String, String>{
-	
+public class RequestTaskPost extends AsyncTask<String, String, String>{	
 	public interface RequestListener{
 		public void onRequestCompleted(String response);
 	}
 	
 	RequestListener listener = null;
-	private List<? extends NameValuePair> nameValuePairs;
+	private HttpEntity entity;
 	
 	public RequestTaskPost(List<NameValuePair> nameValuePairs) {
-		this.nameValuePairs = nameValuePairs;
+			try {
+				this.entity = new UrlEncodedFormEntity(nameValuePairs);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+	public RequestTaskPost(HttpEntity entity) {
+		this.entity = entity;
 	}
 
 	public void setRequestListener(RequestListener listener){
 		this.listener = listener;
 	}
-
+	
     @Override
     protected String doInBackground(String... uri) {
         HttpClient httpclient = new DefaultHttpClient();
@@ -42,7 +56,8 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
         try {
         	
         	HttpPost post = new HttpPost(new URI(uri[0]));
-            post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            post.setEntity(entity);
+            
             response = httpclient.execute(post);
             StatusLine statusLine = response.getStatusLine();
             //Log.d("POST Response: ",statusLine.getStatusCode()+"");
@@ -52,7 +67,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
                 out.close();
                 responseString = out.toString();
                 Log.d("request", uri[0]);
-                Log.d("post",nameValuePairs.toString());
+                Log.d("post",entity.toString());
                 Log.d("response", responseString);
             } else{
                 //Closes the connection.

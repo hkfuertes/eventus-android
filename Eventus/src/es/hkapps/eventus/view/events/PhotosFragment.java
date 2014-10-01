@@ -19,6 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -26,10 +28,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PhotosFragment extends Fragment {	
+public class PhotosFragment extends Fragment implements OnItemClickListener {	
 	private static final String ARGUMENT_ID = "evento";
 
 	Event event;
+	User user;
 
 	private ArrayList<Photo> photos;
 	private PhotosAdapter adapter;
@@ -75,7 +78,9 @@ public class PhotosFragment extends Fragment {
 	    Bundle args = getArguments();
 	    if (args != null) {
 	    	event = (Event) args.getSerializable(ARGUMENT_ID);
-	    	photos = helper.retrievePhotosFromEvent(event);
+	    	user = Util.getUser(getActivity());
+	    	//photos = helper.retrievePhotosFromEvent(event);
+	    	photos = Photo.getFromEvent(user, event);
 	    }else{
 	    	photos = helper.retrievePhotos();
 	    }
@@ -99,6 +104,7 @@ public class PhotosFragment extends Fragment {
 		
 		gridview = (GridView) v.findViewById(R.id.fragment_photos_view);
 		gridview.setAdapter(adapter);
+		gridview.setOnItemClickListener(this);
 		
 		actualizar = (Button) v.findViewById(R.id.fragment_photos_refresh_button);
 		actualizar.setOnClickListener(new OnClickListener(){
@@ -127,6 +133,15 @@ public class PhotosFragment extends Fragment {
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		Photo p = photos.get(position);
+		p.upload(Util.getUser(this.getActivity()).getToken());
+		Toast.makeText(this.getActivity(), "subiendo foto", Toast.LENGTH_LONG).show();
+		
 	}
 	
 }

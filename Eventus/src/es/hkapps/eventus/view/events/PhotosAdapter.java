@@ -16,6 +16,7 @@ public class PhotosAdapter extends BaseAdapter {
 	private static final int TILE = 85;
 	private ArrayList<Photo> photos;
 	private Context context;
+	private Photo current;
 
 	public PhotosAdapter(Context context, ArrayList<Photo> photos) {
 		this.photos = photos;
@@ -48,8 +49,11 @@ public class PhotosAdapter extends BaseAdapter {
 		} else {
 			imageView = (ImageView) convertView;
 		}
-
-		Bitmap bm = decodeSampledBitmapFromUri(getItem(position).getPath(),TILE, TILE);
+		
+		current = getItem(position);
+		Photo.downloadAndSave(context,current);
+		
+		Bitmap bm = decodeSampledBitmapFromUri(current.getPath(),TILE, TILE);
 
 		imageView.setImageBitmap(bm);
 		return imageView;

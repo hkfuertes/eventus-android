@@ -4,9 +4,8 @@
     tools:context="es.hkapps.eventus.EventCreateActivity" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        android:id="@+id/fragment_event_create"
+        android:title="@string/fragment_event_create"
+        app:showAsAction="always"/>
 
 </menu>

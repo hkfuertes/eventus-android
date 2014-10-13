@@ -52,8 +52,14 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".EventCreateActivity"
-            android:label="@string/title_activity_event_create" >
+            android:name="es.hkapps.eventus.view.events.create.EventCreateActivity"
+            android:label="@string/title_activity_event_create" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

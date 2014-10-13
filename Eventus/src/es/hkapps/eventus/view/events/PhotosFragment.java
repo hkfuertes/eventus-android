@@ -9,6 +9,7 @@ import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.Photo;
 import es.hkapps.eventus.model.PhotoHelper;
 import es.hkapps.eventus.model.User;
+import es.hkapps.eventus.view.events.photos.PhotosAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -142,10 +143,6 @@ public class PhotosFragment extends Fragment implements OnItemClickListener {
 		
 		Bundle bundle = new Bundle();  
 		bundle.putSerializable("event",event);
-		
-		Intent i = new Intent(this.getActivity(),GaleryActivity.class);
-		i.putExtras(bundle);
-		startActivity(i);
 	}
 	
 }

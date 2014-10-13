@@ -28,5 +28,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_event_create">EventCreateActivity</string>
+    <string name="event_list_create">Nuevo</string>
+    <string name="fragment_event_create">Siguiente</string>
 
 </resources>

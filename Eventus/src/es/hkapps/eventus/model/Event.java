@@ -25,6 +25,9 @@ public class Event implements Serializable {
 	private ArrayList<String> participants;
 	private ArrayList<ProgramEntry> program;
 
+	public static final String[] EVENT_TYPES = { "Boda", "Bautizo", "Comunion",
+			"Graduacion" };
+
 	private long id = System.currentTimeMillis();
 
 	private String info_updated = null;
@@ -44,6 +47,64 @@ public class Event implements Serializable {
 	public Event(String key, String username, String token) {
 		this(key);
 		retrieveInfo(username, token);
+	}
+	
+	public Event(String name, String place, User admin, long date, String type){
+		SimpleDateFormat sdf = new SimpleDateFormat(Event.FORMAT,
+				Locale.ENGLISH);
+		
+		this.name = name;
+		this.place = place;
+		this.admin = admin.getUsername();
+		this.date = sdf.format(date);
+		this.type = type;
+	}
+
+	public static Event createEvent(User user, Event event) {
+
+		String url = Util.server_addr + Util.app_token + "/event/create";
+		// Add your data
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("username", user
+				.getUsername()));
+		nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
+		
+		nameValuePairs.add(new BasicNameValuePair("event_data[name]", event.getName()));
+		nameValuePairs.add(new BasicNameValuePair("event_data[place]", event.getPlace()));
+		nameValuePairs.add(new BasicNameValuePair("event_data[date]", event.getDate()));
+		nameValuePairs.add(new BasicNameValuePair("event_data[type]", event.getTypeId()+""));
+		
+
+		try {
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response;
+			response = task.execute(url).get();
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			if (success) {
+				JSONObject retEvent = jObj.getJSONObject("event");
+				event.setKey(retEvent.getString("key"));
+			}
+
+			return event;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d("Getting list [" + user.getUsername() + "]", e.toString());
+			return null;
+		}
+	}
+
+	private int getTypeId() {
+		int retVal = -1;
+		for(int i = 0; i<EVENT_TYPES.length; i++){
+			if(EVENT_TYPES[i] == this.getType()) retVal = i;
+		}
+		return retVal;
+	}
+
+	private void setKey(String key) {
+		this.key = key;
 	}
 
 	public static ArrayList<Event> retrieveEventList(String username,
@@ -81,12 +142,12 @@ public class Event implements Serializable {
 				}
 			}
 			return retVal;
-		}catch(JSONException ex){
+		} catch (JSONException ex) {
 			/**
 			 * When nothing comes php gives me an array instead of an object
 			 */
 			return new ArrayList<Event>();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			Log.d("Getting list [" + username + "]", e.toString());
 			Log.d("Getting list [" + username + "]", url);

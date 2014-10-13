@@ -8585,3 +8585,65 @@ Binding(COMMAND+/,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.wst.sse.ui.structuredTextEditorScope,,cocoa,system)
+!SESSION 2014-10-13 17:36:34.781 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:36:38.839
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Eventus
+
+!ENTRY org.eclipse.core.net 1 0 2014-10-13 17:36:40.529
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 4 2014-10-13 17:36:45.583
+!MESSAGE Failed
+!STACK 0
+java.lang.NullPointerException
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.getTargets(EclipseLintClient.java:916)
+	at com.android.tools.lint.detector.api.Project.readManifest(Project.java:652)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:946)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:880)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:431)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.849
+!MESSAGE Warning: Ignoring name conflict in resource file for name title_section1
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.849
+!MESSAGE Warning: Ignoring name conflict in resource file for name title_section2
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.850
+!MESSAGE Warning: Ignoring name conflict in resource file for name title_section3
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.850
+!MESSAGE Warning: Ignoring name conflict in resource file for name hello_world
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.850
+!MESSAGE Warning: Ignoring name conflict in resource file for name action_settings
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.859
+!MESSAGE Warning: Ignoring name conflict in resource file for name activity_horizontal_margin
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.860
+!MESSAGE Warning: Ignoring name conflict in resource file for name activity_vertical_margin
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:41:32.864
+!MESSAGE Warning: Ignoring name conflict in resource file for name activity_horizontal_margin
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:47:46.446
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:47:56.706
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:49:19.592
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-13 17:49:43.340
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace

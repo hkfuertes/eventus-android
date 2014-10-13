@@ -457,14 +457,6 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int logo=0x7f01002d;
-        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-         */
-        public static final int metaButtonBarButtonStyle=0x7f01006f;
-        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-         */
-        public static final int metaButtonBarStyle=0x7f01006e;
         /**  The type of navigation to use. 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -1098,6 +1090,11 @@ containing a value of this type.
          */
         public static final int abc_search_view_text_min_width=0x7f08000c;
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
          */
         public static final int activity_horizontal_margin=0x7f080015;
         public static final int activity_vertical_margin=0x7f080016;
@@ -1271,7 +1268,7 @@ containing a value of this type.
         public static final int tab_unselected_pressed_eventus=0x7f020084;
     }
     public static final class id {
-        public static final int TextView01=0x7f05005c;
+        public static final int TextView01=0x7f050059;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1280,80 +1277,77 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_example=0x7f05006b;
+        public static final int action_example=0x7f050068;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050066;
+        public static final int action_settings=0x7f050063;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int camera_background=0x7f05003c;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
-        public static final int container=0x7f050054;
-        public static final int create_apellidos=0x7f050051;
-        public static final int create_email=0x7f050052;
-        public static final int create_nombre=0x7f050050;
-        public static final int create_password=0x7f05004d;
-        public static final int create_repassword=0x7f05004e;
-        public static final int create_signup=0x7f05004a;
-        public static final int create_username=0x7f05004c;
+        public static final int container=0x7f050041;
+        public static final int create_apellidos=0x7f05004f;
+        public static final int create_email=0x7f050050;
+        public static final int create_nombre=0x7f05004e;
+        public static final int create_password=0x7f05004b;
+        public static final int create_repassword=0x7f05004c;
+        public static final int create_signup=0x7f050048;
+        public static final int create_username=0x7f05004a;
         public static final int default_activity_button=0x7f050028;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
-        public static final int drawer_layout=0x7f050053;
+        public static final int drawer_layout=0x7f050051;
         public static final int dropdown=0x7f05000f;
-        public static final int dummy_button=0x7f050043;
         public static final int edit_query=0x7f050030;
-        public static final int email=0x7f050046;
-        public static final int email_login_form=0x7f050045;
-        public static final int email_sign_in_button=0x7f050049;
+        public static final int email=0x7f050044;
+        public static final int email_login_form=0x7f050043;
+        public static final int email_sign_in_button=0x7f050047;
         public static final int end=0x7f050013;
-        public static final int event_activity_action_leave=0x7f050068;
-        public static final int event_activity_action_photo=0x7f050067;
-        public static final int event_date=0x7f050059;
-        public static final int event_date_label=0x7f050057;
-        public static final int event_info_fecha=0x7f05005f;
-        public static final int event_info_lugar=0x7f05005d;
-        public static final int event_list_refresh=0x7f050069;
-        public static final int event_place=0x7f050058;
+        public static final int event_activity_action_leave=0x7f050065;
+        public static final int event_activity_action_photo=0x7f050064;
+        public static final int event_date=0x7f050056;
+        public static final int event_date_label=0x7f050054;
+        public static final int event_info_fecha=0x7f05005c;
+        public static final int event_info_lugar=0x7f05005a;
+        public static final int event_list_refresh=0x7f050066;
+        public static final int event_place=0x7f050055;
         public static final int event_title_date=0x7f05003e;
         public static final int event_title_name=0x7f05003d;
         public static final int event_title_place=0x7f05003f;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
-        public static final int fragment_galery_photo=0x7f05005a;
-        public static final int fragment_photos_category=0x7f050060;
-        public static final int fragment_photos_refresh=0x7f05006a;
-        public static final int fragment_photos_refresh_button=0x7f050062;
-        public static final int fragment_photos_view=0x7f050061;
-        public static final int fullscreen_content=0x7f050041;
-        public static final int fullscreen_content_controls=0x7f050042;
+        public static final int fragment_galery_photo=0x7f050057;
+        public static final int fragment_photos_category=0x7f05005d;
+        public static final int fragment_photos_refresh=0x7f050067;
+        public static final int fragment_photos_refresh_button=0x7f05005f;
+        public static final int fragment_photos_view=0x7f05005e;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f050063;
+        public static final int imageView1=0x7f050060;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
-        public static final int login=0x7f050048;
-        public static final int login_form=0x7f050044;
+        public static final int login=0x7f050046;
+        public static final int login_form=0x7f050042;
         public static final int middle=0x7f050012;
-        public static final int navigation_drawer=0x7f050055;
+        public static final int navigation_drawer=0x7f050052;
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
         public static final int pager=0x7f050040;
-        public static final int password=0x7f050047;
-        public static final int photo_list_item_image=0x7f050064;
-        public static final int program_act=0x7f05004f;
-        public static final int program_time=0x7f050056;
+        public static final int password=0x7f050045;
+        public static final int photo_list_item_image=0x7f050061;
+        public static final int program_act=0x7f05004d;
+        public static final int program_time=0x7f050053;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
-        public static final int scrollView1=0x7f05004b;
+        public static final int scrollView1=0x7f050049;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;
@@ -1371,13 +1365,13 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView2=0x7f05005e;
+        public static final int textView2=0x7f05005b;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
-        public static final int wall_list_photo=0x7f050065;
-        public static final int wall_list_text=0x7f05005b;
+        public static final int wall_list_photo=0x7f050062;
+        public static final int wall_list_text=0x7f050058;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1433,42 +1427,44 @@ containing a value of this type.
         public static final int activity_camera=0x7f030018;
         public static final int activity_event=0x7f030019;
         public static final int activity_event_activity_new=0x7f03001a;
-        public static final int activity_galery=0x7f03001b;
+        public static final int activity_event_create=0x7f03001b;
         public static final int activity_login=0x7f03001c;
-        public static final int activity_new_user=0x7f03001d;
-        public static final int activity_start=0x7f03001e;
-        public static final int activity_user=0x7f03001f;
-        public static final int event_list_item=0x7f030020;
-        public static final int fragment_event_acitivity=0x7f030021;
-        public static final int fragment_event_activity_new=0x7f030022;
-        public static final int fragment_event_info=0x7f030023;
-        public static final int fragment_event_list=0x7f030024;
-        public static final int fragment_galery=0x7f030025;
-        public static final int fragment_navigation_drawer=0x7f030026;
-        public static final int fragment_participants_list=0x7f030027;
-        public static final int fragment_photos=0x7f030028;
-        public static final int fragment_program_list=0x7f030029;
-        public static final int fragment_user=0x7f03002a;
-        public static final int fragment_wall=0x7f03002b;
-        public static final int navigation_list_item=0x7f03002c;
-        public static final int photo_list_item=0x7f03002d;
-        public static final int program_entry_list_item=0x7f03002e;
-        public static final int spinner_item=0x7f03002f;
-        public static final int support_simple_spinner_dropdown_item=0x7f030030;
-        public static final int wall_list_item=0x7f030031;
+        public static final int activity_main=0x7f03001d;
+        public static final int activity_new_user=0x7f03001e;
+        public static final int activity_start=0x7f03001f;
+        public static final int activity_user=0x7f030020;
+        public static final int event_list_item=0x7f030021;
+        public static final int fragment_event_acitivity=0x7f030022;
+        public static final int fragment_event_create=0x7f030023;
+        public static final int fragment_event_info=0x7f030024;
+        public static final int fragment_event_list=0x7f030025;
+        public static final int fragment_galery=0x7f030026;
+        public static final int fragment_navigation_drawer=0x7f030027;
+        public static final int fragment_participants_list=0x7f030028;
+        public static final int fragment_photos=0x7f030029;
+        public static final int fragment_program_list=0x7f03002a;
+        public static final int fragment_user=0x7f03002b;
+        public static final int fragment_wall=0x7f03002c;
+        public static final int navigation_list_item=0x7f03002d;
+        public static final int photo_list_item=0x7f03002e;
+        public static final int program_entry_list_item=0x7f03002f;
+        public static final int spinner_item=0x7f030030;
+        public static final int support_simple_spinner_dropdown_item=0x7f030031;
+        public static final int wall_list_item=0x7f030032;
     }
     public static final class menu {
         public static final int camera=0x7f0c0000;
         public static final int event=0x7f0c0001;
         public static final int event_activity_new=0x7f0c0002;
-        public static final int event_list=0x7f0c0003;
-        public static final int fragment_photos=0x7f0c0004;
-        public static final int global=0x7f0c0005;
-        public static final int login=0x7f0c0006;
-        public static final int main=0x7f0c0007;
-        public static final int start=0x7f0c0008;
-        public static final int user=0x7f0c0009;
-        public static final int wall=0x7f0c000a;
+        public static final int event_create=0x7f0c0003;
+        public static final int event_list=0x7f0c0004;
+        public static final int fragment_photos=0x7f0c0005;
+        public static final int global=0x7f0c0006;
+        public static final int login=0x7f0c0007;
+        public static final int main=0x7f0c0008;
+        public static final int start=0x7f0c0009;
+        public static final int user=0x7f0c000a;
+        public static final int wall=0x7f0c000b;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1513,8 +1509,8 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_example=0x7f0a0017;
         public static final int action_settings=0x7f0a000f;
-        public static final int action_sign_in=0x7f0a0029;
-        public static final int action_sign_in_short=0x7f0a002a;
+        public static final int action_sign_in=0x7f0a002a;
+        public static final int action_sign_in_short=0x7f0a002b;
         public static final int app_name=0x7f0a000d;
         public static final int dummy_button=0x7f0a0025;
         public static final int dummy_content=0x7f0a0026;
@@ -1524,12 +1520,13 @@ containing a value of this type.
         public static final int navigation_drawer_open=0x7f0a0015;
         /**  Strings related to login 
          */
-        public static final int prompt_email=0x7f0a0027;
-        public static final int prompt_password=0x7f0a0028;
+        public static final int prompt_email=0x7f0a0028;
+        public static final int prompt_password=0x7f0a0029;
         public static final int refresh=0x7f0a0020;
         public static final int title_activity_camera=0x7f0a0021;
         public static final int title_activity_event_acitivity=0x7f0a0019;
         public static final int title_activity_event_activity_new=0x7f0a0022;
+        public static final int title_activity_event_create=0x7f0a0027;
         public static final int title_activity_galery=0x7f0a0024;
         public static final int title_activity_list=0x7f0a0010;
         public static final int title_activity_login=0x7f0a0011;
@@ -1545,33 +1542,14 @@ containing a value of this type.
         public static final int title_section3=0x7f0a0023;
     }
     public static final class style {
-        public static final int ActionBar_Solid_Eventus=0x7f0b0092;
-        public static final int ActionBar_Transparent_Eventus=0x7f0b0093;
-        public static final int ActionBarTabStyle_Eventus=0x7f0b0096;
-        public static final int ActionButton_CloseMode_Eventus=0x7f0b0099;
-        /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-         */
-        public static final int AppBaseTheme=0x7f0b008b;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f0b008c;
-        public static final int ButtonBar=0x7f0b008e;
-        public static final int ButtonBarButton=0x7f0b008f;
-        public static final int DropDownListView_Eventus=0x7f0b0095;
-        public static final int DropDownNav_Eventus=0x7f0b0097;
-        public static final int FullscreenActionBarStyle=0x7f0b0090;
-        public static final int FullscreenTheme=0x7f0b008d;
-        public static final int PopupMenu_Eventus=0x7f0b0094;
-        public static final int ProgressBar_Eventus=0x7f0b0098;
+        public static final int ActionBar_Solid_Eventus=0x7f0b008c;
+        public static final int ActionBar_Transparent_Eventus=0x7f0b008d;
+        public static final int ActionBarTabStyle_Eventus=0x7f0b0090;
+        public static final int ActionButton_CloseMode_Eventus=0x7f0b0093;
+        public static final int DropDownListView_Eventus=0x7f0b008f;
+        public static final int DropDownNav_Eventus=0x7f0b0091;
+        public static final int PopupMenu_Eventus=0x7f0b008e;
+        public static final int ProgressBar_Eventus=0x7f0b0092;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;
@@ -1680,11 +1658,11 @@ containing a value of this type.
         /**  Base platform-dependent theme providing a light-themed activity. 
          */
         public static final int Theme_Base_Light=0x7f0b007f;
-        public static final int Theme_Eventus=0x7f0b0091;
+        public static final int Theme_Eventus=0x7f0b008b;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Eventus_Widget=0x7f0b009a;
+        public static final int Theme_Eventus_Widget=0x7f0b0094;
         /**  Styles in here can be extended for customisation in your application. Each utilises
          one of the Base styles. If Holo themes are available on the current platform version
          they will be used instead of the compat styles. 
@@ -2468,46 +2446,6 @@ containing a value of this type.
           @attr name es.hkapps.eventus:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
-        /** 
-         Declare custom theme attributes that allow changing which styles are
-         used for button bars depending on the API level.
-         ?android:attr/buttonBarStyle is new as of API 11 so this is
-         necessary to support previous API levels.
-    
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarButtonStyle es.hkapps.eventus:metaButtonBarButtonStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarStyle es.hkapps.eventus:metaButtonBarStyle}</code></td><td></td></tr>
-           </table>
-           @see #ButtonBarContainerTheme_metaButtonBarButtonStyle
-           @see #ButtonBarContainerTheme_metaButtonBarStyle
-         */
-        public static final int[] ButtonBarContainerTheme = {
-            0x7f01006e, 0x7f01006f
-        };
-        /**
-          <p>This symbol is the offset where the {@link es.hkapps.eventus.R.attr#metaButtonBarButtonStyle}
-          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
-
-
-          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name es.hkapps.eventus:metaButtonBarButtonStyle
-        */
-        public static final int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
-        /**
-          <p>This symbol is the offset where the {@link es.hkapps.eventus.R.attr#metaButtonBarStyle}
-          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
-
-
-          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name es.hkapps.eventus:metaButtonBarStyle
-        */
-        public static final int ButtonBarContainerTheme_metaButtonBarStyle = 0;
         /** Attributes that can be used with a CompatTextView.
            <p>Includes the following attributes:</p>
            <table>

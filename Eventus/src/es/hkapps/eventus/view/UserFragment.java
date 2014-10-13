@@ -3,7 +3,7 @@ package es.hkapps.eventus.view;
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
-import es.hkapps.eventus.view.events.EventProgramFragment;
+import es.hkapps.eventus.view.events.program.EventProgramFragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

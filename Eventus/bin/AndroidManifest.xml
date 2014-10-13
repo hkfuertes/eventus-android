@@ -52,10 +52,8 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.events.GaleryActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_galery"
-            android:theme="@style/FullscreenTheme" >
+            android:name=".EventCreateActivity"
+            android:label="@string/title_activity_event_create" >
         </activity>
     </application>
 

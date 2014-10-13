@@ -139,9 +139,13 @@ public class PhotosFragment extends Fragment implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		Photo p = photos.get(position);
-		p.upload(Util.getUser(this.getActivity()).getToken());
-		Toast.makeText(this.getActivity(), "subiendo foto", Toast.LENGTH_LONG).show();
 		
+		Bundle bundle = new Bundle();  
+		bundle.putSerializable("event",event);
+		
+		Intent i = new Intent(this.getActivity(),GaleryActivity.class);
+		i.putExtras(bundle);
+		startActivity(i);
 	}
 	
 }

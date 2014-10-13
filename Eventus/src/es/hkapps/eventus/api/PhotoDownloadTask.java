@@ -46,7 +46,9 @@ public class PhotoDownloadTask extends AsyncTask<Photo, String, ArrayList<Photo>
 
 			String storagePath = photo.getSdcardFolder();
 			String path = storagePath + photo.getFilename();
-			OutputStream output = new FileOutputStream(new File(path));
+			File pFile = new File(path);
+			pFile.getParentFile().mkdirs();
+			OutputStream output = new FileOutputStream(pFile);
 			try {
 				byte[] buffer = new byte[2048];
 				int bytesRead = 0;

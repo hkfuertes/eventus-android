@@ -45,12 +45,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
         <activity
             android:name=".camera.CameraActivity"
             android:label="@string/title_activity_camera"
             android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="es.hkapps.eventus.view.events.GaleryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_galery"
+            android:theme="@style/FullscreenTheme" >
         </activity>
     </application>
 

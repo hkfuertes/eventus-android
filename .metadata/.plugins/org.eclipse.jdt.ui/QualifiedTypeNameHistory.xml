@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.WallEntry"/>
-<fullyQualifiedTypeName name="java.net.MalformedURLException"/>
-<fullyQualifiedTypeName name="android.provider.MediaStore"/>
-<fullyQualifiedTypeName name="android.content.ContentResolver"/>
-<fullyQualifiedTypeName name="java.net.URI"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="android.graphics.drawable.Drawable"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.EventHelper"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.Event"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.PhotoHelper"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.camera.CameraActivity"/>
 <fullyQualifiedTypeName name="android.widget.FrameLayout"/>
@@ -25,19 +16,16 @@
 <fullyQualifiedTypeName name="android.provider.Contacts.Photos"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="android.os.Environment"/>
 <fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
 <fullyQualifiedTypeName name="android.view.View"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 <fullyQualifiedTypeName name="android.widget.GridView"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.R"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.R.drawable"/>
 <fullyQualifiedTypeName name="org.json.JSONException"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.api.Util"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="org.json.JSONArray"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.api.RequestTask"/>
@@ -49,7 +37,6 @@
 <fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 <fullyQualifiedTypeName name="android.app.ProgressDialog"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.view.main.StartActivity"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.net.Uri"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.api.PhotoDownloadTask"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
@@ -59,5 +46,18 @@
 <fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
 <fullyQualifiedTypeName name="org.apache.http.entity.BufferedHttpEntity"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentActivity"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentStatePagerAdapter"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="android.support.v4.view.ViewPager"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.Photo"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.Event"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.api.Util"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.User"/>
 </qualifiedTypeNameHistroy>

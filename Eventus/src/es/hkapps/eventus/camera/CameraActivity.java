@@ -84,6 +84,9 @@ public class CameraActivity extends ActionBarActivity {
 	                //Guardamos la informacion en sqlite
 	                pHelper.save(current);
 	                
+	                current.upload(Util.getUser(this).getToken());
+	        		Toast.makeText(this, "Subiendo foto", Toast.LENGTH_LONG).show();
+	                
 	                //For test purposes
 	                //fl.setBackgroundDrawable(current.getDrawable());
 	            } catch (Exception e) {

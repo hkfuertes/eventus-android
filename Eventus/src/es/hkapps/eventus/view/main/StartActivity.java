@@ -9,6 +9,7 @@ import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.user.*;
 import es.hkapps.eventus.view.main.events.*;
+import es.hkapps.eventus.view.main.events.EventListFragment;
 import es.hkapps.eventus.view.wall.WallFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;

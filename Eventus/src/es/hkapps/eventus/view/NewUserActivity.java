@@ -19,7 +19,7 @@ public class NewUserActivity extends ActionBarActivity implements OnClickListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_user);
 		
-		username = (EditText) findViewById(R.id.create_username);
+		//username = (EditText) findViewById(R.id.create_username);
 		password = (EditText) findViewById(R.id.create_password);
 		repassword = (EditText) findViewById(R.id.create_repassword);
 		

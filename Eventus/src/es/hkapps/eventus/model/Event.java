@@ -30,8 +30,7 @@ public class Event implements Serializable {
 
 	private long id = System.currentTimeMillis();
 
-	private String info_updated = null;
-	private static final String FORMAT = "EEE MMM dd HH:mm:ss z yyyy";
+	private static final String FORMAT = "yyyy-MM-dd";
 
 	public Event(String key) {
 		this.key = key;
@@ -44,13 +43,13 @@ public class Event implements Serializable {
 		this.name = name;
 	}
 
-	public Event(String key, String username, String token) {
+	public Event(String key, User user) {
 		this(key);
-		retrieveInfo(username, token);
+		retrieveInfo(user);
 	}
 	
 	public Event(String name, String place, User admin, long date, String type){
-		SimpleDateFormat sdf = new SimpleDateFormat(Event.FORMAT,
+		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT,
 				Locale.ENGLISH);
 		
 		this.name = name;
@@ -63,34 +62,45 @@ public class Event implements Serializable {
 	public static Event createEvent(User user, Event event) {
 
 		String url = Util.server_addr + Util.app_token + "/event/create";
-		// Add your data
-		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		nameValuePairs.add(new BasicNameValuePair("username", user
-				.getUsername()));
-		nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
-		
-		nameValuePairs.add(new BasicNameValuePair("event_data[name]", event.getName()));
-		nameValuePairs.add(new BasicNameValuePair("event_data[place]", event.getPlace()));
-		nameValuePairs.add(new BasicNameValuePair("event_data[date]", event.getDate()));
-		nameValuePairs.add(new BasicNameValuePair("event_data[type]", event.getTypeId()+""));
-		
 
 		try {
+			
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", user
+					.getUsername()));
+			nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
+			
+			nameValuePairs.add(new BasicNameValuePair("event_data[name]", event.getName()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[place]", event.getPlace()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[date]", event.getDate()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[event_type_id]", "3"));
+			
+			JSONObject event_data = new JSONObject();
+			event_data.put("name", event.getName());
+			event_data.put("place", event.getPlace());
+			event_data.put("date", event.getDate());
+			event_data.put("type", "3");
+			
+			//nameValuePairs.add(new BasicNameValuePair("event_data", event_data.toString()));
+			
+			Log.d("POST Create Event", nameValuePairs.toString());
+			
+			
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
 			response = task.execute(url).get();
+			Log.d("Respuesta",response);
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {
 				JSONObject retEvent = jObj.getJSONObject("event");
 				event.setKey(retEvent.getString("key"));
 			}
-
 			return event;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.d("Getting list [" + user.getUsername() + "]", e.toString());
+			Log.d("Creating [" + user.getUsername() + "]", e.toString());
 			return null;
 		}
 	}
@@ -185,12 +195,7 @@ public class Event implements Serializable {
 	 * @return Devuelve true o false si obtiene la informacion, y añade la
 	 *         informacion.
 	 */
-	public boolean retrieveInfo(String username, String token) {
-		Calendar now = Calendar.getInstance();
-		if (info_updated != null)
-			if (this.fromString(info_updated).get(Calendar.HOUR)
-					- now.get(Calendar.HOUR) < 24)
-				return true;
+	public boolean retrieveInfo(User user) {
 
 		program = new ArrayList<ProgramEntry>();
 		participants = new ArrayList<String>();
@@ -198,8 +203,8 @@ public class Event implements Serializable {
 		String url = Util.server_addr + Util.app_token + "/event/info/" + key;
 		// Add your data
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		nameValuePairs.add(new BasicNameValuePair("username", username));
-		nameValuePairs.add(new BasicNameValuePair("token", token));
+		nameValuePairs.add(new BasicNameValuePair("username", user.getUsername()));
+		nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
 		try {
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
@@ -229,13 +234,11 @@ public class Event implements Serializable {
 							+ date, e.getString("act")));
 				}
 			}
-
-			info_updated = this.toString(now);
 			return success;
 		} catch (Exception e) {
-			Log.d("Getting info [" + username + "]", e.toString());
-			Log.d("Getting info [" + username + "]", url);
-			Log.d("Getting info [" + username + "]", nameValuePairs.toString());
+			Log.d("Getting info [" + user.getUsername() + "]", e.toString());
+			Log.d("Getting info [" + user.getUsername() + "]", url);
+			Log.d("Getting info [" + user.getUsername() + "]", nameValuePairs.toString());
 			e.printStackTrace();
 			return false;
 		}
@@ -265,25 +268,6 @@ public class Event implements Serializable {
 			e.printStackTrace();
 			return false;
 		}
-	}
-
-	private Calendar fromString(String date) {
-		try {
-			Calendar cal = Calendar.getInstance();
-			SimpleDateFormat sdf = new SimpleDateFormat(Event.FORMAT,
-					Locale.ENGLISH);
-			cal.setTime(sdf.parse(date));
-			return cal;
-		} catch (ParseException e) {
-			e.printStackTrace();
-			return null;
-		}
-
-	}
-
-	private String toString(Calendar cal) {
-		SimpleDateFormat sdf = new SimpleDateFormat(Event.FORMAT);
-		return sdf.format(cal.getTime());
 	}
 
 	public String getName() {
@@ -321,6 +305,38 @@ public class Event implements Serializable {
 
 	public String getAdmin() {
 		return admin;
+	}
+	
+	public void inviteParticipants(User user, ArrayList<String> participants) {
+
+		String url = Util.server_addr + Util.app_token + "/event/invite/"+ key;
+
+		try {
+			
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", user
+					.getUsername()));
+			nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
+			
+			Iterator<String> it = participants.iterator();
+			while(it.hasNext()){
+				nameValuePairs.add(new BasicNameValuePair("who[]", it.next()));
+			}
+			
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response;
+			response = task.execute(url).get();
+			Log.d("Respuesta",response);
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			if (success) {
+				retrieveInfo(user);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d("Inviting [" + user.getUsername() + "]", e.toString());
+		}
 	}
 
 }

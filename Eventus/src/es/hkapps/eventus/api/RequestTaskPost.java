@@ -59,8 +59,11 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
             post.setEntity(entity);
             
             response = httpclient.execute(post);
+            
+            Log.d("prueba",response.toString());
+            
             StatusLine statusLine = response.getStatusLine();
-            //Log.d("POST Response: ",statusLine.getStatusCode()+"");
+            Log.d("POST Response: ",statusLine.getStatusCode()+"");
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
@@ -69,7 +72,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
                 Log.d("request", uri[0]);
                 Log.d("post",entity.toString());
                 Log.d("response", responseString);
-            } else{
+            }else{
                 //Closes the connection.
                 response.getEntity().getContent().close();
                 throw new IOException(statusLine.getReasonPhrase());

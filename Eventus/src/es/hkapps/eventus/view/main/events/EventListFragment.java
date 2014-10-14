@@ -8,7 +8,6 @@ import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.EventHelper;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.events.EventActivity;
-import es.hkapps.eventus.view.events.create.EventCreateActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.support.v4.app.ListFragment;
 
 public class EventListFragment extends ListFragment {
@@ -76,7 +74,7 @@ public class EventListFragment extends ListFragment {
 		super.onListItemClick(l, v, position, id);
 		
 		Event selected = eventList.get(position);
-		selected.retrieveInfo(user.getUsername(), user.getToken());
+		selected.retrieveInfo(user);
 		Event event = eHelper.retrieveEventByKey(selected.getKey());
 		if(event == null){
 			eHelper.save(selected);
@@ -103,13 +101,9 @@ public class EventListFragment extends ListFragment {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-		switch(id){
-		case R.id.event_list_refresh: 	this.refreshList();
-										break;
-		case R.id.event_list_create: 	Toast.makeText(getActivity(), "Nuevo Evento", Toast.LENGTH_LONG).show();
-										Intent intent = new Intent(this.getActivity(),EventCreateActivity.class);
-										this.getActivity().startActivity(intent);
-										break;
+		if (id == R.id.event_list_refresh) {
+			this.refreshList();
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}

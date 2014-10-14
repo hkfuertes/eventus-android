@@ -19,7 +19,7 @@ public class NewUserActivity extends ActionBarActivity implements OnClickListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_user);
 		
-		username = (EditText) findViewById(R.id.create_username);
+		//username = (EditText) findViewById(R.id.create_username);
 		password = (EditText) findViewById(R.id.create_password);
 		repassword = (EditText) findViewById(R.id.create_repassword);
 		
@@ -38,7 +38,7 @@ public class NewUserActivity extends ActionBarActivity implements OnClickListene
 		boolean bUsername = !username.getText().toString().equals("");
 		boolean bRepassword = password.getText().toString().equals(repassword.getText().toString());
 		if(bPassword && bUsername && bRepassword){
-			User user = new User(username.getText().toString(),
+			User user = new User(email.getText().toString(),
 					nombre.getText().toString(),
 					apellidos.getText().toString(),
 					email.getText().toString());

@@ -9,6 +9,7 @@ public class Util {
 	public static final String app_token = "NsBHwgaksWYKnYHFB3AS2DSk";
 
 	public static final String server_addr = "http://192.168.1.41/eventus/web/";
+	//public static final String server_addr = "http://192.168.1.41/eventus/web/api_dev.php/";
 	//public static final String server_addr = "http://hkfuertes.ddns.net/API/";
 	public static final String pGeneral = "eventus_preferences_general";
 	public static final String pUser = "eventus_preferences_general_user";

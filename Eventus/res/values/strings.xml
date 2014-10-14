@@ -30,5 +30,7 @@
     <string name="title_activity_event_create">EventCreateActivity</string>
     <string name="event_list_create">Nuevo</string>
     <string name="fragment_event_create">Siguiente</string>
+    <string name="add">Añadir</string>
+    <string name="close">Cerrar</string>
 
 </resources>

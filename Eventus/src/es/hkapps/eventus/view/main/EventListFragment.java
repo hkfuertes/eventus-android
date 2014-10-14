@@ -8,6 +8,7 @@ import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.EventHelper;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.events.EventActivity;
+import es.hkapps.eventus.view.main.events.EventListAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -74,7 +75,7 @@ public class EventListFragment extends ListFragment {
 		super.onListItemClick(l, v, position, id);
 		
 		Event selected = eventList.get(position);
-		selected.retrieveInfo(user.getUsername(), user.getToken());
+		selected.retrieveInfo(user);
 		Event event = eHelper.retrieveEventByKey(selected.getKey());
 		if(event == null){
 			eHelper.save(selected);

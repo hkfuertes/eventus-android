@@ -10151,3 +10151,161 @@ android.content.res.Resources$NotFoundException
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-10-14 19:56:37.530
 !MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+!SESSION 2014-10-15 16:39:55.668 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-10-15 16:40:00.645
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 4 2014-10-15 16:40:06.549
+!MESSAGE Failed
+!STACK 0
+java.lang.NullPointerException
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.getTargets(EclipseLintClient.java:916)
+	at com.android.tools.lint.detector.api.Project.readManifest(Project.java:652)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:946)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:880)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:431)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 16:50:36.481
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 16:56:37.680
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 16:57:36.609
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 16:59:31.917
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:00:54.474
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:01:24.363
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:03:16.266
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:03:21.766
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:04:34.593
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:04:50.214
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:04:54.092
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:06:52.847
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:07:29.785
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:07:33.576
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:08:12.087
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:08:17.397
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:08:27.778
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:08:33.815
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:08:41.742
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:09:41.647
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:10:37.906
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:10:40.775
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:10:51.276
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:13:42.987
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:13:49.985
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:14:45.933
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:15:32.199
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:15:45.395
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:15:50.901
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:15:58.105
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:16:18.176
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:16:29.552
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:18:00.165
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:18:13.396
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:18:23.848
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:18:42.174
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:18:52.115
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:19:05.482
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:19:39.343
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:20:39.667
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:21:21.333
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:22:17.725
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:22:37.414
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:22:46.191
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-10-15 17:23:00.100
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace

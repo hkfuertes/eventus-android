@@ -8,7 +8,7 @@ import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.EventHelper;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.events.EventActivity;
-import android.content.Intent;
+import es.hkapps.eventus.view.events.create.EventCreateActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -80,9 +80,12 @@ public class EventListFragment extends ListFragment {
 			eHelper.save(selected);
 		}
 		
+		EventActivity.launch(this.getActivity(), selected);
+		/*
 		Intent intent = new Intent(this.getActivity(), EventActivity.class)
 				.putExtra(Util.pGeneral, selected);
 		this.getActivity().startActivity(intent);
+		*/
 	}
 
 	@Override
@@ -101,9 +104,15 @@ public class EventListFragment extends ListFragment {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
+		switch(id){
+		case R.id.event_list_refresh: this.refreshList(); break;
+		case R.id.event_list_create: EventCreateActivity.launch(this.getActivity()); break;
+		}
 		if (id == R.id.event_list_refresh) {
 			this.refreshList();
 			return true;
+		}else{
+			
 		}
 		return super.onOptionsItemSelected(item);
 	}

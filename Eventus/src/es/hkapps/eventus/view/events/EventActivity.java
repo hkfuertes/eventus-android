@@ -3,13 +3,8 @@ package es.hkapps.eventus.view.events;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Locale;
 
 import es.hkapps.eventus.R;
-import es.hkapps.eventus.R.id;
-import es.hkapps.eventus.R.layout;
-import es.hkapps.eventus.R.menu;
-import es.hkapps.eventus.R.string;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.camera.CameraActivity;
 import es.hkapps.eventus.model.Event;
@@ -17,24 +12,18 @@ import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.wall.WallFragment;
 import es.hkapps.eventus.view.events.participants.*;
 import es.hkapps.eventus.view.events.program.*;
-import es.hkapps.eventus.view.events.photos.*;
 import es.hkapps.eventus.view.events.photos.PhotosFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class EventActivity extends ActionBarActivity implements
@@ -219,5 +208,13 @@ public class EventActivity extends ActionBarActivity implements
 			this.mViewPager.setCurrentItem(0);
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+
+
+	public static void launch(Activity activity, Event event) {
+		Intent intent = new Intent(activity, EventActivity.class)
+		.putExtra(Util.pGeneral, event);
+		activity.startActivity(intent);
 	}
 }

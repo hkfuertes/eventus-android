@@ -1,9 +1,6 @@
 package es.hkapps.eventus.camera;
 
 import es.hkapps.eventus.R;
-import es.hkapps.eventus.R.id;
-import es.hkapps.eventus.R.layout;
-import es.hkapps.eventus.R.menu;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.Photo;
@@ -16,7 +13,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 

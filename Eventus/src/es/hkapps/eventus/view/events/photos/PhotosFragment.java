@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
-import es.hkapps.eventus.camera.CameraActivity;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.Photo;
 import es.hkapps.eventus.model.PhotoHelper;
 import es.hkapps.eventus.model.User;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,8 +23,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class PhotosFragment extends Fragment implements OnItemClickListener {	
 	private static final String ARGUMENT_ID = "evento";
@@ -142,12 +138,6 @@ public class PhotosFragment extends Fragment implements OnItemClickListener {
 		
 		Bundle bundle = new Bundle();  
 		bundle.putSerializable("event",event);
-		
-		/*
-		Intent i = new Intent(this.getActivity(),GaleryActivity.class);
-		i.putExtras(bundle);
-		startActivity(i);
-		*/
 	}
 	
 }

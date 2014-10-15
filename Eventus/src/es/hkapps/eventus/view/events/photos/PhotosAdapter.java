@@ -40,7 +40,6 @@ public class PhotosAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		GridView grid = (GridView)parent;
 		ImageView imageView;
 		if (convertView == null) {
 			imageView = new SquareImageView(this.context);

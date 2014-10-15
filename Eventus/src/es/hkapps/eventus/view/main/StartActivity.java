@@ -8,7 +8,6 @@ import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.user.*;
-import es.hkapps.eventus.view.main.events.*;
 import es.hkapps.eventus.view.main.events.EventListFragment;
 import es.hkapps.eventus.view.wall.WallFragment;
 import android.support.v7.app.ActionBarActivity;
@@ -17,7 +16,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.support.v4.widget.DrawerLayout;
 
 public class StartActivity extends ActionBarActivity implements

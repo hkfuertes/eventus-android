@@ -1,51 +1,34 @@
 package es.hkapps.eventus.model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Serializable;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
-import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.PhotoDownloadTask;
-import es.hkapps.eventus.api.RequestTask;
 import es.hkapps.eventus.api.RequestTaskPost;
 import es.hkapps.eventus.api.Util;
 
 public class Photo implements Serializable {
+	private static final long serialVersionUID = -7818803384036585431L;
+	
 	private static final String FORMAT = "yyyy-MM-dd_HH:mm:ss";
 	private int id;
 	private String event_key;

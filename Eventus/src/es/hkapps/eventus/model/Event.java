@@ -1,10 +1,8 @@
 package es.hkapps.eventus.model;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -20,6 +18,8 @@ import es.hkapps.eventus.api.RequestTaskPost;
 import es.hkapps.eventus.api.Util;
 
 public class Event implements Serializable {
+	private static final long serialVersionUID = -5515172670058381900L;
+	
 	private String name, place, date, type, admin;
 	private String key;
 	private ArrayList<String> participants;
@@ -79,7 +79,7 @@ public class Event implements Serializable {
 			event_data.put("name", event.getName());
 			event_data.put("place", event.getPlace());
 			event_data.put("date", event.getDate());
-			event_data.put("type", "3");
+			event_data.put("type", event.getTypeId());
 			
 			//nameValuePairs.add(new BasicNameValuePair("event_data", event_data.toString()));
 			

@@ -6,8 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 public class EventCreateActivity extends ActionBarActivity implements EventCreationStepListener {
 	
@@ -27,7 +28,7 @@ public class EventCreateActivity extends ActionBarActivity implements EventCreat
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
 		ft.replace(R.id.container,fragment);
-		ft.addToBackStack(null);
+		//ft.addToBackStack(null);
 		ft.commit();
 	}
 
@@ -48,5 +49,10 @@ public class EventCreateActivity extends ActionBarActivity implements EventCreat
 		}
 		currentStep++;
 		//Toast.makeText(EventCreateActivity.this, event.getName(), Toast.LENGTH_LONG).show();
+	}
+
+	public static void launch(Activity activity) {
+		Intent intent = new Intent(activity,EventCreateActivity.class);
+		activity.startActivity(intent);
 	}
 }

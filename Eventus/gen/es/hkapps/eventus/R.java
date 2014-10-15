@@ -1279,11 +1279,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_example=0x7f050072;
+        public static final int action_example=0x7f050071;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05006b;
+        public static final int action_settings=0x7f050072;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1307,21 +1307,21 @@ containing a value of this type.
         public static final int email_login_form=0x7f050043;
         public static final int email_sign_in_button=0x7f050047;
         public static final int end=0x7f050013;
-        public static final int event_activity_action_leave=0x7f05006d;
-        public static final int event_activity_action_photo=0x7f05006c;
+        public static final int event_activity_action_leave=0x7f05006c;
+        public static final int event_activity_action_photo=0x7f05006b;
         public static final int event_date=0x7f050055;
         public static final int event_date_label=0x7f050053;
         public static final int event_info_fecha=0x7f050062;
         public static final int event_info_lugar=0x7f050060;
-        public static final int event_list_create=0x7f05006f;
-        public static final int event_list_refresh=0x7f05006e;
+        public static final int event_list_create=0x7f05006e;
+        public static final int event_list_refresh=0x7f05006d;
         public static final int event_place=0x7f050054;
         public static final int event_title_date=0x7f05003e;
         public static final int event_title_name=0x7f05003d;
         public static final int event_title_place=0x7f05003f;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
-        public static final int fragment_event_create=0x7f050070;
+        public static final int fragment_event_create=0x7f05006f;
         public static final int fragment_event_create_event_date=0x7f05005a;
         public static final int fragment_event_create_event_name=0x7f050057;
         public static final int fragment_event_create_event_place=0x7f050058;
@@ -1333,7 +1333,7 @@ containing a value of this type.
         public static final int fragment_invite_participants_list=0x7f050065;
         public static final int fragment_invite_participants_name=0x7f050063;
         public static final int fragment_photos_category=0x7f050066;
-        public static final int fragment_photos_refresh=0x7f050071;
+        public static final int fragment_photos_refresh=0x7f050070;
         public static final int fragment_photos_refresh_button=0x7f050068;
         public static final int fragment_photos_view=0x7f050067;
         public static final int home=0x7f050014;
@@ -1467,18 +1467,11 @@ containing a value of this type.
         public static final int wall_list_item=0x7f030034;
     }
     public static final class menu {
-        public static final int camera=0x7f0c0000;
-        public static final int event=0x7f0c0001;
-        public static final int event_activity_new=0x7f0c0002;
-        public static final int event_list=0x7f0c0003;
-        public static final int fragment_event_create=0x7f0c0004;
-        public static final int fragment_photos=0x7f0c0005;
-        public static final int global=0x7f0c0006;
-        public static final int login=0x7f0c0007;
-        public static final int main=0x7f0c0008;
-        public static final int start=0x7f0c0009;
-        public static final int user=0x7f0c000a;
-        public static final int wall=0x7f0c000b;
+        public static final int event=0x7f0c0000;
+        public static final int event_list=0x7f0c0001;
+        public static final int fragment_event_create=0x7f0c0002;
+        public static final int fragment_photos=0x7f0c0003;
+        public static final int wall=0x7f0c0004;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1522,7 +1515,6 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_example=0x7f0a0017;
-        public static final int action_settings=0x7f0a000f;
         public static final int action_sign_in=0x7f0a002e;
         public static final int action_sign_in_short=0x7f0a002f;
         public static final int add=0x7f0a002a;
@@ -1530,6 +1522,7 @@ containing a value of this type.
         public static final int close=0x7f0a002b;
         public static final int dummy_button=0x7f0a0025;
         public static final int dummy_content=0x7f0a0026;
+        public static final int event_activity_leave=0x7f0a000f;
         public static final int event_list_create=0x7f0a0028;
         public static final int event_list_item_date=0x7f0a001a;
         public static final int fragment_event_create=0x7f0a0029;

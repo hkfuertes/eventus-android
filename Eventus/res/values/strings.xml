@@ -3,7 +3,7 @@
 
     <string name="app_name">Eventus</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Eliminar Evento</string>
+    <string name="event_activity_leave">Salir del Evento</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_wall">Eventus</string>

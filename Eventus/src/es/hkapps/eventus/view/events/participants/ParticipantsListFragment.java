@@ -6,7 +6,7 @@ import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.User;
-import es.hkapps.eventus.view.UserActivity;
+import es.hkapps.eventus.view.user.UserActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;

@@ -3,7 +3,6 @@ package es.hkapps.eventus.view.user;
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
-import es.hkapps.eventus.view.main.StartActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,11 +24,6 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		/* Si existe el usuario no tiene sentido que le preguntemos las credenciales.
-		 * Pensando en volver de registrarnos.
-		 */
-		//if (Util.checkUser(this)) finish();
-		
 		Log.d("logineando", "login");
 		
 		submit = (Button) this.findViewById(R.id.email_sign_in_button);
@@ -45,9 +39,6 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener{
 		if (usuario.validate(pass.getText().toString())) {
 			Util.setUser(this, usuario);
 			setResult(RESULT_OK);
-			
-			Intent intent = new Intent(this, StartActivity.class);
-			startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 			finish();
 			
 		} else {

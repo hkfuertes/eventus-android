@@ -7,8 +7,9 @@ package es.hkapps.eventus.view.main;
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.User;
-import es.hkapps.eventus.view.user.*;
 import es.hkapps.eventus.view.main.events.EventListFragment;
+import es.hkapps.eventus.view.user.LoginActivity;
+import es.hkapps.eventus.view.user.UserFragment;
 import es.hkapps.eventus.view.wall.WallFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -17,6 +18,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.Toast;
 
 public class StartActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationCallbacks {
@@ -36,33 +38,42 @@ public class StartActivity extends ActionBarActivity implements
 
 	private static final int FRAGMENT_COUNT = 4;
 	private static final int EXIT_POSITION = FRAGMENT_COUNT - 1;
+
+	private static final int LOGIN = 42;
 	private Fragment[] fragment = new Fragment[FRAGMENT_COUNT];
 	private String[] title = new String[FRAGMENT_COUNT];
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if (user == null) {
-			startActivity(new Intent(this, LoginActivity.class));
-		}
+	
+	public void login() {
+		startActivityForResult(new Intent(this, LoginActivity.class), LOGIN);
 	}
 
-	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		/*
-		 * HACER QUE FUNCIONE EL LOGIN 
-		 */
-		
-		user = Util.getUser(this);
-		if (user == null || !(user instanceof User)) {
-			user = new User();
-			user.setUsername("hkfuertes");
-			user.validate("gorilafeliz");
+		if (!isLoggedIn()) {
+			login();
+		} else {
+			startup();
 		}
-		// user = Util.getUser(this);
+	}
+	
+	private boolean isLoggedIn() {
+		return (user = Util.getUser(this)) != null;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (isLoggedIn()) {
+			startup();
+		} else {
+			Toast.makeText(this, "Login canceled", Toast.LENGTH_SHORT).show();
+			finish();
+		}
+	}
+	
+	protected void startup() {
+		user = Util.getUser(this);
 		user.retrieveInfo();
 		Util.setUser(this, user);
 

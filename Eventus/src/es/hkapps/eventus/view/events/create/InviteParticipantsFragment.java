@@ -29,7 +29,7 @@ public class InviteParticipantsFragment extends Fragment implements OnClickListe
 	TextView name, place;
 	Spinner type;
 	CalendarView date;
-	private EventCreationStepListener listener;
+	private EventStepListener listener;
 
 	Event event;
 	ArrayList<String> participants = new ArrayList<String>();
@@ -109,7 +109,7 @@ public class InviteParticipantsFragment extends Fragment implements OnClickListe
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void setStepListener(EventCreationStepListener listener) {
+	public void setStepListener(EventStepListener listener) {
 		this.listener = listener;
 	}
 

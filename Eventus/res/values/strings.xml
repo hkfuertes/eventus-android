@@ -32,5 +32,6 @@
     <string name="fragment_event_create">Siguiente</string>
     <string name="add">Añadir</string>
     <string name="close">Cerrar</string>
+    <string name="event_edit">Editar</string>
 
 </resources>

@@ -36,7 +36,7 @@ public class StartActivity extends ActionBarActivity implements
 	private CharSequence mTitle;
 	private User user;
 
-	private static final int FRAGMENT_COUNT = 4;
+	private static final int FRAGMENT_COUNT = 3;
 	private static final int EXIT_POSITION = FRAGMENT_COUNT - 1;
 
 	private static final int LOGIN = 42;
@@ -81,8 +81,8 @@ public class StartActivity extends ActionBarActivity implements
 		title[0] = user.getNombreCompleto();
 		fragment[1] = EventListFragment.newInstance();
 		title[1] = "Eventos";
-		fragment[2] = WallFragment.newInstance();
-		title[2] = "Muro";
+		//fragment[2] = WallFragment.newInstance();
+		//title[2] = "Muro";
 
 		// El ultimo no cierra sesion.
 		title[EXIT_POSITION] = "Cerrar Sesion";

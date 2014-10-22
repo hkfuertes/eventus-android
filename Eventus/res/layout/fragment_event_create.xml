@@ -36,11 +36,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-    </LinearLayout>
 
-    <CalendarView
-        android:id="@+id/fragment_event_create_event_date"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+        <DatePicker
+            android:id="@+id/fragment_event_create_event_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false" />
+
+    </LinearLayout>
 
 </LinearLayout>

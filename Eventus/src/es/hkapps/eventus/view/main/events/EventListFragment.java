@@ -9,6 +9,7 @@ import es.hkapps.eventus.model.EventHelper;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.events.EventActivity;
 import es.hkapps.eventus.view.events.create.EventCreateActivity;
+import es.hkapps.eventus.view.events.create.EventEditActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -106,7 +107,7 @@ public class EventListFragment extends ListFragment {
 		int id = item.getItemId();
 		switch(id){
 		case R.id.event_list_refresh: this.refreshList(); break;
-		case R.id.event_list_create: EventCreateActivity.launch(this.getActivity()); break;
+		case R.id.event_list_create: EventEditActivity.launch(this.getActivity()); break;
 		}
 		if (id == R.id.event_list_refresh) {
 			this.refreshList();

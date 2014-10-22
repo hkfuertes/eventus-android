@@ -10,7 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class EventCreateActivity extends ActionBarActivity implements EventStepListener {
+public class EventEditActivity extends ActionBarActivity implements EventStepListener {
 	
 	Event event;
 	int currentStep = 0;
@@ -19,6 +19,10 @@ public class EventCreateActivity extends ActionBarActivity implements EventStepL
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event_create);
+		
+		//Recuperamos y vemos si nos han pasado un evento.
+		Intent intent = this.getIntent();
+		event = (Event) intent.getSerializableExtra(Event.EVENT_TAG);
 		
 		this.onStepCompleted(null, event);
 	}
@@ -36,9 +40,10 @@ public class EventCreateActivity extends ActionBarActivity implements EventStepL
 	public void onStepCompleted(Fragment fragment, Event event) {
 		this.event = event;
 		if(currentStep == 0){
-			EventCreateFragment step = EventCreateFragment.newInstance(null);
+			EventCreateFragment step = EventCreateFragment.newInstance(event);
 			step.setStepListener(this);
-			this.setFragment("Nuevo Evento", step);
+			if(event != null) this.setFragment("Editar "+event.getName(), step);
+			else this.setFragment("Nuevo Evento", step);
 		}else if(currentStep == 1){
 			InviteParticipantsFragment step = InviteParticipantsFragment.newInstance(event);
 			step.setStepListener(this);
@@ -52,7 +57,13 @@ public class EventCreateActivity extends ActionBarActivity implements EventStepL
 	}
 
 	public static void launch(Activity activity) {
-		Intent intent = new Intent(activity,EventCreateActivity.class);
+		Intent intent = new Intent(activity,EventEditActivity.class);
+		activity.startActivity(intent);
+	}
+	
+	public static void launch(Activity activity, Event event) {
+		Intent intent = new Intent(activity,EventEditActivity.class);
+		intent.putExtra(Event.EVENT_TAG, event);
 		activity.startActivity(intent);
 	}
 }

@@ -1,5 +1,6 @@
 package es.hkapps.eventus.view.events.create;
 
+
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
@@ -13,22 +14,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class EventCreateFragment extends Fragment {
+	private static final String EVENT = "event";
 	TextView name, place;
 	Spinner type;
-	CalendarView date;
-	private EventCreationStepListener listener;
+	DatePicker date;
+	private EventStepListener listener;
+	private Event event;
 
 	/* Singleton */
 	public static EventCreateFragment newInstance(Event event) {
 		EventCreateFragment fragment = new EventCreateFragment();
 		Bundle bundle = new Bundle();
-		bundle.putSerializable("event", event);
+		bundle.putSerializable(EVENT, event);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -40,6 +43,7 @@ public class EventCreateFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		event = this.getEvent();
 		// Inflate the layout for this fragment
 		View v = inflater.inflate(R.layout.fragment_event_create, container,
 				false);
@@ -48,16 +52,28 @@ public class EventCreateFragment extends Fragment {
 		place = (TextView) v
 				.findViewById(R.id.fragment_event_create_event_place);
 
-		date = (CalendarView) v
+		date = (DatePicker) v
 				.findViewById(R.id.fragment_event_create_event_date);
 		type = (Spinner) v.findViewById(R.id.fragment_event_create_event_type);
 
 		type.setAdapter(new ArrayAdapter<String>(this.getActivity(),
 				android.R.layout.simple_list_item_1, Event.EVENT_TYPES));
+		
+		if(event!=null){
+			name.setText(event.getName());
+			place.setText(event.getPlace());
+			type.setSelection(event.getEventTypeId(event.getType()));
+			int[] values = event.getDateNumbers();
+			date.updateDate(values[0], values[1], values[2]);
+		}
 
 		return v;
 	}
 
+	private Event getEvent() {
+		return (Event) getArguments().getSerializable(EVENT);
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -82,11 +98,17 @@ public class EventCreateFragment extends Fragment {
 			if ((nameStr = name.getText().toString()) != ""
 					&& (placeStr = place.getText().toString()) != "") {
 
+				String date = this.date.getYear() + "-" + this.date.getMonth() + "-" +  this.date.getDayOfMonth();
+				
 				User user = Util.getUser(getActivity());
-				Event event = new Event(nameStr, placeStr, user, date.getDate(),
-						Event.EVENT_TYPES[type.getSelectedItemPosition()]);
-
-				event = Event.createEvent(user, event);
+				if(event == null) event = new Event();
+				event.setName(nameStr);
+				event.setPlace(placeStr);
+				event.setAdmin(user.getUsername());
+				event.setDate(date);
+				event.setType(Event.EVENT_TYPES[type.getSelectedItemPosition()]);
+		
+				event = Event.editEvent(user, event);
 				// Toast.makeText(getActivity(), event.getKey(),
 				// Toast.LENGTH_LONG).show();
 				if (listener != null)
@@ -97,7 +119,7 @@ public class EventCreateFragment extends Fragment {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void setStepListener(EventCreationStepListener listener) {
+	public void setStepListener(EventStepListener listener) {
 		this.listener = listener;
 	}
 

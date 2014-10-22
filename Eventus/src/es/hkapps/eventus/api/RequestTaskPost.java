@@ -56,7 +56,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
             
             response = httpclient.execute(post);
             
-            Log.d("prueba",response.toString());
+            Log.d("POST Data", entity.toString());
             
             StatusLine statusLine = response.getStatusLine();
             Log.d("POST Response: ",statusLine.getStatusCode()+"");

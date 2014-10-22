@@ -20,6 +20,7 @@ public class EventCreatedFragment extends Fragment implements OnClickListener {
 	private Event event;
 	private Button close;
 	private boolean standalone = false;
+	private TextView key;
 
 	/* Singleton */
 	public static EventCreatedFragment newInstance(Event event) {
@@ -60,10 +61,12 @@ public class EventCreatedFragment extends Fragment implements OnClickListener {
 
 		name = (TextView) v
 				.findViewById(R.id.fragment_event_created_event_name);
+		key = (TextView) v.findViewById(R.id.fragment_event_created_event_key);
 		if (event != null && event instanceof Event) {
 			// Toast.makeText(getActivity(), "Evento Creado: "+ event,
 			// Toast.LENGTH_LONG).show();
 			name.setText(event.getName().toString());
+			key.setText(event.getKey().toString());
 		}
 
 		close = (Button) v.findViewById(R.id.fragment_event_created_close);

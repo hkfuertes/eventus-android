@@ -10,6 +10,7 @@ import es.hkapps.eventus.camera.CameraActivity;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.wall.WallFragment;
+import es.hkapps.eventus.view.events.create.EventEditActivity;
 import es.hkapps.eventus.view.events.participants.*;
 import es.hkapps.eventus.view.events.program.*;
 import es.hkapps.eventus.view.events.photos.PhotosFragment;
@@ -38,7 +39,7 @@ public class EventActivity extends ActionBarActivity implements
 	 */
 	EventActivityPagerAdapter mSectionsPagerAdapter;
 	
-	private static final int FRAGMENT_COUNT = 4;
+	private static final int FRAGMENT_COUNT = 3;
 
 	Fragment[] fragment = new Fragment[FRAGMENT_COUNT];
 	String[] title = new String[FRAGMENT_COUNT];
@@ -70,18 +71,18 @@ public class EventActivity extends ActionBarActivity implements
 		final ActionBar actionBar = getSupportActionBar();
 		
 		
-		fragment[0] = WallFragment.newInstance(event);
-		title[0] = "Muro";
-		resource[0] = R.drawable.ic_action_chat;
-		fragment[1] = EventProgramFragment.newInstance(event);
-		title[1] = "Programa";
-		resource[1] = R.drawable.ic_action_event;
-		fragment[2] = ParticipantsListFragment.newInstance(event);
-		title[2] = "Invitados";
-		resource[2] = R.drawable.ic_action_person;
-		fragment[3] = PhotosFragment.newInstance(event);
-		title[3] = "Fotos de este evento";
-		resource[3] = R.drawable.ic_action_picture;
+		//fragment[0] = WallFragment.newInstance(event);
+		//title[0] = "Muro";
+		//resource[0] = R.drawable.ic_action_chat;
+		fragment[0] = EventProgramFragment.newInstance(event);
+		title[0] = "Programa";
+		resource[0] = R.drawable.ic_action_event;
+		fragment[1] = ParticipantsListFragment.newInstance(event);
+		title[1] = "Invitados";
+		resource[1] = R.drawable.ic_action_person;
+		fragment[2] = PhotosFragment.newInstance(event);
+		title[2] = "Fotos de este evento";
+		resource[2] = R.drawable.ic_action_picture;
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
@@ -187,6 +188,17 @@ public class EventActivity extends ActionBarActivity implements
 		getMenuInflater().inflate(R.menu.event, menu);
 		return true;
 	}
+	
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		User user = Util.getUser(this);
+		//Si no soy administrador, no puedo cambiar nada.
+	    if(!user.getUsername().equals(event.getAdmin())){
+	    	menu.removeItem(R.id.event_activity_action_edit);
+	    }
+
+	    return true;
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -203,6 +215,9 @@ public class EventActivity extends ActionBarActivity implements
 			Intent intent = new Intent(this, CameraActivity.class).putExtra(
 					Util.pGeneral, event);
 			startActivity(intent);
+			break;
+		case R.id.event_activity_action_edit:
+			EventEditActivity.launch(this, event);
 			break;
 		default:
 			this.mViewPager.setCurrentItem(0);

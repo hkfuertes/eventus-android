@@ -1,8 +1,11 @@
 package es.hkapps.eventus.model;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -19,7 +22,7 @@ import es.hkapps.eventus.api.Util;
 
 public class Event implements Serializable {
 	private static final long serialVersionUID = -5515172670058381900L;
-	
+
 	private String name, place, date, type, admin;
 	private String key;
 	private ArrayList<String> participants;
@@ -30,7 +33,9 @@ public class Event implements Serializable {
 
 	private long id = System.currentTimeMillis();
 
-	private static final String FORMAT = "yyyy-MM-dd";
+	private static final String FORMAT = "dd-MM-yyyy";
+
+	public static final String EVENT_TAG = "tag_para_eventos";
 
 	public Event(String key) {
 		this.key = key;
@@ -47,15 +52,47 @@ public class Event implements Serializable {
 		this(key);
 		retrieveInfo(user);
 	}
-	
-	public Event(String name, String place, User admin, long date, String type){
-		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT,
-				Locale.ENGLISH);
-		
+	public Event(){
+		this(null);
+	}
+
+	public int getEventTypeId(String type) {
+		return java.util.Arrays.asList(Event.EVENT_TYPES).indexOf(type);
+	}
+
+	public int getEventTypeId() {
+		return this.getEventTypeId(this.type);
+	}
+
+	public int[] getDateNumbers() {
+		Calendar c = Calendar.getInstance();
+		try {
+			SimpleDateFormat form = new SimpleDateFormat(FORMAT);
+			Date d = form.parse(date);
+			Log.d("fechas",date + " "+FORMAT);
+			c.setTime(d);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return new int[] { c.get(Calendar.YEAR), c.get(Calendar.MONTH),
+				c.get(Calendar.DAY_OF_MONTH) };
+	}
+
+	public Event(String name, String place, User admin, long date, String type) {
+		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT, Locale.ENGLISH);
+
 		this.name = name;
 		this.place = place;
 		this.admin = admin.getUsername();
 		this.date = sdf.format(date);
+		this.type = type;
+	}
+
+	public Event(String name, String place, User admin, String date, String type) {
+		this.name = name;
+		this.place = place;
+		this.admin = admin.getUsername();
+		this.date = date;
 		this.type = type;
 	}
 
@@ -64,32 +101,37 @@ public class Event implements Serializable {
 		String url = Util.server_addr + Util.app_token + "/event/create";
 
 		try {
-			
+
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 			nameValuePairs.add(new BasicNameValuePair("username", user
 					.getUsername()));
-			nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
-			
-			nameValuePairs.add(new BasicNameValuePair("event_data[name]", event.getName()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[place]", event.getPlace()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[date]", event.getDate()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[event_type_id]", "3"));
-			
+			nameValuePairs
+					.add(new BasicNameValuePair("token", user.getToken()));
+
+			nameValuePairs.add(new BasicNameValuePair("event_data[name]", event
+					.getName()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[place]",
+					event.getPlace()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[date]", event
+					.getDate()));
+			nameValuePairs.add(new BasicNameValuePair(
+					"event_data[event_type_id]", event.getEventTypeId() + ""));
+
 			JSONObject event_data = new JSONObject();
 			event_data.put("name", event.getName());
 			event_data.put("place", event.getPlace());
 			event_data.put("date", event.getDate());
 			event_data.put("type", event.getTypeId());
-			
-			//nameValuePairs.add(new BasicNameValuePair("event_data", event_data.toString()));
-			
+
+			// nameValuePairs.add(new BasicNameValuePair("event_data",
+			// event_data.toString()));
+
 			Log.d("POST Create Event", nameValuePairs.toString());
-			
-			
+
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
 			response = task.execute(url).get();
-			Log.d("Respuesta",response);
+			Log.d("Respuesta", response);
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {
@@ -104,11 +146,57 @@ public class Event implements Serializable {
 			return null;
 		}
 	}
+	
+	public static Event editEvent(User user, Event event) {
+
+		String url = Util.server_addr + Util.app_token + "/event/save";
+
+		try {
+
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", user
+					.getUsername()));
+			nameValuePairs
+					.add(new BasicNameValuePair("token", user.getToken()));
+
+			nameValuePairs.add(new BasicNameValuePair("event_data[name]", event
+					.getName()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[place]",
+					event.getPlace()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[date]", event
+					.getDate()));
+			nameValuePairs.add(new BasicNameValuePair(
+					"event_data[event_type_id]", event.getEventTypeId() + ""));
+			
+			if(event.getKey() != null && !event.getKey().equals(""))
+				nameValuePairs.add(new BasicNameValuePair(
+					"event_data[key]", event.getKey()));
+
+			
+
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response;
+			response = task.execute(url).get();
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			if (success) {
+				JSONObject retEvent = jObj.getJSONObject("event");
+				event.setKey(retEvent.getString("key"));
+			}
+			return event;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d("Saving [" + user.getUsername() + "]", e.toString());
+			return null;
+		}
+	}
 
 	private int getTypeId() {
 		int retVal = -1;
-		for(int i = 0; i<EVENT_TYPES.length; i++){
-			if(EVENT_TYPES[i] == this.getType()) retVal = i;
+		for (int i = 0; i < EVENT_TYPES.length; i++) {
+			if (EVENT_TYPES[i] == this.getType())
+				retVal = i;
 		}
 		return retVal;
 	}
@@ -166,23 +254,23 @@ public class Event implements Serializable {
 		}
 	}
 
-	void setAdmin(String admin) {
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 
-	void setType(String type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
-	void setPlace(String place) {
+	public void setPlace(String place) {
 		this.place = place;
 	}
 
-	void setDate(String date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -203,7 +291,8 @@ public class Event implements Serializable {
 		String url = Util.server_addr + Util.app_token + "/event/info/" + key;
 		// Add your data
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		nameValuePairs.add(new BasicNameValuePair("username", user.getUsername()));
+		nameValuePairs.add(new BasicNameValuePair("username", user
+				.getUsername()));
 		nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
 		try {
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
@@ -238,7 +327,8 @@ public class Event implements Serializable {
 		} catch (Exception e) {
 			Log.d("Getting info [" + user.getUsername() + "]", e.toString());
 			Log.d("Getting info [" + user.getUsername() + "]", url);
-			Log.d("Getting info [" + user.getUsername() + "]", nameValuePairs.toString());
+			Log.d("Getting info [" + user.getUsername() + "]",
+					nameValuePairs.toString());
 			e.printStackTrace();
 			return false;
 		}
@@ -306,27 +396,28 @@ public class Event implements Serializable {
 	public String getAdmin() {
 		return admin;
 	}
-	
+
 	public void inviteParticipants(User user, ArrayList<String> participants) {
 
-		String url = Util.server_addr + Util.app_token + "/event/invite/"+ key;
+		String url = Util.server_addr + Util.app_token + "/event/invite/" + key;
 
 		try {
-			
+
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 			nameValuePairs.add(new BasicNameValuePair("username", user
 					.getUsername()));
-			nameValuePairs.add(new BasicNameValuePair("token", user.getToken()));
-			
+			nameValuePairs
+					.add(new BasicNameValuePair("token", user.getToken()));
+
 			Iterator<String> it = participants.iterator();
-			while(it.hasNext()){
+			while (it.hasNext()) {
 				nameValuePairs.add(new BasicNameValuePair("who[]", it.next()));
 			}
-			
+
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
 			response = task.execute(url).get();
-			Log.d("Respuesta",response);
+			Log.d("Respuesta", response);
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {

@@ -13,6 +13,8 @@ public class Util {
 	//public static final String server_addr = "http://hkfuertes.ddns.net/API/";
 	public static final String pGeneral = "eventus_preferences_general";
 	public static final String pUser = "eventus_preferences_general_user";
+	
+	public static final String server_addr_dev = "http://192.168.1.41/eventus/web/api_dev.php/";
 
 	public static void setUser(Activity act, User user) {
 		// We save the username on prefs...

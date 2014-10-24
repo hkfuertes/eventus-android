@@ -28,7 +28,7 @@ public class Event implements Serializable {
 	private ArrayList<String> participants;
 	private ArrayList<ProgramEntry> program;
 
-	public static final String[] EVENT_TYPES = { "Boda", "Bautizo", "Comunion",
+	public static final String[] EVENT_TYPES = {"Desconocido", "Boda", "Bautizo", "Comunion",
 			"Graduacion" };
 
 	private long id = System.currentTimeMillis();
@@ -201,7 +201,7 @@ public class Event implements Serializable {
 		return retVal;
 	}
 
-	private void setKey(String key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 
@@ -428,6 +428,17 @@ public class Event implements Serializable {
 			e.printStackTrace();
 			Log.d("Inviting [" + user.getUsername() + "]", e.toString());
 		}
+	}
+
+	public Date getDateObject() {
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat(FORMAT);
+		try {
+		    date = format.parse(this.date);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return date;
 	}
 
 }

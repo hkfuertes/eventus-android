@@ -61,6 +61,7 @@ public class EventCreateFragment extends Fragment {
 		
 		if(event!=null){
 			name.setText(event.getName());
+			name.setVisibility(View.GONE);
 			place.setText(event.getPlace());
 			type.setSelection(event.getEventTypeId(event.getType()));
 			int[] values = event.getDateNumbers();

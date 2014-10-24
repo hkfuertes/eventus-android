@@ -1,6 +1,8 @@
 package es.hkapps.eventus.view.main.events;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
@@ -8,7 +10,6 @@ import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.EventHelper;
 import es.hkapps.eventus.model.User;
 import es.hkapps.eventus.view.events.EventActivity;
-import es.hkapps.eventus.view.events.create.EventCreateActivity;
 import es.hkapps.eventus.view.events.create.EventEditActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -60,6 +61,7 @@ public class EventListFragment extends ListFragment {
 		eventList = Event
 				.retrieveEventList(user.getUsername(), user.getToken());
 		if (eventList != null) {
+			Collections.sort(eventList,new EventComparator());
 			adapter.refresh(eventList);
 		}
 	}
@@ -82,11 +84,6 @@ public class EventListFragment extends ListFragment {
 		}
 		
 		EventActivity.launch(this.getActivity(), selected);
-		/*
-		Intent intent = new Intent(this.getActivity(), EventActivity.class)
-				.putExtra(Util.pGeneral, selected);
-		this.getActivity().startActivity(intent);
-		*/
 	}
 
 	@Override
@@ -117,4 +114,11 @@ public class EventListFragment extends ListFragment {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+}
+
+class EventComparator implements Comparator<Event> {
+    @Override
+    public int compare(Event o1, Event o2) {
+        return o1.getDateObject().compareTo(o2.getDateObject());
+    }
 }

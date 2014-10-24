@@ -195,6 +195,8 @@ public class EventActivity extends ActionBarActivity implements
 		//Si no soy administrador, no puedo cambiar nada.
 	    if(!user.getUsername().equals(event.getAdmin())){
 	    	menu.removeItem(R.id.event_activity_action_edit);
+	    }else{
+	    	menu.findItem(R.id.event_activity_action_leave).setTitle(R.string.event_activity_leave_admin);
 	    }
 
 	    return true;

@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="es.hkapps.eventus.EventCreateActivity" >
+
+    <item
+        android:id="@+id/fragment_event_invite_pick"
+        android:title="Elegir"
+        android:icon="@drawable/ic_action_new"
+        app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/fragment_event_create"
+        android:title="@string/fragment_event_create"
+        app:showAsAction="always"/>
+    
+    
+
+</menu>

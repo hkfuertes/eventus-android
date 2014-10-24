@@ -4,6 +4,7 @@
     <string name="app_name">Eventus</string>
     <string name="hello_world">Hello world!</string>
     <string name="event_activity_leave">Salir del Evento</string>
+    <string name="event_activity_leave_admin">Borrar evento</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_wall">Eventus</string>
@@ -33,5 +34,6 @@
     <string name="add">Añadir</string>
     <string name="close">Cerrar</string>
     <string name="event_edit">Editar</string>
+    <string name="event_saved">Evento guardado.</string>
 
 </resources>

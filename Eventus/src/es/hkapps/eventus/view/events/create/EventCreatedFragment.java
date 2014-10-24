@@ -84,6 +84,7 @@ public class EventCreatedFragment extends Fragment implements OnClickListener {
 		}else{
 			Intent intent = new Intent(this.getActivity(), EventActivity.class)
 				.putExtra(Util.pGeneral, event);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			this.getActivity().startActivity(intent);
 		}
 	}

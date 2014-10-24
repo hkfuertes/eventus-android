@@ -28,6 +28,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
 	private HttpEntity entity;
 	
 	public RequestTaskPost(List<NameValuePair> nameValuePairs) {
+		 Log.d("POST Data", nameValuePairs.toString());
 			try {
 				this.entity = new UrlEncodedFormEntity(nameValuePairs);
 			} catch (UnsupportedEncodingException e) {
@@ -55,9 +56,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
             post.setEntity(entity);
             
             response = httpclient.execute(post);
-            
-            Log.d("POST Data", entity.toString());
-            
+
             StatusLine statusLine = response.getStatusLine();
             Log.d("POST Response: ",statusLine.getStatusCode()+"");
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){

@@ -8,9 +8,15 @@
         app:showAsAction="always" 
         android:icon="@drawable/ic_refresh"/>
     <item
-        android:id="@+id/event_list_create"
+        android:id="@+id/event_list_join"
         android:title="@string/event_list_create"
         android:icon="@drawable/ic_action_new"
         app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/event_list_create"
+        android:title="@string/event_list_create"
+        android:icon="@drawable/ic_action_new"
+        app:showAsAction="never" />
 
 </menu>

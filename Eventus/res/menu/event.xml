@@ -16,5 +16,10 @@
     <item android:id="@+id/event_activity_action_edit" 
         android:title="@string/event_edit"
         app:showAsAction="never" />
+    
+    <item android:id="@+id/event_activity_action_share" 
+        android:title="@string/event_share"
+        android:icon="@drawable/ic_action_share"
+        app:showAsAction="always" />
 
 </menu>

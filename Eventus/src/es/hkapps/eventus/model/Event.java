@@ -33,7 +33,7 @@ public class Event implements Serializable {
 
 	private long id = System.currentTimeMillis();
 
-	private static final String FORMAT = "dd-MM-yyyy";
+	public static final String FORMAT = "dd-MM-yyyy";
 
 	public static final String EVENT_TAG = "tag_para_eventos";
 
@@ -96,9 +96,9 @@ public class Event implements Serializable {
 		this.type = type;
 	}
 
-	public static Event createEvent(User user, Event event) {
+	public Event join(User user) {
 
-		String url = Util.server_addr + Util.app_token + "/event/create";
+		String url = Util.server_addr + Util.app_token + "/event/join/"+ this.key;
 
 		try {
 
@@ -108,25 +108,8 @@ public class Event implements Serializable {
 			nameValuePairs
 					.add(new BasicNameValuePair("token", user.getToken()));
 
-			nameValuePairs.add(new BasicNameValuePair("event_data[name]", event
-					.getName()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[place]",
-					event.getPlace()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[date]", event
-					.getDate()));
-			nameValuePairs.add(new BasicNameValuePair(
-					"event_data[event_type_id]", event.getEventTypeId() + ""));
-
-			JSONObject event_data = new JSONObject();
-			event_data.put("name", event.getName());
-			event_data.put("place", event.getPlace());
-			event_data.put("date", event.getDate());
-			event_data.put("type", event.getTypeId());
-
-			// nameValuePairs.add(new BasicNameValuePair("event_data",
-			// event_data.toString()));
-
-			Log.d("POST Create Event", nameValuePairs.toString());
+			nameValuePairs.add(new BasicNameValuePair("key", this.key));
+			Log.d("POST Join Event", nameValuePairs.toString());
 
 			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
 			String response;
@@ -135,10 +118,9 @@ public class Event implements Serializable {
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {
-				JSONObject retEvent = jObj.getJSONObject("event");
-				event.setKey(retEvent.getString("key"));
+				this.retrieveInfo(user);
 			}
-			return event;
+			return this;
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -147,7 +129,7 @@ public class Event implements Serializable {
 		}
 	}
 	
-	public static Event editEvent(User user, Event event) {
+	public Event saveEvent(User user) {
 
 		String url = Util.server_addr + Util.app_token + "/event/save";
 
@@ -159,18 +141,15 @@ public class Event implements Serializable {
 			nameValuePairs
 					.add(new BasicNameValuePair("token", user.getToken()));
 
-			nameValuePairs.add(new BasicNameValuePair("event_data[name]", event
-					.getName()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[place]",
-					event.getPlace()));
-			nameValuePairs.add(new BasicNameValuePair("event_data[date]", event
-					.getDate()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[name]", getName()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[place]",getPlace()));
+			nameValuePairs.add(new BasicNameValuePair("event_data[date]", getDate()));
 			nameValuePairs.add(new BasicNameValuePair(
-					"event_data[event_type_id]", event.getEventTypeId() + ""));
+					"event_data[event_type_id]", getEventTypeId() + ""));
 			
-			if(event.getKey() != null && !event.getKey().equals(""))
+			if(getKey() != null && !getKey().equals(""))
 				nameValuePairs.add(new BasicNameValuePair(
-					"event_data[key]", event.getKey()));
+					"event_data[key]", getKey()));
 
 			
 
@@ -181,9 +160,9 @@ public class Event implements Serializable {
 			boolean success = jObj.getBoolean("success");
 			if (success) {
 				JSONObject retEvent = jObj.getJSONObject("event");
-				event.setKey(retEvent.getString("key"));
+				setKey(retEvent.getString("key"));
 			}
-			return event;
+			return this;
 
 		} catch (Exception e) {
 			e.printStackTrace();

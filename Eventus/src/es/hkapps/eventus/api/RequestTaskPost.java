@@ -59,7 +59,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
 
             StatusLine statusLine = response.getStatusLine();
             Log.d("POST Response: ",statusLine.getStatusCode()+"");
-            if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+            if(statusLine.getStatusCode() == HttpStatus.SC_OK || true){
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
                 out.close();

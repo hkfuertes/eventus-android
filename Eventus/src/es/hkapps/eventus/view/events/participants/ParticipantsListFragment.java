@@ -85,5 +85,7 @@ public class ParticipantsListFragment extends ListFragment {
 		// Inflate the layout for this fragment
 		return inflater.inflate(R.layout.fragment_participants_list, container, false);
 	}
+	
+	
 }
 

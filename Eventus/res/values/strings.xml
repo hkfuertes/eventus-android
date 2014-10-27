@@ -29,11 +29,17 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_event_create">EventCreateActivity</string>
-    <string name="event_list_create">Nuevo</string>
+    <string name="event_list_create">Crear evento</string>
     <string name="fragment_event_create">Siguiente</string>
     <string name="add">Añadir</string>
     <string name="close">Cerrar</string>
     <string name="event_edit">Editar</string>
     <string name="event_saved">Evento guardado.</string>
+    <string name="dialog_join">Unirse</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_join_message">Pon aquí el codigo del evento.</string>
+    <string name="dialog_join_title">Unirse a un evento</string>
+    <string name="event_share">Te invito a mi evento. Pega este codigo en Eventus y accede a las fotos.\n¡No te quedes fuera!\nCodigo:</string>
+    <string name="event_share_using">Compartir via</string>
 
 </resources>

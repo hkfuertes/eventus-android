@@ -221,12 +221,23 @@ public class EventActivity extends ActionBarActivity implements
 		case R.id.event_activity_action_edit:
 			EventEditActivity.launch(this, event);
 			break;
+		case R.id.event_activity_action_share:
+			shareEvent();
+			break;
 		default:
 			this.mViewPager.setCurrentItem(0);
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
+	private void shareEvent(){
+		String shareBody = getString(R.string.event_share)+" "+event.getKey();
+	    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+	        sharingIntent.setType("text/plain");
+	        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+	        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+	        startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.event_share_using)));
+	}
 
 
 	public static void launch(Activity activity, Event event) {

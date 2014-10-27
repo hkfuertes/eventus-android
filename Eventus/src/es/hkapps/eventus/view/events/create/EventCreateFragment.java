@@ -109,7 +109,7 @@ public class EventCreateFragment extends Fragment {
 				event.setDate(date);
 				event.setType(Event.EVENT_TYPES[type.getSelectedItemPosition()]);
 		
-				event = Event.editEvent(user, event);
+				event = event.saveEvent(user);
 				// Toast.makeText(getActivity(), event.getKey(),
 				// Toast.LENGTH_LONG).show();
 				if (listener != null)

@@ -8,14 +8,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
-public class ProgramEntryListAdapter extends BaseAdapter {
+public class ProgramEntryListAdapter extends BaseAdapter implements OnClickListener {
 
     private LayoutInflater layoutInflater;
     private ArrayList<ProgramEntry> feed;
+    private boolean edit = false;
+	private Button remove;
 
     public ProgramEntryListAdapter(Activity activity, ArrayList<ProgramEntry> feed) {
 
@@ -23,6 +29,11 @@ public class ProgramEntryListAdapter extends BaseAdapter {
 
         layoutInflater = (LayoutInflater) activity
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+    
+    public ProgramEntryListAdapter(Activity activity, ArrayList<ProgramEntry> feed, boolean edit) {
+    	this(activity,feed);
+    	this.edit = edit;
     }
 
     @Override
@@ -46,17 +57,43 @@ public class ProgramEntryListAdapter extends BaseAdapter {
 
         // Inflate the item layout and set the views
         View listItem = convertView;
+        ProgramEntry item = this.getItem(position);
         if (listItem == null) {
-            listItem = layoutInflater.inflate(R.layout.program_entry_list_item, null);
+        	if(edit){
+        		listItem = layoutInflater.inflate(R.layout.program_entry_list_item_edit, null);
+	        	remove = (Button) listItem.findViewById(R.id.program_remove);
+	            remove.setTag(position);
+	            remove.setOnClickListener(this);
+	            
+	            TimePicker time = (TimePicker) listItem.findViewById(R.id.program_time);
+	            time.setIs24HourView(true);
+	            time.setCurrentHour(item.getHour());
+	            time.setCurrentMinute(item.getMinutes());
+	            
+	            EditText act = (EditText) listItem.findViewById(R.id.program_act);
+                act.setText(item.getAct());
+        	}
+        	else{
+        		listItem = layoutInflater.inflate(R.layout.program_entry_list_item, null);
+        		TextView time = (TextView) listItem.findViewById(R.id.program_time);
+        		time.setText(item.getTime("HH:mm"));
+        		TextView act = (TextView) listItem.findViewById(R.id.program_act);
+                act.setText(item.getAct());
+        	}
+        		
         }
-
-        TextView time = (TextView) listItem.findViewById(R.id.program_time);
-        TextView act = (TextView) listItem.findViewById(R.id.program_act);
-
-        // Set the views in the layout
-        time.setText(this.getItem(position).getTime("HH:mm"));
-        act.setText(this.getItem(position).getAct());
-
         return listItem;
     }
+    
+    
+    public ArrayList<ProgramEntry> getList(){
+		return feed;
+    }
+
+	@Override
+	public void onClick(View v) {
+		int position = (Integer) v.getTag();
+		this.feed.remove(position);
+		this.notifyDataSetChanged();
+	}
 }

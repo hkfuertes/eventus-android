@@ -3,14 +3,21 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="5dp"
     android:background="#eee" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
+        <Button 
+            android:text="X"
+            android:id="@+id/program_remove"
+            android:background="@drawable/border"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
-        <TextView
+        <TimePicker
             android:id="@+id/program_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,17 +25,10 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="normal|bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" | "
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="normal|bold" />
-
-        <TextView
+        <EditText
             android:id="@+id/program_act"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:text="act"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 

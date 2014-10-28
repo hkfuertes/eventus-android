@@ -1,4 +1,4 @@
-package es.hkapps.eventus.view.events.create;
+package es.hkapps.eventus.view.events.participants;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ import es.hkapps.eventus.R;
 import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.User;
+import es.hkapps.eventus.view.events.create.EventStepListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;

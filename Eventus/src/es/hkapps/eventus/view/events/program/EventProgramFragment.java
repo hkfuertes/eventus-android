@@ -5,13 +5,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import es.hkapps.eventus.R;
+import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.ProgramEntry;
+import es.hkapps.eventus.model.User;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -41,11 +46,14 @@ public class EventProgramFragment extends ListFragment {
 	public EventProgramFragment() {
 		// Required empty public constructor
 	}
+	
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-
+	    setHasOptionsMenu(true);
+	    
 	    Bundle args = getArguments();
 	    if (args != null) {
 	    	event = (Event) args.getSerializable(ARGUMENT_ID);
@@ -124,4 +132,21 @@ public class EventProgramFragment extends ListFragment {
 		intent.putExtra("description",description);
 		startActivity(intent);
 	}
+	
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.fragment_program, menu);
+		super.onCreateOptionsMenu(menu, inflater);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.fragment_program_edit:
+			ProgramEditActivity.launch(getActivity(), event);
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 }

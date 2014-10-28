@@ -2,6 +2,7 @@ package es.hkapps.eventus.view.events.create;
 
 import es.hkapps.eventus.R;
 import es.hkapps.eventus.model.Event;
+import es.hkapps.eventus.view.events.participants.InviteParticipantsListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

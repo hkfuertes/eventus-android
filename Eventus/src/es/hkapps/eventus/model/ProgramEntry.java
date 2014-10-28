@@ -47,6 +47,15 @@ public class ProgramEntry implements Comparator<ProgramEntry>, Serializable {
 		else return new SimpleDateFormat(format,Locale.ENGLISH).format(date);
 	}
 	
+	public int getHour(){
+		String hourStr = getTime("HH");
+		return Integer.parseInt(hourStr);
+	}
+	public int getMinutes(){
+		String minStr = getTime("mm");
+		return Integer.parseInt(minStr);
+	}
+	
 	public String getAct(){
 		return act;
 	}

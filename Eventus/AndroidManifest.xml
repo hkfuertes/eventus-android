@@ -56,11 +56,11 @@
             android:name="es.hkapps.eventus.view.events.create.EventEditActivity"
             android:label="@string/title_activity_event_create" 
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name="es.hkapps.eventus.view.events.program.ProgramEditActivity"
+            android:label="@string/activity_program_edit" 
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

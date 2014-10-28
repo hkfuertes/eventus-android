@@ -41,5 +41,8 @@
     <string name="dialog_join_title">Unirse a un evento</string>
     <string name="event_share">Te invito a mi evento. Pega este codigo en Eventus y accede a las fotos.\n¡No te quedes fuera!\nCodigo:</string>
     <string name="event_share_using">Compartir via</string>
+    
+    <!-- Activity Names -->
+    <string name="activity_program_edit">Editar programa</string>
 
 </resources>

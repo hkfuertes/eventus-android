@@ -3,58 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Verde"
-    tools:context="es.hkapps.eventus.view.UserFragment" >
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:id="@+id/wall_list_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="informacion del evento"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    android:background="#eee" 
+    android:padding="20dp">
+    
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding = "20dp"
+        android:background="@drawable/card_background" >
 
-        <TextView
-            android:id="@+id/TextView01"
+  
+    <TextView
+            android:id="@+id/event_info_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lugar:"
-            android:textColor="#fff"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="Large Text" />
+    
+
 
         <TextView
             android:id="@+id/event_info_lugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textColor="#fff"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
+            android:text="Large Text" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="Fecha:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+
 
         <TextView
             android:id="@+id/event_info_fecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
+            android:text="Large Text" />
+        <TextView
+            android:id="@+id/event_info_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text" />
 
+      </LinearLayout>
+    
 </LinearLayout>

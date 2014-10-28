@@ -15,6 +15,10 @@ public class EventInfoFragment extends Fragment {
 	TextView fecha, lugar;
 	Event event;
 
+	private TextView name;
+
+	private TextView key;
+
 	/* Singleton */
 	public static EventInfoFragment newInstance(Event event) {
 		EventInfoFragment fragment = new EventInfoFragment();
@@ -47,9 +51,13 @@ public class EventInfoFragment extends Fragment {
 		if(event != null){
     		fecha = (TextView) v.findViewById(R.id.event_info_fecha);
     		lugar = (TextView) v.findViewById(R.id.event_info_lugar);
+    		name = (TextView) v.findViewById(R.id.event_info_name);
+    		key = (TextView) v.findViewById(R.id.event_info_key);
     		
     		fecha.setText(event.getDate());
     		lugar.setText(event.getPlace());
+    		name.setText(event.getName());
+    		key.setText(event.getKey());
     	}
 		
 		return v;

@@ -298,7 +298,7 @@ public class Event implements Serializable {
 				JSONArray pr = jObj.getJSONArray("program");
 				for (int i = 0; i < pr.length(); i++) {
 					JSONObject e = pr.getJSONObject(i);
-					program.add(new ProgramEntry(id, e.getString("time") + " "
+					program.add(new ProgramEntry(key, e.getString("time") + " "
 							+ date, e.getString("act")));
 				}
 			}

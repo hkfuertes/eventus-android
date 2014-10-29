@@ -8,30 +8,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <Button 
-            android:text="X"
-            android:id="@+id/program_remove"
-            android:background="@drawable/border"
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical">
+        
+        <EditText
+            android:id="@+id/program_act"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:text="act"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TimePicker
             android:id="@+id/program_time"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="time"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="normal|bold" />
 
-        <EditText
-            android:id="@+id/program_act"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="act"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
     </LinearLayout>
-
+    
 </LinearLayout> 

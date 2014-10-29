@@ -7,21 +7,64 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
+import android.util.Log;
+import es.hkapps.eventus.api.RequestTaskPost;
+import es.hkapps.eventus.api.Util;
+
 public class ProgramEntry implements Comparator<ProgramEntry>, Serializable {
-	private long event_id;
+	private String event_key;
 	private String time, act;
 	private Date date=null;
 	
-	public ProgramEntry(long event_id, String time, String act){
-		this.event_id = event_id;
+	public ProgramEntry(String event_key, String time, String act){
+		this.event_key = event_key;
 		this.setTime(time);
 		this.act = act;
 	}
 	
-	public ProgramEntry() {
+	public static boolean updateProgram(User user, Event event, ArrayList<ProgramEntry> program){
+		String url = Util.server_addr + Util.app_token + "/event/program/update";
+
+		try {
+
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", user
+					.getUsername()));
+			nameValuePairs
+					.add(new BasicNameValuePair("token", user.getToken()));
+			
+			for(int i=0; i<program.size(); i++){
+				nameValuePairs.add(new BasicNameValuePair("event_program["+event.getKey()+"]["+i+"][time]", program.get(i).getTime("HH:mm")));
+				nameValuePairs.add(new BasicNameValuePair("event_program["+event.getKey()+"]["+i+"][act]", program.get(i).getAct()));
+			}
+
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response;
+			response = task.execute(url).get();
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			return success;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d("Saving [" + user.getUsername() + "]", e.toString());
+			return false;
+		}
+	}
+	
+	public ProgramEntry(String event_key) {
 		// TODO Auto-generated constructor stub
+		date = new Date();
+		time ="";
+		act = "";
+		this.event_key = event_key;
 	}
 
 	public void setTime(String time){
@@ -62,9 +105,8 @@ public class ProgramEntry implements Comparator<ProgramEntry>, Serializable {
 	
 	public static ArrayList<ProgramEntry> sort(ArrayList<ProgramEntry> program){
 		if(program == null) return null;
-		ArrayList<ProgramEntry> clone = (ArrayList<ProgramEntry>) program.clone();
-		Collections.sort(clone, new ProgramEntry());
-		return clone;
+		Collections.sort(program, new ProgramEntry("toCompare"));
+		return program;
 	}
 
 	@Override

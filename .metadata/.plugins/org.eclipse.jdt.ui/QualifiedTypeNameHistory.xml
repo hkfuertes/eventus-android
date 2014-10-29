@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.support.v4.view.ViewPager"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.Photo"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.model.User"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.view.events.EventProgramFragment"/>
@@ -14,7 +12,6 @@
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="android.view.MenuInflater"/>
 <fullyQualifiedTypeName name="android.view.Menu"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.Event"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.view.events.create.EventCreateActivity.EventCreationStepListener"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -49,15 +46,18 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="android.app.ListFragment"/>
-<fullyQualifiedTypeName name="android.widget.TimePicker"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.app.ListActivity"/>
 <fullyQualifiedTypeName name="android.support.v7.app.ActionBarActivity"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.R"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.model.Event"/>
+<fullyQualifiedTypeName name="android.widget.TimePicker"/>
+<fullyQualifiedTypeName name="android.support.v7.view.ActionMode"/>
+<fullyQualifiedTypeName name="android.view.ActionMode"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.R"/>
+<fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
 </qualifiedTypeNameHistroy>

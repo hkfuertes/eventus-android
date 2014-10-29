@@ -9,18 +9,25 @@ import es.hkapps.eventus.api.Util;
 import es.hkapps.eventus.model.Event;
 import es.hkapps.eventus.model.ProgramEntry;
 import es.hkapps.eventus.model.User;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.ActionMode;
+import android.view.ActionMode.Callback;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class EventProgramFragment extends ListFragment {
@@ -32,6 +39,10 @@ public class EventProgramFragment extends ListFragment {
 	Event event;
 	private ArrayList<ProgramEntry> program;
 	private ProgramEntryListAdapter adapter;
+
+	private TimePicker time;
+
+	private EditText act;
 
 	/* Singleton */
 	public static EventProgramFragment newInstance(Event event) {
@@ -59,23 +70,13 @@ public class EventProgramFragment extends ListFragment {
 	    	event = (Event) args.getSerializable(ARGUMENT_ID);
 	    	if(event != null){
 		    	program = event.getProgram();
-				program = ProgramEntry.sort(program);
+				ProgramEntry.sort(program);
 	    	}else{
 	    		program = new ArrayList<ProgramEntry>();
 	    	}
 	    	adapter = new ProgramEntryListAdapter(this.getActivity(),program);
 			this.setListAdapter(adapter);
 	    }    
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		if(event != null){
-			program = event.getProgram();
-			program = ProgramEntry.sort(program);
-			adapter.notifyDataSetChanged();
-		}
 	}
 	
 
@@ -143,10 +144,87 @@ public class EventProgramFragment extends ListFragment {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.fragment_program_edit:
-			ProgramEditActivity.launch(getActivity(), event);
+			//createDialog().show();
+			this.getActivity().startActionMode( mActionModeCallback);
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	
+	private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+
+	    // Called when the action mode is created; startActionMode() was called
+	    @Override
+	    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+	        // Inflate a menu resource providing context menu items
+	        MenuInflater inflater = mode.getMenuInflater();
+	        inflater.inflate(R.menu.program_context_menu, menu);
+	        return true;
+	    }
+
+	    // Called each time the action mode is shown. Always called after onCreateActionMode, but
+	    // may be called multiple times if the mode is invalidated.
+	    @Override
+	    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+	        return false; // Return false if nothing is done
+	    }
+
+	    // Called when the user selects a contextual menu item
+	    @Override
+	    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+	        switch (item.getItemId()) {
+	        case R.id.fragment_program_context_add:
+	        	createDialog().show();
+	            default:
+	                return false;
+	        }
+	    }
+
+	    // Called when the user exits the action mode
+	    @Override
+	    public void onDestroyActionMode(ActionMode mode) {
+	    }
+	};
+
+	
+	public Dialog createDialog() {
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+	    
+	    builder.setTitle(R.string.dialog_add_title);
+	    //builder.setIcon(R.drawable.ic_action_new);
+	    // Get the layout inflater
+	    LayoutInflater inflater = getActivity().getLayoutInflater();
+	    
+	    View v = inflater.inflate(R.layout.program_entry_list_item_edit, null);
+	    
+	    time = (TimePicker) v.findViewById(R.id.program_time);
+	    time.setIs24HourView(true);
+	    act = (EditText) v.findViewById(R.id.program_act);
+	    
+	    // Inflate and set the layout for the dialog
+	    // Pass null as the parent view because its going in the dialog layout
+	    builder.setView(v)
+	    // Add action buttons
+	           .setPositiveButton(R.string.dialog_add, new DialogInterface.OnClickListener() {
+	               @Override
+	               public void onClick(DialogInterface dialog, int id) {
+	            	   String date = time.getCurrentHour()+":"+time.getCurrentMinute()+":00 "+event.getDate();
+	            	   //Log.d("fecha",date);
+	            	   ProgramEntry pEntry = new ProgramEntry(event.getKey(), date ,act.getText().toString());
+	            	   program.add(pEntry);
+	            	   ProgramEntry.sort(program);
+	            	   adapter.notifyDataSetChanged();
+	            	   ProgramEntry.updateProgram(Util.getUser(getActivity()), event, program);
+	            	   //adapter.notifyDataSetChanged();
+	               }
+	           })
+	           .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+	               public void onClick(DialogInterface dialog, int id) {
+	                   dialog.cancel();
+	               }
+	           });      
+	    return builder.create();
 	}
 
 }

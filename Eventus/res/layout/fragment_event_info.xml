@@ -5,22 +5,32 @@
     android:orientation="vertical"
     android:background="#eee" 
     android:padding="20dp">
-    
+    <TextView
+            android:id="@+id/event_info_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card_background"
+            android:textAppearance="?android:attr/textAppearanceLarge"  />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:orientation="vertical"
         android:padding = "20dp"
         android:background="@drawable/card_background" >
 
-  
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    
     <TextView
-            android:id="@+id/event_info_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text" />
-    
+            android:text="Lugar: " />
 
 
         <TextView
@@ -28,20 +38,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large Text" />
+        </LinearLayout>
 
-
-
-
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha: " />
         <TextView
             android:id="@+id/event_info_fecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large Text" />
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Key: " />
         <TextView
             android:id="@+id/event_info_key"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large Text" />
+        </LinearLayout>
 
       </LinearLayout>
     

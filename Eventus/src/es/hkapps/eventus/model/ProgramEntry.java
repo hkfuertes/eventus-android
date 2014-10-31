@@ -29,7 +29,7 @@ public class ProgramEntry implements Comparator<ProgramEntry>, Serializable {
 		this.act = act;
 	}
 	
-	public static boolean updateProgram(User user, Event event, ArrayList<ProgramEntry> program){
+	public static ArrayList<ProgramEntry> updateProgram(User user, Event event, ArrayList<ProgramEntry> program){
 		String url = Util.server_addr + Util.app_token + "/event/program/update";
 
 		try {
@@ -50,13 +50,16 @@ public class ProgramEntry implements Comparator<ProgramEntry>, Serializable {
 			response = task.execute(url).get();
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
-			return success;
+			if(success){
+				event.retrieveInfo(user);
+				return event.getProgram();
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.d("Saving [" + user.getUsername() + "]", e.toString());
-			return false;
+			Log.d("updating Program [" + user.getUsername() + "]", e.toString());
 		}
+		return new ArrayList<ProgramEntry>();
 	}
 	
 	public ProgramEntry(String event_key) {
@@ -112,6 +115,10 @@ public class ProgramEntry implements Comparator<ProgramEntry>, Serializable {
 	@Override
 	public int compare(ProgramEntry lhs, ProgramEntry rhs) {
 		return lhs.getDate().compareTo(rhs.getDate());
+	}
+
+	public void setAct(String act) {
+		this.act = act;
 	}
 
 }

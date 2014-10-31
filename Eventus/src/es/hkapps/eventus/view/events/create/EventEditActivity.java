@@ -54,11 +54,11 @@ public class EventEditActivity extends ActionBarActivity implements EventStepLis
 			step.setStepListener(this);
 			if(event != null) this.setFragment("Editar "+event.getName(), step);
 			else this.setFragment("Nuevo Evento", step);
-		}else if(currentStep == 1){
+		}/*else if(currentStep == 1){
 			InviteParticipantsListFragment step = InviteParticipantsListFragment.newInstance(event);
 			step.setStepListener(this);
 			setFragment("Invita a gente", step);
-		}else if(currentStep == 2){
+		}*/else if(currentStep == 1){
 			EventCreatedFragment step = EventCreatedFragment.newInstance(event);
 			setFragment("Terminado", step);
 		}

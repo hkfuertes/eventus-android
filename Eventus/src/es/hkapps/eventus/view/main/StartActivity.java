@@ -73,6 +73,7 @@ public class StartActivity extends ActionBarActivity implements
 	}
 	
 	protected void startup() {
+		
 		user = Util.getUser(this);
 		user.retrieveInfo();
 		Util.setUser(this, user);

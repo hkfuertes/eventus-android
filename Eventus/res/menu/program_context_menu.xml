@@ -5,8 +5,13 @@
 
     <item
         android:id="@+id/fragment_program_context_add"
-        android:title="Editar Programa"
+        android:title="Nueva Entrada"
         android:icon="@drawable/ic_action_new"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/fragment_program_context_remove"
+        android:title="Eliminar entradas"
+        android:icon="@drawable/ic_action_discard"
         android:showAsAction="always" />
 
 </menu>

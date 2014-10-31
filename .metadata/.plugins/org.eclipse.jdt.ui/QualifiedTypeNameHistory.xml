@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.Photo"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.model.User"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.view.events.EventProgramFragment"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.view.events.ParticipantsListFragment"/>
-<fullyQualifiedTypeName name="es.hkapps.eventus.view.LoginActivity"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.view.main.EventListFragment"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.view.events.photos.PhotosAdapter"/>
 <fullyQualifiedTypeName name="android.widget.Spinner"/>
@@ -59,5 +54,10 @@
 <fullyQualifiedTypeName name="android.support.v7.view.ActionMode"/>
 <fullyQualifiedTypeName name="android.view.ActionMode"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.R"/>
+<fullyQualifiedTypeName name="android.view.ActionMode.Callback"/>
+<fullyQualifiedTypeName name="android.widget.CheckBox"/>
 <fullyQualifiedTypeName name="es.hkapps.eventus.R.id"/>
+<fullyQualifiedTypeName name="android.widget.CompoundButton.OnCheckedChangeListener"/>
+<fullyQualifiedTypeName name="android.view.View.OnLongClickListener"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
 </qualifiedTypeNameHistroy>

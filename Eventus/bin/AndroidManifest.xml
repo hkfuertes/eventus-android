@@ -19,26 +19,26 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Eventus" >
         <activity
-            android:name="es.hkapps.eventus.view.user.LoginActivity"
+            android:name=".view.user.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.user.NewUserActivity"
+            android:name=".view.user.NewUserActivity"
             android:label="@string/title_activity_new_user" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.events.EventActivity"
+            android:name=".view.events.EventActivity"
             android:label="@string/title_activity_event_acitivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.user.UserActivity"
+            android:name=".view.user.UserActivity"
             android:label="@string/title_activity_user"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.main.StartActivity"
+            android:name=".view.main.StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -53,14 +53,20 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.events.create.EventEditActivity"
-            android:label="@string/title_activity_event_create" 
-            android:screenOrientation="portrait">
+            android:name=".view.events.create.EventEditActivity"
+            android:label="@string/title_activity_event_create"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="es.hkapps.eventus.view.events.program.ProgramEditActivity"
-            android:label="@string/activity_program_edit" 
-            android:screenOrientation="portrait">
+            android:name=".view.events.program.ProgramEditActivity"
+            android:label="@string/activity_program_edit"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="es.hkapps.eventus.view.events.photos.gallery.GalleryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_gallery"
+            android:theme="@style/FullscreenTheme" >
         </activity>
     </application>
 

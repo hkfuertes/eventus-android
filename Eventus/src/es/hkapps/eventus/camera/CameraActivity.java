@@ -40,7 +40,7 @@ public class CameraActivity extends ActionBarActivity {
 	public void takePhoto() {
 	    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
 	    current = new Photo(this.event,Util.getUser(this));
-	    intent.putExtra(MediaStore.EXTRA_OUTPUT,current.getPhotoUri());
+	    intent.putExtra(MediaStore.EXTRA_OUTPUT,current.getUri());
 	    startActivityForResult(intent, TAKE_PICTURE);
 	}
 
@@ -50,12 +50,7 @@ public class CameraActivity extends ActionBarActivity {
 	    switch (requestCode) {
 	    case TAKE_PICTURE:
 	        if (resultCode == Activity.RESULT_OK) {
-	            try {
-	            	//Lo guardamos en la galeria del telefono
-	            	Intent scanFileIntent = new Intent(
-	                        Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, current.getPhotoUri());
-	                sendBroadcast(scanFileIntent);
-	                
+	            try {	                
 	                //Guardamos la informacion en sqlite
 	                pHelper.save(current);
 	                

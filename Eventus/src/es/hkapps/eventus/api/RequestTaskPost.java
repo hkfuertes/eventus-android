@@ -26,6 +26,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
 	
 	RequestListener listener = null;
 	private HttpEntity entity;
+	private boolean debug = true;
 	
 	public RequestTaskPost(List<NameValuePair> nameValuePairs) {
 		 Log.d("POST Data", nameValuePairs.toString());
@@ -59,7 +60,7 @@ public class RequestTaskPost extends AsyncTask<String, String, String>{
 
             StatusLine statusLine = response.getStatusLine();
             Log.d("POST Response: ",statusLine.getStatusCode()+"");
-            if(statusLine.getStatusCode() == HttpStatus.SC_OK || true){
+            if(statusLine.getStatusCode() == HttpStatus.SC_OK || debug ){
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
                 out.close();

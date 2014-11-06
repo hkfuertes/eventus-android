@@ -157,12 +157,16 @@ public class UserHelper extends SQLiteOpenHelper {
 		newValues.put("firstname", user.getNombre());
 		newValues.put("lastname", user.getApellidos());
 		newValues.put("email", user.getEmail());
-		return this.getWritableDatabase().insert(TABLE_NAME, null, newValues);
+		long ret = this.getWritableDatabase().insert(TABLE_NAME, null, newValues);
+		this.close();
+		return ret;
 	}
 
 	private boolean removeUser(User user) {
-		return this.getWritableDatabase().delete(TABLE_NAME,
+		boolean ret =  this.getWritableDatabase().delete(TABLE_NAME,
 				"id" + "=" + user.getId(), null) > 0;
+				this.close();
+				return ret;
 	}
 
 	private boolean updateUser(User user) {
@@ -173,8 +177,10 @@ public class UserHelper extends SQLiteOpenHelper {
 		newValues.put("firstname", user.getNombre());
 		newValues.put("lastname", user.getApellidos());
 		newValues.put("email", user.getEmail());
-		return this.getWritableDatabase().update(TABLE_NAME, newValues,
+		boolean ret = this.getWritableDatabase().update(TABLE_NAME, newValues,
 				"id" + "=" + user.getId(), null) > 0;
+				this.close();
+				return ret;
 	}
 
 }

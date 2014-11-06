@@ -2912,3 +2912,1587 @@ java.lang.NullPointerException
 	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
 	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2014-11-02 18:16:28.367 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-11-02 18:16:33.213
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-11-03 15:57:37.178 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-11-03 15:57:41.897
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 4 2014-11-03 15:57:48.379
+!MESSAGE Failed
+!STACK 0
+java.lang.NullPointerException
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.getTargets(EclipseLintClient.java:916)
+	at com.android.tools.lint.detector.api.Project.readManifest(Project.java:652)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:946)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:880)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:431)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:38:08.155
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:38:26.528
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:38:47.757
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:39:15.346
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:39:29.416
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:44:13.547
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:45:14.413
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:46:02.778
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:46:43.909
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:46:58.355
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:47:59.965
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:49:04.869
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 16:52:03.473
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY org.eclipse.jface 2 0 2014-11-03 16:55:09.175
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+SHIFT+C:
+Binding(COMMAND+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
+		Toggle comment the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1027847b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.toggle.comment,Toggle Comment,
+		Toggle Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4fdac2a7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+SHIFT+\:
+Binding(COMMAND+SHIFT+\,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.remove.block.comment,Remove Block Comment,
+		Remove the block comment enclosing the selection,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@22000cc3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+\,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.remove.block.comment,Remove Block Comment,
+		Remove Block Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@54941dfd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+SHIFT+P:
+Binding(COMMAND+SHIFT+P,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket,Go to Matching Bracket,
+		Moves the cursor to the matching bracket,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13d96b95,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+P,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.goto.matching.bracket,Matching Character,
+		Go to Matching Character,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7c8df667,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+I:
+Binding(COMMAND+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.indent,Correct Indentation,
+		Corrects the indentation of the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5391d86a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+I,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.active.elements,Format Active Elements,
+		Format active elements,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@38e7860c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+Binding(COMMAND+I,
+	ParameterizedCommand(Command(org.eclipse.ui.file.properties,Properties,
+		Display the properties of the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@48d5ca17,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+SHIFT+F:
+Binding(COMMAND+SHIFT+F,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.format,Format,
+		Format the selected text,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7f398a3f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+F,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.document,Format,
+		Format selection,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@25421809,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+/:
+Binding(COMMAND+/,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
+		Toggle comment the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1027847b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+/,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.add.block.comment,Add Block Comment,
+		Add Block Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11015ca0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-03 16:55:09.176
+!MESSAGE A conflict occurred for COMMAND+O:
+Binding(COMMAND+O,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.show.outline,Quick Outline,
+		Show the quick outline for the editor input,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5dfde70f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+O,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.quick_outline,Quick Outline,
+		Show the quick outline for the editor input,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@520aae6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:02:32.511
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:06:08.448
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:06:22.756
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:06:35.361
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:08:16.828
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:10:10.685
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:10:17.586
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:11:00.776
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:12:31.409
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:14:37.879
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:20:25.363
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:20:31.288
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:20:54.585
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:26:21.467
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:26:38.641
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:27:59.705
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:28:22.681
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:28:58.466
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:29:30.546
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:29:49.407
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:30:20.603
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:30:32.809
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:31:05.398
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:33:31.980
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:33:40.899
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:34:01.320
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:35:10.483
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:35:39.909
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:37:31.565
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:41:07.513
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:42:14.454
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:42:37.385
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:42:59.508
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:43:21.200
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:43:33.596
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:43:58.237
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:44:13.707
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:44:34.161
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-03 17:44:42.847
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:33:07.132
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:33:58.900
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:38:38.604
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:44:45.957
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:46:54.796
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:49:41.385
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:50:01.312
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:52:38.561
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:53:25.443
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:53:47.819
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:55:51.559
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:56:38.495
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:57:30.301
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:57:55.544
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 16:59:31.920
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:01:26.440
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:02:28.407
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:03:13.581
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:03:45.716
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:04:59.057
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:07:35.851
+!MESSAGE photo_list_item.xml: com.android.layoutlib.bridge.MockView cannot be cast to android.view.ViewGroup
+!STACK 0
+java.lang.ClassCastException: com.android.layoutlib.bridge.MockView cannot be cast to android.view.ViewGroup
+	at android.view.LayoutInflater.rInflate_Original(LayoutInflater.java:747)
+	at android.view.LayoutInflater_Delegate.rInflate(LayoutInflater_Delegate.java:64)
+	at android.view.LayoutInflater.rInflate(LayoutInflater.java:718)
+	at android.view.LayoutInflater.rInflate_Original(LayoutInflater.java:749)
+	at android.view.LayoutInflater_Delegate.rInflate(LayoutInflater_Delegate.java:64)
+	at android.view.LayoutInflater.rInflate(LayoutInflater.java:718)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:489)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:372)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.inflate(RenderSessionImpl.java:385)
+	at com.android.layoutlib.bridge.Bridge.createSession(Bridge.java:332)
+	at com.android.ide.common.rendering.LayoutLibrary.createSession(LayoutLibrary.java:332)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.RenderService.createRenderSession(RenderService.java:517)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.renderWithBridge(GraphicalEditorPart.java:1584)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.recomputeLayout(GraphicalEditorPart.java:1309)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.onXmlModelChanged(GraphicalEditorPart.java:1267)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditorDelegate.delegateXmlModelChanged(LayoutEditorDelegate.java:402)
+	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.xmlModelChanged(CommonXmlEditor.java:329)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor$XmlModelStateListener.modelChanged(AndroidXmlEditor.java:1653)
+	at org.eclipse.wst.sse.core.internal.model.AbstractStructuredModel.fireModelChanged(AbstractStructuredModel.java:526)
+	at org.eclipse.wst.sse.core.internal.model.AbstractStructuredModel.internalModelChanged(AbstractStructuredModel.java:837)
+	at org.eclipse.wst.sse.core.internal.model.AbstractStructuredModel.changedModel(AbstractStructuredModel.java:361)
+	at org.eclipse.wst.xml.core.internal.document.DOMModelImpl.changedModel(DOMModelImpl.java:171)
+	at org.eclipse.wst.sse.core.internal.model.AbstractStructuredModel$DocumentToModelNotifier.regionsReplaced(AbstractStructuredModel.java:175)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument._fireEvent(BasicStructuredDocument.java:571)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.fireStructuredDocumentEvent(BasicStructuredDocument.java:1190)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.internalReplaceText(BasicStructuredDocument.java:1968)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.replaceText(BasicStructuredDocument.java:2423)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.replaceText(BasicStructuredDocument.java:2408)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.access$2(JobSafeStructuredDocument.java:1)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument$3.run(JobSafeStructuredDocument.java:141)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.sse.ui.EditorExecutionContext.execute(EditorExecutionContext.java:149)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.replaceText(JobSafeStructuredDocument.java:144)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.replace(BasicStructuredDocument.java:2368)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.access$0(JobSafeStructuredDocument.java:1)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument$1.run(JobSafeStructuredDocument.java:103)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.sse.ui.EditorExecutionContext.execute(EditorExecutionContext.java:149)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.replace(JobSafeStructuredDocument.java:106)
+	at org.eclipse.text.edits.ReplaceEdit.performDocumentUpdating(ReplaceEdit.java:82)
+	at org.eclipse.text.edits.TextEdit.traverseDocumentUpdating(TextEdit.java:917)
+	at org.eclipse.text.edits.TextEdit.traverseDocumentUpdating(TextEdit.java:910)
+	at org.eclipse.text.edits.TextEditProcessor.executeDo(TextEditProcessor.java:194)
+	at org.eclipse.text.edits.TextEdit.dispatchPerformEdits(TextEdit.java:739)
+	at org.eclipse.text.edits.TextEditProcessor.performEdits(TextEditProcessor.java:156)
+	at org.eclipse.text.edits.TextEdit.apply(TextEdit.java:711)
+	at org.eclipse.text.edits.TextEdit.apply(TextEdit.java:735)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart$ActionLinkStyleRange.onClick(GraphicalEditorPart.java:2532)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart$ErrorLabelListener.mouseUp(GraphicalEditorPart.java:2625)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:220)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4031)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:11:55.112
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:28:15.049
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:28:58.387
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:29:30.664
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:29:42.995
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:29:58.579
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:30:16.016
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:32:11.569
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:35:39.393
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:38:45.888
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:39:42.165
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:40:16.518
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:40:50.232
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:41:01.239
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:41:44.889
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:42:00.542
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:42:28.828
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:43:04.511
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:44:09.320
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:49:53.533
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:50:01.557
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:51:05.305
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:54:51.919
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:52.352
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:53.105
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:53.566
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:53.983
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:54.286
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:55.018
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:55:55.569
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-04 17:56:01.340
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Widget has the wrong parent
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:783)
+	at org.eclipse.swt.widgets.Control.setMenu(Control.java:3931)
+	at com.android.ddmuilib.logcat.LogCatPanel$20.handleEvent(LogCatPanel.java:1042)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4188)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Control.menuForEvent(Control.java:2452)
+	at org.eclipse.swt.widgets.Table.menuForEvent(Table.java:1958)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5659)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.rightMouseDown(Widget.java:1129)
+	at org.eclipse.swt.widgets.Control.rightMouseDown(Control.java:2579)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5637)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:221)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2105)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2329)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5691)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5128)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5277)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3655)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:382)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:56:57.691
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:57:32.098
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:58:28.916
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 17:58:40.130
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 18:02:35.611
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 18:03:47.330
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-04 18:05:36.765
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+!SESSION 2014-11-05 16:29:55.540 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -keyring /Users/hkfuertes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-11-05 16:30:00.988
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 4 2014-11-05 16:30:08.028
+!MESSAGE Failed
+!STACK 0
+java.lang.NullPointerException
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.getTargets(EclipseLintClient.java:916)
+	at com.android.tools.lint.detector.api.Project.readManifest(Project.java:652)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:946)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:880)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:431)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:33:13.641
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:34:34.622
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:35:36.680
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:36:00.870
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:45:44.945
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:46:46.820
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:46:55.846
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:47:45.044
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:49:31.102
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:53:19.469
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:57:33.243
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 16:58:57.569
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:01:01.776
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:01:36.856
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:01:44.263
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:01:49.034
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:04:53.478
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:09:27.531
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:09:41.695
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:13:02.049
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:15:23.711
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:17:40.921
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:25:04.701
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:30:33.549
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:33:12.388
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:33:24.828
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:36:42.687
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:38:16.934
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:38:28.886
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:39:45.960
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 17:47:05.814
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:03:48.979
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:05:25.309
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:05:45.665
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:07:13.696
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:07:46.983
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:08:06.285
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:08:10.821
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:19:02.725
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:28:27.447
+!MESSAGE Warning: Ignoring name conflict in resource file for name black_overlay
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:28:27.496
+!MESSAGE Warning: Ignoring name conflict in resource file for name dummy_button
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:28:27.497
+!MESSAGE Warning: Ignoring name conflict in resource file for name dummy_content
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:37:35.754
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:38:28.498
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:38:47.763
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:38:57.183
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:39:53.582
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:40:30.605
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:40:53.961
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:41:03.462
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:42:24.638
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:42:34.912
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:43:14.635
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:43:20.261
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:43:28.493
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:43:55.392
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:43:55.396
+!MESSAGE Failed converting ECJ parse tree to Lombok for file /Users/hkfuertes/workspace/Eventus/src/es/hkapps/eventus/view/events/photos/gallery/SlideFragment.java
+!STACK 0
+java.lang.NullPointerException: returnTypeReference is mandatory
+	at lombok.ast.MethodDeclaration.astReturnTypeReference(MethodDeclaration.java:75)
+	at lombok.ast.ecj.EcjTreeConverter$2.visitMethodDeclaration(EcjTreeConverter.java:1236)
+	at lombok.ast.ecj.EcjTreeVisitor.visitEcjNode(EcjTreeVisitor.java:152)
+	at lombok.ast.ecj.EcjTreeConverter.visit(EcjTreeConverter.java:295)
+	at lombok.ast.ecj.EcjTreeConverter.toTree(EcjTreeConverter.java:236)
+	at lombok.ast.ecj.EcjTreeConverter.fillList(EcjTreeConverter.java:282)
+	at lombok.ast.ecj.EcjTreeConverter.fillList(EcjTreeConverter.java:252)
+	at lombok.ast.ecj.EcjTreeConverter.access$100(EcjTreeConverter.java:141)
+	at lombok.ast.ecj.EcjTreeConverter$2.createNormalTypeBody(EcjTreeConverter.java:562)
+	at lombok.ast.ecj.EcjTreeConverter$2.visitTypeDeclaration(EcjTreeConverter.java:485)
+	at lombok.ast.ecj.EcjTreeVisitor.visitEcjNode(EcjTreeVisitor.java:48)
+	at lombok.ast.ecj.EcjTreeConverter.visit(EcjTreeConverter.java:295)
+	at lombok.ast.ecj.EcjTreeConverter.toTree(EcjTreeConverter.java:236)
+	at lombok.ast.ecj.EcjTreeConverter.fillList(EcjTreeConverter.java:282)
+	at lombok.ast.ecj.EcjTreeConverter.fillList(EcjTreeConverter.java:252)
+	at lombok.ast.ecj.EcjTreeConverter.access$100(EcjTreeConverter.java:141)
+	at lombok.ast.ecj.EcjTreeConverter$2.visitCompilationUnitDeclaration(EcjTreeConverter.java:440)
+	at lombok.ast.ecj.EcjTreeVisitor.visitEcjNode(EcjTreeVisitor.java:264)
+	at lombok.ast.ecj.EcjTreeConverter.visit(EcjTreeConverter.java:295)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient$EclipseJavaParser.parseJava(EclipseLintClient.java:1161)
+	at com.android.tools.lint.client.api.JavaVisitor.visitFile(JavaVisitor.java:194)
+	at com.android.tools.lint.client.api.LintDriver.checkIndividualJavaFiles(LintDriver.java:1701)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:1021)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:880)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:431)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:43:59.245
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:44:03.902
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:44:08.547
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:44:17.634
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:44:22.931
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:44:30.089
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:44:49.226
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:45:13.451
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:45:22.231
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:46:49.033
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:47:19.791
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:48:00.250
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:48:31.462
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:48:40.258
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:48:45.359
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:48:52.942
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:50:30.208
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:50:53.586
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:51:48.620
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:52:17.796
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:52:22.733
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:52:43.138
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:54:23.798
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:54:29.886
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:58:08.440
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:58:37.510
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 18:59:41.298
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:00:16.889
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:04:01.573
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:04:59.037
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:05:11.050
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:10:01.281
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:13:24.453
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:15:02.302
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:16:38.501
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:17:03.268
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:17:08.848
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-05 19:17:17.063
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:38:22.846
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:42:46.576
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:43:39.673
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:44:27.090
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:45:10.557
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+SHIFT+C:
+Binding(COMMAND+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
+		Toggle comment the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1aacd303,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.toggle.comment,Toggle Comment,
+		Toggle Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4fea5ee0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+SHIFT+\:
+Binding(COMMAND+SHIFT+\,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.remove.block.comment,Remove Block Comment,
+		Remove the block comment enclosing the selection,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3b1ced32,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+\,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.remove.block.comment,Remove Block Comment,
+		Remove Block Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@459bf87c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+/:
+Binding(COMMAND+/,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
+		Toggle comment the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1aacd303,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+/,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.add.block.comment,Add Block Comment,
+		Add Block Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5abbb273,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+O:
+Binding(COMMAND+O,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.show.outline,Quick Outline,
+		Show the quick outline for the editor input,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6466de71,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+O,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.quick_outline,Quick Outline,
+		Show the quick outline for the editor input,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c0688fd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+SHIFT+F:
+Binding(COMMAND+SHIFT+F,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.format,Format,
+		Format the selected text,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@60ce64b5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+F,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.document,Format,
+		Format selection,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@68821f6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+I:
+Binding(COMMAND+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.indent,Correct Indentation,
+		Corrects the indentation of the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3ce760e3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+I,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.active.elements,Format Active Elements,
+		Format active elements,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45424c0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+Binding(COMMAND+I,
+	ParameterizedCommand(Command(org.eclipse.ui.file.properties,Properties,
+		Display the properties of the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7bce9ce4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-06 16:45:27.332
+!MESSAGE A conflict occurred for COMMAND+SHIFT+P:
+Binding(COMMAND+SHIFT+P,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket,Go to Matching Bracket,
+		Moves the cursor to the matching bracket,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6ea0a458,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(COMMAND+SHIFT+P,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.goto.matching.bracket,Matching Character,
+		Go to Matching Character,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5f3f57ff,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:45:55.291
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:46:06.257
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:49:01.248
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:54:12.635
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:58:33.573
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 16:59:22.139
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 17:01:04.213
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 17:02:07.658
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 17:03:32.783
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 17:10:17.143
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-06 17:27:45.947
+!MESSAGE Can't find file /Users/hkfuertes/workspace/appcompat_v7/.classpath in workspace

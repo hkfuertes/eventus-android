@@ -1,11 +1,12 @@
 package es.hkapps.eventus.model;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
@@ -21,103 +22,64 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.Toast;
-import es.hkapps.eventus.api.PhotoDownloadTask;
 import es.hkapps.eventus.api.RequestTaskPost;
 import es.hkapps.eventus.api.Util;
 
 public class Photo implements Serializable {
 	private static final long serialVersionUID = -7818803384036585431L;
-	
+
 	private static final String FORMAT = "yyyy-MM-dd_HH:mm:ss";
+
+	public static final String ARRAY_TAG = "array_de_photos";
+
+	public static final String POSITION_TAG = "posicion_de_photo";
 	private int id;
 	private String event_key;
-	private Uri file;
 	private String date;
 	private String username;
-	
-	private String filename;
+	private String file = null;
 
-	private String online_id;
+
 	private boolean downloaded = true;
 
-	public Photo(String event_key, Uri file, String date, String username) {
+	public Photo(String event_key, String file, String date, String username) {
 		this.event_key = event_key;
 		this.file = file;
 		this.date = date;
 		this.username = username;
 	}
 
-	public Photo(String online_id, String filename) {
-		this.online_id = online_id;
-		this.filename = filename;
+	public Photo(int id) {
+		this.id = id;
+
 		this.downloaded = false;
 	}
 
 	protected Photo() {
 
 	}
-	
-	public boolean isDownloaded(){
-		return downloaded;
-	}
-	
-	public String getOnlineId(){
-		return this.online_id;
-	}
-	
-	public String getFilename(){
-		return this.filename;
+
+	public boolean isDownloaded() {
+		return downloaded || file!=null;
 	}
 
-	public static boolean downloadAndSave(Context context, Photo photo) {
-		PhotoDownloadTask photosTask;
-		if (photo.isDownloaded())
-			return true;
-		if (photo.getOnlineId() == null || photo.getFilename() == null)
-			return false;
-		// Metodo para descargar imagenes
-		try {
-			photosTask = new PhotoDownloadTask();
-			Toast.makeText(context, "Downloading Image: " + photo.getFilename(), Toast.LENGTH_LONG).show();
-			ArrayList<Photo> photos = photosTask.execute(photo).get();
-			
-			Iterator<Photo> it = photos.iterator();
-			PhotoHelper pHelper = new PhotoHelper(context);
-			while(it.hasNext()){
-				pHelper.save(it.next());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-	
-	public String getSdcardFolder(){
-		return Environment.getExternalStorageDirectory()+"/Eventus/";
-	}
 
-	public Photo(Event event, String username) {
-		this.date = new SimpleDateFormat(FORMAT).format(new Date());
-		this.event_key = event.getKey();
 
-		this.file = Uri.fromFile(this.createImageFile());
-
-		this.username = username;
+	public String getSdcardFolder() {
+		return Environment.getExternalStorageDirectory() + "/Eventus/";
 	}
 
 	public Photo(Event event, User user) {
 		this.date = new SimpleDateFormat(FORMAT).format(new Date());
 		this.event_key = event.getKey();
 
-		this.file = Uri.fromFile(this.createImageFile());
+		this.file = this.createImageFile().getAbsolutePath();
 
 		this.username = user.getUsername();
 	}
 
-	public Uri getPhotoUri() {
-		return file;
+	public Uri getUri() {
+		return Uri.fromFile(new File(this.file));
 	}
 
 	public File createImageFile() {
@@ -129,30 +91,19 @@ public class Photo implements Serializable {
 		// Create an image file name
 		String imageFileName = event_key + "_" + username + "_"
 				+ System.currentTimeMillis() + ".jpg";
-		Log.d("test", dir + imageFileName);
+		//Log.d("test", dir + imageFileName);
 
 		File image = new File(dir + imageFileName);
 		return image;
 	}
 
-	public Drawable getDrawable() {
-		return Drawable.createFromPath(file.getPath());
-	}
-
-	public Bitmap getBitmap() {
-		File imgFile = new File(this.getPath());
-		if (imgFile.exists())
-			return BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-		else
-			return null;
-	}
 
 	public String getEventKey() {
 		return this.event_key;
 	}
 
 	public String getPath() {
-		return this.file.getPath();
+		return this.file;
 	}
 
 	public String getDate(boolean sql) {
@@ -175,10 +126,6 @@ public class Photo implements Serializable {
 	public Photo setEventKey(String event_key) {
 		this.event_key = event_key;
 		return this;
-	}
-
-	public void setUri(String path) {
-		this.file = Uri.fromFile(new File(path));
 	}
 
 	public void setDate(String date) {
@@ -217,6 +164,8 @@ public class Photo implements Serializable {
 			JSONObject jObj = new JSONObject(response);
 			boolean success = jObj.getBoolean("success");
 			if (success) {
+				JSONObject jobj = jObj.getJSONObject("photo");
+				this.setId(jobj.getInt("photo_id"));
 				return true;
 			}
 			return false;
@@ -261,9 +210,12 @@ public class Photo implements Serializable {
 				JSONObject current;
 				for (int i = 0; i < ps.length(); i++) {
 					current = ps.getJSONObject(i);
-					photos.add(new Photo(current.getString("photo_id"), current.getString("filename")).setEventKey(event_key));
+					Photo cPhoto = new Photo(current.getInt("photo_id"));
+					cPhoto.setEventKey(event_key);
+					cPhoto.setUsername(current.getString("username"));
+					cPhoto.setDate(current.getString("uploaded_at"));
+					photos.add(cPhoto);
 				}
-
 			}
 			return photos;
 		} catch (Exception e) {
@@ -273,12 +225,73 @@ public class Photo implements Serializable {
 		}
 	}
 
+	public void setDownloaded(int num) {
+		this.setDownloaded(num == 0 ? false : true);
+	}
+
 	public void setDownloaded(boolean b) {
-		this.downloaded = true;
+		this.downloaded = b;
 	}
 
 	public void setPath(String path) {
-		this.file = Uri.fromFile(new File(path));
+		this.file = path;
+	}
+
+	public static void updateDatabase(Context cntx, User user, Event event) {
+		ArrayList<Photo> pweb = Photo.getFromEvent(user, event);
+		PhotoHelper pHelper = new PhotoHelper(cntx);
+		ArrayList<Photo> pdb = pHelper.retrievePhotosFromEvent(event);
+		// We remove the ones from the database and we get a new array to
+		// insert.
+		pweb.removeAll(pdb);
+		pHelper.insertArray(pweb);
+	}
+	
+	@Override
+	public boolean equals(Object photo){
+		if(photo != null && photo instanceof Photo){
+			Photo p = (Photo) photo;
+			return p.getId() == this.getId();
+		}else
+			return false;
+	}
+
+	public String getUrl() {
+		if(this.isDownloaded()){
+			return "file://" + this.getPath();
+		}else{
+			return Util.server_addr + Util.app_token + "/show/photo/"
+					+ getEventKey() + "/" + getId();
+		}
+	}
+
+	public void saveDownloadedImage(Context context, Bitmap image) {
+		try {
+			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+			image.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
+
+			File f = this.createImageFile();
+			//f.createNewFile();
+			
+			FileOutputStream fo = new FileOutputStream(f);
+			fo.write(bytes.toByteArray());
+			fo.close();
+			
+			this.setDownloaded(true);
+			this.setPath(f.getAbsolutePath());
+			
+			PhotoHelper pHelper = new PhotoHelper(context);
+			pHelper.save(this);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	@Override
+	public String toString(){
+		return getUrl() + " "+isDownloaded();
 	}
 
 }

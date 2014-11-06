@@ -2,25 +2,37 @@ package es.hkapps.eventus.view.events.photos;
 
 import java.util.ArrayList;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+
+import es.hkapps.eventus.R;
 import es.hkapps.eventus.model.Photo;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 public class PhotosAdapter extends BaseAdapter {
-	private static final int TILE = 85;
 	private ArrayList<Photo> photos;
 	private Context context;
 	private Photo current;
+	private DisplayImageOptions options;
 
 	public PhotosAdapter(Context context, ArrayList<Photo> photos) {
 		this.photos = photos;
 		this.context = context;
+
+		options = new DisplayImageOptions.Builder()
+				.showImageOnLoading(R.drawable.loading)
+				.showImageForEmptyUri(R.drawable.error)
+				.showImageOnFail(R.drawable.error).cacheInMemory(true)
+				.cacheOnDisk(true).considerExifParams(true)
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
 	}
 
 	@Override
@@ -40,54 +52,36 @@ public class PhotosAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ImageView imageView;
+		ImageView view;
 		if (convertView == null) {
-			imageView = new SquareImageView(this.context);
-			imageView.setLayoutParams(new GridView.LayoutParams(TILE, TILE));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		} else {
-			imageView = (ImageView) convertView;
-		}
-		
+			view= new SquareImageView(context);
+			view.setScaleType(ScaleType.CENTER);
+		} else 
+			view = (ImageView) convertView;
+
 		current = getItem(position);
-		Photo.downloadAndSave(context,current);
-		
-		Bitmap bm = decodeSampledBitmapFromUri(current.getPath(),TILE, TILE);
+		this.paint(current,view);
 
-		imageView.setImageBitmap(bm);
-		return imageView;
+		return view;
 	}
 
-	public Bitmap decodeSampledBitmapFromUri(String path, int reqWidth,
-			int reqHeight) {
-		Bitmap bm = null;
-		// First decode with inJustDecodeBounds=true to check dimensions
-		final BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeFile(path, options);
-
-		// Calculate inSampleSize
-		options.inSampleSize = calculateInSampleSize(options, reqWidth,
-				reqHeight);
-
-		// Decode bitmap with inSampleSize set
-		options.inJustDecodeBounds = false;
-		bm = BitmapFactory.decodeFile(path, options);
-		return bm;
-	}
-
-	public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
-		// Raw height and width of image
-		final int height = options.outHeight;
-		final int width = options.outWidth;
-		int inSampleSize = 1;
-		if (height > reqHeight || width > reqWidth) {
-			if (width > height) {
-				inSampleSize = Math.round((float) height / (float) reqHeight);
-			} else {
-				inSampleSize = Math.round((float) width / (float) reqWidth);
-			}
+	public void paint(final Photo photo, ImageView imageView) {
+		//Toast.makeText(context, photo.getUrl(), Toast.LENGTH_LONG).show();
+		Log.d("PhotosAdapter",photo.getUrl());
+		try {
+			ImageLoader.getInstance().displayImage(photo.getUrl(),
+					imageView, options,
+					new SimpleImageLoadingListener() {
+						@Override
+						public void onLoadingComplete(String imageUri,
+								View view, Bitmap loadedImage) {
+							// we save the bitmap to sdcard
+							if (!photo.isDownloaded())
+								photo.saveDownloadedImage(context, loadedImage);
+						}
+					});
+		} catch (Exception fe) {
+			Log.d("Photo URL: ",photo.getUrl());
 		}
-		return inSampleSize;
 	}
 }

@@ -140,6 +140,15 @@ public class EventProgramFragment extends ListFragment implements
 		inflater.inflate(R.menu.fragment_program, menu);
 		super.onCreateOptionsMenu(menu, inflater);
 	}
+	
+	@Override
+	public void onPrepareOptionsMenu(Menu menu) {
+		User user = Util.getUser(this.getActivity());
+		//Si no soy administrador, no puedo cambiar nada.
+	    if(!user.getUsername().equals(event.getAdmin())){
+	    	menu.removeItem(R.id.fragment_program_edit);
+	    }
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

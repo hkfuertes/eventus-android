@@ -90,7 +90,7 @@ public class Photo implements Serializable {
 
 		// Create an image file name
 		String imageFileName = event_key + "_" + username + "_"
-				+ System.currentTimeMillis() + ".jpg";
+				+ id + ".jpg";
 		//Log.d("test", dir + imageFileName);
 
 		File image = new File(dir + imageFileName);

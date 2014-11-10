@@ -40,7 +40,7 @@
     <string name="dialog_join_message">Pon aquí el codigo del evento.</string>
     <string name="dialog_join_title">Unirse a un evento</string>
     <string name="event_share">Te invito a mi evento. Pega este codigo en Eventus y accede a las fotos.\n¡No te quedes fuera!\nCodigo:</string>
-    <string name="event_share_using">Compartir via</string>
+    <string name="share_using">Compartir via</string>
     <string name="dialog_add">Guardar</string>
     <string name="dialog_add_title">Entrada</string>
     <string name="dialog_mod_title">Editar</string>

@@ -6,7 +6,7 @@
         android:id="@+id/event_list_refresh"
         android:title="@string/refresh"
         app:showAsAction="always" 
-        android:icon="@drawable/ic_refresh"/>
+        android:icon="@drawable/ic_action_refresh"/>
     <item
         android:id="@+id/event_list_join"
         android:title="@string/event_list_create"

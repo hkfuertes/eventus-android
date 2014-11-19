@@ -419,5 +419,10 @@ public class Event implements Serializable {
 		}
 		return date;
 	}
+	
+	public String getWebJoinLink(boolean tag){
+		if(tag) return "<a href='"+ Util.server_addr + Util.app_token + "/event/web/join/" + key+"'>"+key+"</a>";
+		else return Util.server_addr + Util.app_token + "/event/web/join/" + key;
+	}
 
 }

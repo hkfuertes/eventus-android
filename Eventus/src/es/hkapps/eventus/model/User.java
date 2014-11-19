@@ -215,5 +215,27 @@ public class User implements Serializable {
 			return null;
 		}
 	}
+	
+	public boolean checkTocken() {
+		String url = Util.server_addr + Util.app_token + "/user/token/check/"
+				+ this.getUsername();
+		// Add your data
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("username", username));
+		nameValuePairs.add(new BasicNameValuePair("token", token));
+		try {
+			RequestTaskPost task = new RequestTaskPost(nameValuePairs);
+			String response;
+			response = task.execute(url).get();
+			JSONObject jObj = new JSONObject(response);
+			boolean success = jObj.getBoolean("success");
+			return success;
+		} catch (Exception e) {
+			Log.d("Checking Token [" + username + "]", e.toString());
+			Log.d("Checking Token [" + username + "]", url);
+			Log.d("Checking Token [" + username + "]", nameValuePairs.toString());
+			return false;
+		}
+	}
 
 }

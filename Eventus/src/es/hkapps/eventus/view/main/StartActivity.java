@@ -58,7 +58,11 @@ public class StartActivity extends ActionBarActivity implements
 	}
 	
 	private boolean isLoggedIn() {
-		return (user = Util.getUser(this)) != null;
+		boolean user_exists = (user = Util.getUser(this)) != null;
+		if(user_exists){
+			return user.checkTocken();
+		}else
+			return false;
 	}
 
 	@Override
@@ -73,6 +77,7 @@ public class StartActivity extends ActionBarActivity implements
 	}
 	
 	protected void startup() {
+		
 		
 		user = Util.getUser(this);
 		user.retrieveInfo();
@@ -99,6 +104,10 @@ public class StartActivity extends ActionBarActivity implements
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 
 		mNavigationDrawerFragment.setTitles(title);
+		
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+	    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		
 	}
 
 	@Override

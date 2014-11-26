@@ -13,6 +13,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -54,8 +55,6 @@ public class NavigationDrawerFragment extends Fragment {
 	private View mFragmentContainerView;
 
 	private int mCurrentSelectedPosition = 0;
-	private boolean mFromSavedInstanceState;
-	private boolean mUserLearnedDrawer;
 
 	private String[] list;
 
@@ -68,18 +67,6 @@ public class NavigationDrawerFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// Read in the flag indicating whether or not the user has demonstrated
-		// awareness of the
-		// drawer. See PREF_USER_LEARNED_DRAWER for details.
-		SharedPreferences sp = PreferenceManager
-				.getDefaultSharedPreferences(getActivity());
-		mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
-
-		if (savedInstanceState != null) {
-			mCurrentSelectedPosition = savedInstanceState
-					.getInt(STATE_SELECTED_POSITION);
-			mFromSavedInstanceState = true;
-		}
 
 		// Select either the default item (0) or the last selected item.
 		selectItem(mCurrentSelectedPosition);
@@ -137,11 +124,9 @@ public class NavigationDrawerFragment extends Fragment {
 				GravityCompat.START);
 		// set up the drawer's list view with items and click listener
 
-		/*
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setHomeButtonEnabled(true);
-		*/
 
 		// ActionBarDrawerToggle ties together the the proper interactions
 		// between the navigation drawer and the action bar app icon.
@@ -163,7 +148,7 @@ public class NavigationDrawerFragment extends Fragment {
 				if (!isAdded()) {
 					return;
 				}
-			
+
 				getActivity().supportInvalidateOptionsMenu(); // calls
 																// onPrepareOptionsMenu()
 			}
@@ -175,28 +160,10 @@ public class NavigationDrawerFragment extends Fragment {
 					return;
 				}
 
-				if (!mUserLearnedDrawer) {
-					// The user manually opened the drawer; store this flag to
-					// prevent auto-showing
-					// the navigation drawer automatically in the future.
-					mUserLearnedDrawer = true;
-					SharedPreferences sp = PreferenceManager
-							.getDefaultSharedPreferences(getActivity());
-					sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true)
-							.apply();
-				}
-
 				getActivity().supportInvalidateOptionsMenu(); // calls
 																// onPrepareOptionsMenu()
 			}
 		};
-
-		// If the user hasn't 'learned' about the drawer, open it to introduce
-		// them to the drawer,
-		// per the navigation drawer design guidelines.
-		if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
-			mDrawerLayout.openDrawer(mFragmentContainerView);
-		}
 
 		// Defer code dependent on restoration of previous instance state.
 		mDrawerLayout.post(new Runnable() {
@@ -240,29 +207,18 @@ public class NavigationDrawerFragment extends Fragment {
 	}
 
 	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		outState.putInt(STATE_SELECTED_POSITION, mCurrentSelectedPosition);
-	}
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Pass the event to ActionBarDrawerToggle, if it returns
+        // true, then it has handled the app icon touch event
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+          return true;
+        }
+        // Handle your other action bar items...
 
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		// Forward the new configuration the drawer toggle component.
-		mDrawerToggle.onConfigurationChanged(newConfig);
-	}
+        return super.onOptionsItemSelected(item);
+    }
 
-	/**
-	 * Per the navigation drawer design guidelines, updates the action bar to
-	 * show the global app 'context', rather than just what's in the current
-	 * screen.
-	 */
-	private void showGlobalContextActionBar() {
-		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setTitle(R.string.app_name);
-	}
+
 
 	private ActionBar getActionBar() {
 		return ((ActionBarActivity) getActivity()).getSupportActionBar();

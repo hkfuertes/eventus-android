@@ -76,7 +76,7 @@ public class EventActivity extends ActionBarActivity implements
 		resource[0] = R.drawable.ic_action_chat;
 		fragment[1] = EventProgramFragment.newInstance(event);
 		title[1] = "Programa";
-		resource[1] = R.drawable.ic_action_event;
+		resource[1] = R.drawable.ic_action_event_green;
 		fragment[2] = ParticipantsListFragment.newInstance(event);
 		title[2] = "Invitados";
 		resource[2] = R.drawable.ic_action_person;

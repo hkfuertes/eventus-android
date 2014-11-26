@@ -105,9 +105,6 @@ public class StartActivity extends ActionBarActivity implements
 
 		mNavigationDrawerFragment.setTitles(title);
 		
-		getSupportActionBar().setDisplayShowHomeEnabled(true);
-	    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		
 	}
 
 	@Override
